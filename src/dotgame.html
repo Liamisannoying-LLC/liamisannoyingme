@@ -1,7 +1,18 @@
 
 <html>
 <H1>The Dot Game</H1>
-<canvas id="cvs"></canvas>
+<canvas id="cvs" style="
+    background: #EEEEEE;
+    border: 1px solid #303841;
+    border-radius: 15px;
+    height: 400px;
+    margin: 20px 20px;
+    overflow: hidden;
+    width: 400px;
+
+    /* this fixes the overflow:hidden in Chrome/Opera */
+    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+  "></canvas>
   <script>
     var c = document.getElementById("cvs");
     var ctx = c.getContext("2d");
@@ -16,30 +27,32 @@
       Rot: 0
     }
 
-    function triangle(x,y,r,w,h){
-      ctx.clearRect(0, 0, c.width, c.height);
+    function Triangle(x, y, r, w, h) {
+      ctx.save(); // Save the current canvas state
 
-      ctx.fillStyle = "#FFFFFF";
-      ctx.fillRect(0, 0, c.width, c.height);
+      // Translate the origin to the center of the triangle
+      ctx.translate(x, y);
 
-      let height = 200 * Math.cos(Math.PI / 6);
+      // Rotate the canvas by the given angle (in radians)
+      ctx.rotate(Math.PI / r);
 
+      // Draw the triangle
       ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x, w);
-      ctx.lineTo(200, 300 - height);
+      ctx.moveTo(-w / 2, -h / 2);
+      ctx.lineTo(w / 2, -h / 2);
+      ctx.lineTo(0, h / 2);
       ctx.closePath();
 
-      // the outline
-      ctx.lineWidth = 10;
-      ctx.strokeStyle = '#666666';
-      ctx.stroke();
-
-      // the fill color
-      ctx.fillStyle = "#FFCC00";
+      // Fill and stroke the triangle
+      ctx.fillStyle = '#3A4750';
       ctx.fill();
+
+      ctx.restore(); // Restore the previous canvas state
     }
 
-    triangle(100,100,0,50,50);
+    Triangle(100,100,90,50,50);
+
+
+    
   </script>
 </html>
