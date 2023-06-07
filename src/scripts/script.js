@@ -1,6 +1,5 @@
-var c = document.getElementById("cvs");
+    var c = document.getElementById("cvs");
     var ctx = c.getContext("2d");
-    ctx.drawImage('WHY.png', 150, 150);
     
     c.width = 750;
     c.height = 750;
@@ -16,7 +15,8 @@ var c = document.getElementById("cvs");
     var player = {
       x: c.width/2,
       y: c.height/2,
-      RotVel: 0,
+      width:50,
+      height:50,
       Rot: 0
     }
     start();
@@ -26,7 +26,19 @@ var c = document.getElementById("cvs");
       makeEnemy();
     }
 
-
+    function triangle(x, y, r, w, h) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(r);
+        ctx.beginPath();
+        ctx.moveTo(-w / 2, -h / 2);
+        ctx.lineTo(w / 2, -h / 2);
+        ctx.lineTo(0, h / 2);
+        ctx.closePath();
+        ctx.fillStyle = '#3A4750';
+        ctx.fill();
+        ctx.restore();
+      }
 
     function circle(x, y, w, hp, count) {
       var colour;
@@ -83,7 +95,7 @@ var c = document.getElementById("cvs");
     }
 
     function draw(){//put graphics on to screen(updated every frame)
-      ctx.drawImage('WHY.png', player.x, player.y, player.width, player.height);
+      triangle(player.x, player.y, player.Rot, player.width, player.height);
       for(var i = 0; i < asteroidsCount; i++){
         circle(ax[i],//asteroidsX
                   ay[i],//asteroidsY
@@ -107,6 +119,20 @@ var c = document.getElementById("cvs");
       }
     }  
 
+    window.addEventListener("mousemove", handleMouseMove);
+
+    function handleMouseMove(event) {
+        var rect = c.getBoundingClientRect();
+        var mouseX = event.clientX - rect.left;
+        var mouseY = event.clientY - rect.top;
+      
+        var dx = mouseX - player.x;
+        var dy = mouseY - player.y;
+        var angle = Math.atan2(dy, dx);
+      
+        // Adjust the angle to rotate the top of the triangle towards the mouse
+        player.Rot = angle - Math.PI / 2;
+    }
 
     window.requestAnimationFrame(loop);
 
@@ -116,4 +142,3 @@ var c = document.getElementById("cvs");
     draw();
     window.requestAnimationFrame(loop);//makes it a loop
     }
-    
