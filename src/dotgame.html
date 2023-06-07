@@ -1,309 +1,45 @@
 
 <html>
-  <head>
-    <style>
-      svg {
-        margin: 100px;
-      }
-
-      @keyframes grow {
-        0% { width: 50px }
-        25% { width: 90px }
-        50%, 75% { width: 100px }
-        100% { width: 50px }
-      }
-
-      @keyframes popup {
-        0% {
-          transform: translateY(150px);
-        }
-        34% {
-          transform: translateY(20px);
-        }
-        37% {
-          transform: translateY(150px);
-        }
-        100% {
-          transform: translateY(150px);
-        }
-      }
-
-      @keyframes shake {
-  0% { transform: translate(1px, 1px) rotate(0deg); }
-  10% { transform: translate(-1px, -2px) rotate(-1deg); }
-  20% { transform: translate(-3px, 0px) rotate(1deg); }
-  30% { transform: translate(3px, 2px) rotate(0deg); }
-  40% { transform: translate(1px, -1px) rotate(1deg); }
-  50% { transform: translate(-1px, 2px) rotate(-1deg); }
-  60% { transform: translate(-3px, 1px) rotate(0deg); }
-  70% { transform: translate(3px, 1px) rotate(-1deg); }
-  80% { transform: translate(-1px, -1px) rotate(1deg); }
-  90% { transform: translate(1px, 2px) rotate(0deg); }
-  100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
-      .bounce {
-        animation: grow 10s ease infinite;
-      }
-
-      .updown {
-        transform: translateY(150px);
-        animation: popup 10s 6.5s ease infinite;
-      }
-
-      .shake {
-        animation: shake 0.5s; 
-      }
-
-      .container {
-          display:inline
-      }
-      
-    </style>
-      
-  </head>
-<body>
-  <div >
-  
-  <button id="startStopButton" onClick="startstop()" style="width:100px;height:100px;background-color:green">START</button> 
-
-  <div id="svg-box">
-  </div>
-  </div>
-
+<H1>The Dot Game</H1>
+<canvas id="cvs"></canvas>
   <script>
-
-    const steps = ["yellow", "red", "blue", "green", "purple", "pink", "brown", "teal"];
-    const classes = ["bounce","updown"]
-    let alpha = 1; 
-    let i = 0;
-    let intId = null;
-    let direction_alpha = -1;
-
-    let changeType = function(e)
-    {
-      const ele =  e.target;
-      //console.log(svg_container);
-      //const ele = svg_container.children.item(0);
-
-      const cir1 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-      cir1.setAttribute("width", "100");
-      cir1.setAttribute("height", "100");
-      cir1.setAttribute("fill", steps[i++]);
-      cir1.setAttribute("fill-opacity", alpha);
-
-      ele.replaceWith(cir1);
-      
-    }
-
-    let shake = function(e)
-    {
-        const ele =  e.target.parentNode;
-        const lastClass = ele.getAttribute("class");
-        console.log(lastClass);
-        ele.setAttribute("class", "shake");
-        setTimeout(()=>{ console.log("inside", lastClass);  ele.setAttribute("class", lastClass) }, 1000)
-    }
+    var c = document.getElementById("cvs");
+    var ctx = c.getContext("2d");
     
-    let makeCircle = function() {
-      const box = document.getElementById("svg-box");
-      const svg_container = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg_container.setAttribute("viewBox", "0 0 100 100");
-      svg_container.setAttribute("width", "100");
-      
-      const cir1 = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-      cir1.setAttribute("cx", "50");
-      cir1.setAttribute("cy", "50");
-      cir1.setAttribute("r", "50");
-      cir1.setAttribute("fill", steps[i++]);
-      cir1.setAttribute("fill-opacity", alpha);
-      svg_container.appendChild(cir1);
-      svg_container.setAttribute("class", classes[i%classes.length]);
-      svg_container.onclick = changeType; 
-      box.appendChild(svg_container);
+    c.width = 400;
+    c.height = 400;
+    var player = {
+      x: 0,
+      y: 0,
+      xVel: 0,
+      yVel: 0,
+      Rot: 0
     }
 
-    let makeBox = function() {
-      const box = document.getElementById("svg-box");
-      const svg_container = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg_container.setAttribute("viewBox", "0 0 100 100");
-      svg_container.setAttribute("width", "100");
-      
-      const cir1 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-      cir1.setAttribute("width", "100");
-      cir1.setAttribute("height", "100");
-      cir1.setAttribute("fill", steps[i++]);
-      cir1.setAttribute("fill-opacity", alpha);
-      svg_container.appendChild(cir1);
-      svg_container.setAttribute("class", classes[i%classes.length]);
-      svg_container.onclick = shake; 
-      box.appendChild(svg_container);
+    function triangle(x,y,r,w,h){
+      ctx.clearRect(0, 0, c.width, c.height);
+
+      ctx.fillStyle = "#FFFFFF";
+      ctx.fillRect(0, 0, c.width, c.height);
+
+      let height = 200 * Math.cos(Math.PI / 6);
+
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x, w);
+      ctx.lineTo(200, 300 - height);
+      ctx.closePath();
+
+      // the outline
+      ctx.lineWidth = 10;
+      ctx.strokeStyle = '#666666';
+      ctx.stroke();
+
+      // the fill color
+      ctx.fillStyle = "#FFCC00";
+      ctx.fill();
     }
 
-    let makePoly = function(n) {
-
-
-      //circle
-      //box
-
-      const box = document.getElementById("svg-box");
-      const svg_container = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg_container.setAttribute("viewBox", "0 0 100 100");
-      svg_container.setAttribute("width", "100");
-      
-      const cir1 = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-      cir1.setAttribute("points", "0,100 50,25 50,75 100,0");
-      cir1.setAttribute("fill", steps[i++]);
-      cir1.setAttribute("fill-opacity", alpha);
-      svg_container.appendChild(cir1);
-      svg_container.setAttribute("class", classes[i%classes.length]);
-      box.appendChild(svg_container);
-      
-      
-      //"50,-50 -45,19 -9,131 109,131 145,19"
-      
-    }
-
-    let makeTriangle = function() {
-        const box = document.getElementById("svg-box");
-        const svg_container = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svg_container.setAttribute("viewBox", "0 0 100 100");
-        svg_container.setAttribute("width", "100");
-      
-      const cir1 = document.createElementNS("http://www.w3.org/2000/svg", "polygon");
-      
-      cir1.setAttribute("points", "62.5 ,15 25,100 100,100");
-      cir1.setAttribute("fill", steps[i++]);
-      cir1.setAttribute("fill-opacity", alpha);
-      svg_container.appendChild(cir1);
-      svg_container.setAttribute("class", classes[i%classes.length]);
-      svg_container.onclick = shake; 
-      box.appendChild(svg_container);
-    }
-
-    let makeRectangle = function() {
-      const box = document.getElementById("svg-box");
-      const svg_container = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg_container.setAttribute("viewBox", "0 0 100 100");
-      svg_container.setAttribute("width", "100");
-      
-      const cir1 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-      cir1.setAttribute("width", "100");
-      cir1.setAttribute("height", "50");
-      cir1.setAttribute("fill", steps[i++]);
-      cir1.setAttribute("fill-opacity", alpha);
-      svg_container.appendChild(cir1);
-      svg_container.setAttribute("class", classes[i%classes.length]);
-      svg_container.onclick = shake; 
-      box.appendChild(svg_container);
-    }
-
-    let makeApple = function() {
-        const box = document.getElementById("svg-box");
-        const container = document.createElement("div");
-        container.setAttribute("class", "container")
-        const img = document.createElement("img");
-        img.setAttribute("src","apple-01.svg");
-        img.setAttribute("style","width:100px");
-        img.setAttribute("class", classes[i%classes.length]);
-        container.appendChild(img)
-        box.appendChild(container);
-        img.onclick = swapToOrange;
-        i++;
-
-        if (Math.random() > 0.5)
-        {
-            setTimeout(()=>{ swapToEggPlant({target:img}) }, 500)
-        }
-        else if (Math.random() > 0.5)
-        {
-            setTimeout(()=>{ swapToOrange({target:img}) }, 500)
-        }
-    }
-
-    let swapToOrange = function(e) {
-        const ele =  e.target;
-        const img = document.createElement("img");
-        img.setAttribute("src","happy_face.svg");
-        img.setAttribute("style","width:100px");
-        img.setAttribute("class", classes[i%classes.length]);
-        img.onclick = swapToEggPlant;
-        ele.replaceWith(img);
-    }
-
-    let swapToEggPlant = function(e) {
-        const ele =  e.target;
-        const img = document.createElement("img");
-        img.setAttribute("src","eggplant.svg");
-        img.setAttribute("style","width:100px");
-        img.setAttribute("class", classes[i%classes.length]);
-        img.onclick = swapToApple;
-        ele.replaceWith(img);
-    }
-
-    let swapToApple = function(e) {
-        const ele =  e.target;
-        const img = document.createElement("img");
-        img.setAttribute("src","apple-01.svg");
-        img.setAttribute("style","width:100px");
-        img.setAttribute("class", classes[i%classes.length]);
-        img.onclick = swapToOrange;
-        ele.replaceWith(img);
-    }
-
-    function nextStep() {
-      i = i % steps.length;
-      alpha = (alpha + (direction_alpha*0.05));
-      if (alpha >= 1)
-      {
-        direction_alpha = -1;
-      }
-      if (alpha <= 0)
-      {
-        direction_alpha = 1;
-      }
-
-      switch (i%5)
-      {
-        case 0:
-          makeRectangle();
-          break
-        case 1:
-          makeTriangle();
-          break;
-        case 2:
-          //makePoly(1);
-          makeApple();
-          break;
-          case 3:
-          makeCircle();
-          break;
-          case 4:
-          makeBox();
-          break;
-      }
-
-    }
-
-    function startstop()
-    {
-      if (!intId) {
-        intId = setInterval( nextStep , 1000);
-        document.getElementById("startStopButton").innerText = "STOP";
-        document.getElementById("startStopButton").style["backgroundColor"] = "red"
-      }
-      else {
-        clearInterval(intId);
-        intId = null;
-        document.getElementById("startStopButton").innerText = "START";
-        document.getElementById("startStopButton").style["backgroundColor"] = "green"
-      }
-    }
-
-
+    triangle(100,100,0,50,50);
   </script>
-  
-</body>
-
-  
 </html>
