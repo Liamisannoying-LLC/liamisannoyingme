@@ -13,6 +13,7 @@
     /* this fixes the overflow:hidden in Chrome/Opera */
     -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
   "></canvas>
+
   <script>
     var c = document.getElementById("cvs");
     var ctx = c.getContext("2d");
@@ -30,9 +31,12 @@
     var player = {
       x: 200,
       y: 200,
-      xVel: 0,
-      yVel: 0,
+      RotVel: 0,
       Rot: 0
+    }
+
+    function start(){
+      makeEnemy();
     }
 
     function triangle(x, y, r, w, h) {//draws a triangle
@@ -62,7 +66,7 @@
 
     }
 
-    function makeEnemy(arrX,arrY,arrW,arrH,arrDir,arrHP,count){
+    function makeEnemy(){
       for(var astroidsCount; astroidsCount < 10; astroidsCount++){
       var bigAstroid = Math.random(5,10);
 
@@ -75,7 +79,12 @@
         adir.push(Math.PI / Math.floor(Math.random(0,359)));
         ahp.push(20)
       }else{
-        
+        ax.push(c.width);
+        ay.push(c.height);
+        aw.push(100);
+        ah.push(100);
+        adir.push(Math.PI / Math.floor(Math.random(0,359)));
+        ahp.push(40)
       }
 
       circle(ax[astroidsCount],//astroidX
