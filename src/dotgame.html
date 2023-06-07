@@ -24,7 +24,6 @@
     var ax = [];
     var ay = [];
     var aw = [];
-    var ah = [];
     var adir = [];
     var ahp = [];
 
@@ -34,6 +33,7 @@
       RotVel: 0,
       Rot: 0
     }
+    start();
 
     function start(){
       makeEnemy();
@@ -62,46 +62,65 @@
       ctx.restore(); // Restore the previous canvas state
     }//this was stolen from chat gpt ^
 
-    function circle(){
-
+    function circle(x,y,w,count){
+      w = w/2;
+      ctx.beginPath();
+      ctx.arc(x, y, w, 0, 2 * Math.PI, false);
+      ctx.fillStyle = '#3A4750';
+      ctx.fill();
+      ctx.lineWidth = 5;
+      ctx.strokeStyle = '#3A4750';
+      ctx.stroke();
     }
 
     function makeEnemy(){
-      for(var astroidsCount; astroidsCount < 10; astroidsCount++){
-      var bigAstroid = Math.random(5,10);
+      for(var asteroidsCount; asteroidsCount < 10; asteroidsCount++){
+        var bigasteroids = Math.random(5,10);
 
 
-      if(astroidsCount < 10 && astroidsCount != bigAstroid){
-        ax.push(c.width);
-        ay.push(c.height);
-        aw.push(50);
-        ah.push(50);
-        adir.push(Math.PI / Math.floor(Math.random(0,359)));
-        ahp.push(20)
-      }else{
-        ax.push(c.width);
-        ay.push(c.height);
-        aw.push(100);
-        ah.push(100);
-        adir.push(Math.PI / Math.floor(Math.random(0,359)));
-        ahp.push(40)
+        if(asteroidsCount < 10 && asteroidsCount != bigasteroids){
+          aw.push(50);
+          ahp.push(20);
+          ax.push(canvas.width / 2 + radius * Math.cos(Math.random() * 2 * Math.PI));
+          ay.push(canvas.height / 2 + radius * Math.sin(Math.random() * 2 * Math.PI));
+          }else{
+            aw.push(100);
+            ahp.push(40);
+            ax.push(canvas.width / 2 + radius * Math.cos(Math.random() * 2 * Math.PI));
+            ay.push(canvas.height / 2 + radius * Math.sin(Math.random() * 2 * Math.PI));
+          }
+
+        circle(ax[asteroidsCount],//asteroidsX
+                  ay[asteroidsCount],//asteroidsY
+                  aw[asteroidsCount],//asteroidsWidth
+                  asteroidsCount);
+                  
+        console.log(asteroidsCount);
       }
-
-      circle(ax[astroidsCount],//astroidX
-                ay[astroidsCount],//astroidY
-                aw[astroidsCount],//astroidWidth
-                ah[astroidsCount],//astroidHeight
-                adir[astroidsCount],//astroidDirection
-                astroidsCount);
-                
-      console.log(astroidsCount);
-    }
     }
 
     function draw(){//put graphics on to screen(updated every frame)
     triangle(player.x, player.y, player.Rot, 50, 50);//draws the player at the given inputs
-    
+      for(var i; i < asteroidsCount; i++){
+        circle(ax[asteroidsCount],//asteroidsX
+                  ay[asteroidsCount],//asteroidsY
+                  aw[asteroidsCount],//asteroidsWidth
+                  asteroidsCount);
+      }
     }
+
+    function update() {
+        for (var i = 0; i < ax.length; i++) {
+          var dx = player.x - ax[i];//distance to playerX
+          var dy = player.y - ay[i];//distance to PlayerY
+          var angle = Math.atan2(dy, dx);//calculates angle
+          adir[i] = angle;
+
+          if(aw[i] = 100){var speed = 1;}else if(aw[i] = 50){var speed = 2;}; // Adjust the asteroid speed based on the size
+          ax[i] += Math.cos(adir[i]) * speed;
+          ay[i] += Math.sin(adir[i]) * speed;
+        }
+      }
 
     function Playermove(e){//get key inputs and move the player accordingly
 
@@ -114,6 +133,7 @@
 
     function loop() {//... its in the name
     ctx.clearRect(0, 0, c.width, c.height);//clears screen
+    update();
     draw();
     window.requestAnimationFrame(loop);//makes it a loop
     }
