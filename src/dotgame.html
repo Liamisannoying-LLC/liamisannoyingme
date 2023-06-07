@@ -19,15 +19,23 @@
     
     c.width = 400;
     c.height = 400;
+
+    var ax = [];
+    var ay = [];
+    var aw = [];
+    var ah = [];
+    var adir = [];
+    var ahp = [];
+
     var player = {
-      x: 0,
-      y: 0,
+      x: 200,
+      y: 200,
       xVel: 0,
       yVel: 0,
       Rot: 0
     }
 
-    function Triangle(x, y, r, w, h) {
+    function triangle(x, y, r, w, h) {//draws a triangle
       ctx.save(); // Save the current canvas state
 
       // Translate the origin to the center of the triangle
@@ -48,11 +56,57 @@
       ctx.fill();
 
       ctx.restore(); // Restore the previous canvas state
+    }//this was stolen from chat gpt ^
+
+    function circle(){
+      
     }
 
-    Triangle(100,100,90,50,50);
+    function makeEnemy(arrX,arrY,arrW,arrH,arrDir,arrHP,count){
+      for(var astroidsCount; astroidsCount < 10; astroidsCount++){
+      var bigAstroid = Math.random(5,10);
 
 
+      if(astroidsCount < 10 && astroidsCount != bigAstroid){
+        ax.push(c.width);
+        ay.push(c.height);
+        aw.push(50);
+        ah.push(50);
+        adir.push(Math.PI / Math.floor(Math.random(0,359)));
+        ahp.push(20)
+      }else{
+        
+      }
+
+      circle(ax[astroidsCount],//astroidX
+                ay[astroidsCount],//astroidY
+                aw[astroidsCount],//astroidWidth
+                ah[astroidsCount],//astroidHeight
+                adir[astroidsCount],//astroidDirection
+                astroidsCount);
+                
+      console.log(astroidsCount);
+    }
+    }
+
+    function draw(){//put graphics on to screen(updated every frame)
+    triangle(player.x, player.y, player.Rot, 50, 50);//draws the player at the given inputs
     
+    }
+
+    function Playermove(e){//get key inputs and move the player accordingly
+
+    }
+    
+
+
+
+    window.requestAnimationFrame(loop);
+
+    function loop() {//... its in the name
+    ctx.clearRect(0, 0, c.width, c.height);//clears screen
+    draw();
+    window.requestAnimationFrame(loop);//makes it a loop
+    }
   </script>
 </html>
