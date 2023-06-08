@@ -17,7 +17,8 @@
       y: c.height/2,
       width:50,
       height:50,
-      Rot: 0
+      Rot: 0,
+      hp:3
     }
     start();
 
@@ -61,11 +62,12 @@
       ctx.strokeStyle = colour;
       ctx.stroke();
       }else{
-        ax.pop(count);
-        ay.pop(count);
-        aw.pop(count);
-        adir.pop(count);
-        ahp.pop(count);
+        console.log('Spliced!');
+        ax.splice(count, 1);
+        ay.splice(count, 1);
+        aw.splice(count, 1);
+        adir.splice(count, 1);
+        ahp.splice(count, 1);
       }
     }
 
@@ -73,7 +75,7 @@
       for (asteroidsCount; asteroidsCount < 10; asteroidsCount++) {
         var bigasteroids = Math.floor(Math.random(5, 10));
 
-        if (asteroidsCount < 10 && asteroidsCount != bigasteroids) {
+        if (asteroidsCount < 10 && asteroidsCount !== bigasteroids) {
           aw.push(50);
           ahp.push(20);
         } else {
@@ -95,9 +97,7 @@
 
           ax[index] = x;
           ay[index] = y;
-          if(ahp[index] === 0){asteroidsCount -= 1; return 0;}else{
           circle(ax[index], ay[index], aw[index],ahp[index], index);
-          }
         }, delay, asteroidsCount);
       }
     }
@@ -111,6 +111,8 @@
                   ahp[i],//asteroidsHealth
                   i);
       }
+      ctx.font = "48px serif";
+      ctx.fillText("Hp:" + player.hp, 10, 50);
     }
 
     function HasHitPlayer(){
@@ -124,10 +126,32 @@
     }
 
     function update() {
-      for (var i = 0; i < ax.length; i++) {
+      for (var i = 0; i < asteroidsCount; i++) {
 
         var dx = player.x - ax[i];//distance to playerX
         var dy = player.y - ay[i];//distance to PlayerY
+        var distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < (player.width + aw[i]) / 2) {
+          // Collision occurred, asteroid reached player
+          console.log("Damage Taken!");
+          
+          player.hp -= 1;
+          
+          // Remove the asteroid from the arrays
+          ax.splice(i, 1);
+          ay.splice(i, 1);
+          aw.splice(i, 1);
+          adir.splice(i, 1);
+          ahp.splice(i, 1);
+          
+          // Update the asteroidsCount
+          asteroidsCount--;
+    
+          // Skip the rest of the loop iteration
+          continue;
+        }
+
         var angle = Math.atan2(dy, dx);//calculates angle
         adir[i] = angle;
 

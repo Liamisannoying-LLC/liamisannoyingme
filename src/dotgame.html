@@ -1,6 +1,24 @@
 <html>
 <H1>The Dot Game</H1>
-<canvas id="cvs" style="
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #circle {
+    width: 750px;
+    height:750px;
+    border-radius: 50%;
+    background-color: #EEEEEE;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #cvs{
     background: #EEEEEE;
     border: 1px solid #303841;
     border-radius: 15px;
@@ -9,14 +27,24 @@
     align-self: center;
 
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    top: 0;
 
     /* this fixes the overflow:hidden in Chrome/Opera */
     -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
-  "></canvas>
+  }
+
+</style>
+
+<body>
+
+<div id="circle">
+<canvas id="cvs"></canvas>
+</div>
 
   <script src="scripts/script.js"></script>
-  https://colorhunt.co/palette/3038413a475000adb5eeeeee
+  <!-- https://colorhunt.co/palette/3038413a475000adb5eeeeee -->
+
+</body>
+
 </html>
