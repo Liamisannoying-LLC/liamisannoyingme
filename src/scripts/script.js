@@ -41,6 +41,7 @@
       }
 
     function circle(x, y, w, hp, count) {
+      if(hp != 0){
       var colour;
       
       if (w === 100) {//makes more red based on health
@@ -59,6 +60,13 @@
       ctx.lineWidth = 5;
       ctx.strokeStyle = colour;
       ctx.stroke();
+      }else{
+        ax.pop(count);
+        ay.pop(count);
+        aw.pop(count);
+        adir.pop(count);
+        ahp.pop(count);
+      }
     }
 
     function makeEnemy() {
@@ -102,6 +110,16 @@
                   aw[i],//asteroidsWidth
                   ahp[i],//asteroidsHealth
                   i);
+      }
+    }
+
+    function HasHitPlayer(){
+      if(dx > 0 && dx < 1 && dy > 0 && dy < 1){
+            console.log(dx + "," + dy);
+            asteroidsCount -= 1;
+            return true;    
+      }else{
+        return false;
       }
     }
 
