@@ -1,8 +1,8 @@
     var c = document.getElementById("cvs");
     var ctx = c.getContext("2d");
     
-    c.width = 750;
-    c.height = 750;
+    c.width = 800;
+    c.height = 800;
 
     var asteroidsCount = 0;
 
@@ -18,7 +18,8 @@
       width:50,
       height:50,
       Rot: 0,
-      hp:3
+      hp:3,
+      score:100
     }
     start();
 
@@ -111,8 +112,6 @@
                   ahp[i],//asteroidsHealth
                   i);
       }
-      ctx.font = "48px serif";
-      ctx.fillText("Hp:" + player.hp, 10, 50);
     }
 
     function HasHitPlayer(){
