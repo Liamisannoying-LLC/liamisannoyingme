@@ -1,5 +1,6 @@
     var c = document.getElementById("cvs");
     var ctx = c.getContext("2d");
+    //I am going insane.
     
     c.width = 800;
     c.height = 800;
@@ -73,35 +74,41 @@
     }
 
     function makeEnemy() {
-      for (asteroidsCount; asteroidsCount < 10; asteroidsCount++) {
-        var bigasteroids = Math.floor(Math.random(5, 10));
-
-        if (asteroidsCount < 10 && asteroidsCount !== bigasteroids) {
-          aw.push(50);
-          ahp.push(20);
-        } else {
-          aw.push(100);
-          ahp.push(40);
-        }
-
-        var distance = c.width / 2 + 100; // Adjust the distance as per your needs
-        var delay = Math.random() * 5000; // Adjust the maximum delay time in milliseconds
-
-        setTimeout(function (index) {
-          var angle = Math.random() * 2 * Math.PI;
-          var x, y;
-          do {
-            x = c.width / 2 + distance * Math.cos(angle);
-            y = c.height / 2 + distance * Math.sin(angle);
-            angle = Math.random() * 2 * Math.PI;
-          } while (x >= 0 && x <= c.width && y >= 0 && y <= c.height);
-
-          ax[index] = x;
-          ay[index] = y;
-          circle(ax[index], ay[index], aw[index],ahp[index], index);
-        }, delay, asteroidsCount);
+      if (asteroidsCount >= 10) {
+        return; // Stop creating asteroids if the desired count is reached
       }
-    }
+    
+      var bigasteroids = Math.floor(Math.random(5, 10));
+    
+      if (asteroidsCount < 10 && asteroidsCount !== bigasteroids) {
+        aw.push(50);
+        ahp.push(20);
+      } else {
+        aw.push(100);
+        ahp.push(40);
+      }
+    
+      var distance = c.width / 2 + 100; // Adjust the distance as per your needs
+      var delay = Math.random() * (10000 - 1000) + 1000; // Adjust the maximum delay time in milliseconds
+    
+      setTimeout(function (index) {
+        var angle = Math.random() * 2 * Math.PI;
+        var x, y;
+        do {
+          x = c.width / 2 + distance * Math.cos(angle);
+          y = c.height / 2 + distance * Math.sin(angle);
+          angle = Math.random() * 2 * Math.PI;
+        } while (x >= 0 && x <= c.width && y >= 0 && y <= c.height);
+    
+        ax[index] = x;
+        ay[index] = y;
+        circle(ax[index], ay[index], aw[index], ahp[index], index);
+    
+        asteroidsCount++;
+    
+        makeEnemy(); // Call the function recursively to create the next asteroid
+      }, delay, asteroidsCount);
+    }    
 
     function draw(){//put graphics on to screen(updated every frame)
       triangle(player.x, player.y, player.Rot, player.width, player.height);
@@ -111,16 +118,6 @@
                   aw[i],//asteroidsWidth
                   ahp[i],//asteroidsHealth
                   i);
-      }
-    }
-
-    function HasHitPlayer(){
-      if(dx > 0 && dx < 1 && dy > 0 && dy < 1){
-            console.log(dx + "," + dy);
-            asteroidsCount -= 1;
-            return true;    
-      }else{
-        return false;
       }
     }
 
