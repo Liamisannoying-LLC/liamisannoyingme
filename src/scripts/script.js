@@ -13,6 +13,12 @@
     var adir = [];
     var ahp = [];
 
+    var bulletCount;
+    var bx = [];
+    var by = [];
+    var brot = [];
+    var bspeed = 3;
+
     var player = {
       x: c.width/2,
       y: c.height/2,
@@ -89,7 +95,7 @@
       }
     
       var distance = c.width / 2 + 100; // Adjust the distance as per your needs
-      var delay = Math.random() * (10000 - 1000) + 1000; // Adjust the maximum delay time in milliseconds
+      var delay = Math.random() * (2000 - 1000) + 1000; // Adjust the maximum delay time in milliseconds
     
       setTimeout(function (index) {
         var angle = Math.random() * 2 * Math.PI;
@@ -118,6 +124,14 @@
                   aw[i],//asteroidsWidth
                   ahp[i],//asteroidsHealth
                   i);
+      }
+      for(var h = 0; h < bulletCount; h++){
+        console.log('bullet')
+        ctx.rotate(brot[h]);
+        ctx.fillStyle = '#3A4750';
+        ctx.fillRect(bx[h],by[h],10,25);
+        bx[h] += bspeed * Math.cos(angle * Math.PI / 180);
+        by[h] += bspeed * Math.sin(angle * Math.PI / 180);
       }
     }
 
@@ -157,6 +171,19 @@
       }
     }  
 
+
+    function bullet(){
+      if(clicked){
+        console.log('bullet');
+        bulletCount++;
+        bx[bulletCount] = player.x;
+        by[bulletCount] = player.y;
+        brot[bulletCount] = player.Rot;
+        clicked = false;
+        canClick = false;
+      }
+    }
+
     window.addEventListener("mousemove", handleMouseMove);
 
     function handleMouseMove(event) {
@@ -172,11 +199,27 @@
         player.Rot = angle - Math.PI / 2;
     }
 
+    var clicked;
+    var canClick = true;
+    window.addEventListener("mousedown",mouseDown);
+    window.addEventListener("mouseup",mouseup);
+    function mouseDown(event){
+      if(canClick){
+        clicked = true;
+        canClick = false;
+      }
+    }
+    function mouseup(event){
+      clicked = false;
+      canClick = true;
+    }
+
     window.requestAnimationFrame(loop);
 
     function loop() {//... its in the name
     ctx.clearRect(0, 0, c.width, c.height);//clears screen
     update();
+    bullet();
     draw();
     window.requestAnimationFrame(loop);//makes it a loop
     }
