@@ -1,6 +1,7 @@
     var c = document.getElementById("cvs");
     var ctx = c.getContext("2d");
     //I am going insane.
+    //triangle and update function have used chat gpt only because so confusing
     
     c.width = 800;
     c.height = 800;
@@ -13,7 +14,7 @@
     var adir = [];
     var ahp = [];
 
-    var bulletCount;
+    var bulletCount = 0;
     var bx = [];
     var by = [];
     var brot = [];
@@ -47,7 +48,7 @@
         ctx.fillStyle = '#3A4750';
         ctx.fill();
         ctx.restore();
-      }
+      }//stole triangle from gpt(why is it so annoying to make one?)
 
     function circle(x, y, w, hp, count) {
       if(hp != 0){
@@ -70,18 +71,18 @@
       ctx.strokeStyle = colour;
       ctx.stroke();
       }else{
-        console.log('Spliced!');
-        ax.splice(count, 1);
-        ay.splice(count, 1);
-        aw.splice(count, 1);
-        adir.splice(count, 1);
-        ahp.splice(count, 1);
-      }
+          console.log('Spliced!');
+          ax.splice(count, 1);
+          ay.splice(count, 1);
+          aw.splice(count, 1);
+          adir.splice(count, 1);
+          ahp.splice(count, 1);
+        }
     }
 
     function makeEnemy() {
       if (asteroidsCount >= 10) {
-        return; // Stop creating asteroids if the desired count is reached
+        return;
       }
     
       var bigasteroids = Math.floor(Math.random(5, 10));
@@ -94,8 +95,8 @@
         ahp.push(40);
       }
     
-      var distance = c.width / 2 + 100; // Adjust the distance as per your needs
-      var delay = Math.random() * (2000 - 1000) + 1000; // Adjust the maximum delay time in milliseconds
+      var distance = c.width / 2 + 100;
+      var delay = Math.random() * (2000 - 1000) + 1000;
     
       setTimeout(function (index) {
         var angle = Math.random() * 2 * Math.PI;
@@ -112,12 +113,15 @@
     
         asteroidsCount++;
     
-        makeEnemy(); // Call the function recursively to create the next asteroid
+        makeEnemy();
       }, delay, asteroidsCount);
     }    
 
     function draw(){//put graphics on to screen(updated every frame)
+      //player
       triangle(player.x, player.y, player.Rot, player.width, player.height);
+
+      //asteroids
       for(var i = 0; i < asteroidsCount; i++){
         circle(ax[i],//asteroidsX
                   ay[i],//asteroidsY
@@ -125,14 +129,21 @@
                   ahp[i],//asteroidsHealth
                   i);
       }
+
+      //bullets
       for(var h = 0; h < bulletCount; h++){
-        console.log('bullet')
+        ctx.save();
+        ctx.translate(bx[h], by[h]);
         ctx.rotate(brot[h]);
         ctx.fillStyle = '#3A4750';
-        ctx.fillRect(bx[h],by[h],10,25);
-        bx[h] += bspeed * Math.cos(angle * Math.PI / 180);
-        by[h] += bspeed * Math.sin(angle * Math.PI / 180);
+        ctx.fillRect(-12.5, -5, 25, 10);
+        ctx.restore();
+
+        bx[h] += bspeed * Math.cos(brot[h]);
+        by[h] += bspeed * Math.sin(brot[h]);
       }
+
+
     }
 
     function update() {
@@ -160,7 +171,7 @@
     
           // Skip the rest of the loop iteration
           continue;
-        }
+        }//i stole this from chat gpt ^
 
         var angle = Math.atan2(dy, dx);//calculates angle
         adir[i] = angle;
@@ -176,9 +187,10 @@
       if(clicked){
         console.log('bullet');
         bulletCount++;
-        bx[bulletCount] = player.x;
-        by[bulletCount] = player.y;
-        brot[bulletCount] = player.Rot;
+        bx[bulletCount - 1] = player.x + (player.width / 2) * Math.cos(player.Rot + Math.PI / 2);
+        by[bulletCount - 1] =  player.y + (player.height / 2) * Math.sin(player.Rot + Math.PI / 2);
+        brot[bulletCount - 1] = player.Rot + Math.PI / 2;
+
         clicked = false;
         canClick = false;
       }
@@ -197,12 +209,17 @@
       
         // Adjust the angle to rotate the top of the triangle towards the mouse
         player.Rot = angle - Math.PI / 2;
+        if (bulletCount > 0) {
+          brot[bulletCount] = player.Rot + Math.PI / 2;
+      }
     }
 
     var clicked;
     var canClick = true;
+
     window.addEventListener("mousedown",mouseDown);
     window.addEventListener("mouseup",mouseup);
+
     function mouseDown(event){
       if(canClick){
         clicked = true;
