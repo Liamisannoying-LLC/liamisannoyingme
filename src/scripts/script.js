@@ -27,13 +27,16 @@
       height:50,
       Rot: 0,
       hp:3,
-      score:100
+      score:0
     }
-    start();
 
+    start();
+    
     function start(){
-      
-      makeEnemy();
+      console.log("start");
+      ctx.font = "30px Arial";
+      ctx.fillText("Look with mouse \n and click to shoot!", player.x, player.y);
+      setTimeout(makeEnemy,500);
     }
 
     function triangle(x, y, r, w, h) {
@@ -81,6 +84,7 @@
     }
 
     function makeEnemy() {
+      console.log("made enemy")
       if (asteroidsCount >= 10) {
         return;
       }
@@ -214,7 +218,7 @@
       }
     }
 
-    var clicked;
+    var clicked = false;
     var canClick = true;
 
     window.addEventListener("mousedown",mouseDown);
@@ -231,6 +235,29 @@
       canClick = true;
     }
 
+    function deathscreen(){
+      if(player.hp <= 0){
+        ctx.font = "30px Arial";
+        ctx.fillText("You Died", player.x, player.y);
+        setTimeout(reset,1000);
+      }
+    }
+
+    function reset(){
+      player.Rot = 0;
+      player.hp = 3;
+      player.score = 0;
+
+      asteroidsCount = 0;
+
+      ax.length = 0;
+      ay.length = 0;
+      aw.length = 0;
+      adir.length = 0;
+      ahp.length = 0;
+      start();
+    }
+
     window.requestAnimationFrame(loop);
 
     function loop() {//... its in the name
@@ -238,5 +265,6 @@
     update();
     bullet();
     draw();
+    deathscreen();
     window.requestAnimationFrame(loop);//makes it a loop
     }
