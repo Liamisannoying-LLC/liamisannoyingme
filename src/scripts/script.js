@@ -147,12 +147,14 @@
     }
 
     function update() {
+      console.clear();
+      console.log(ax);
+      console.log(ay);
       for (var i = 0; i < asteroidsCount; i++) {
 
         var dx = player.x - ax[i];//distance to playerX
         var dy = player.y - ay[i];//distance to PlayerY
         var distance = Math.sqrt(dx * dx + dy * dy);
-        console.log(dx,dy)
         if (distance < (player.width + aw[i]) / 2) {
           // Collision occurred, asteroid reached player
           
