@@ -3,8 +3,8 @@
     //I am going insane.
     //triangle and update function have used chat gpt only because so confusing
     
-    c.width = 800;
-    c.height = 800;
+    c.width = window.innerHeight - 100;
+    c.height = window.innerHeight - 100;
 
     var asteroidsCount = 0;
 
@@ -30,14 +30,9 @@
       score:0
     }
 
-    start();
-    
-    function start(){
-      console.log("start");
-      ctx.font = "30px Arial";
-      ctx.fillText("Look with mouse \n and click to shoot!", player.x, player.y);
-      setTimeout(makeEnemy,500);
-    }
+
+
+
 
     function triangle(x, y, r, w, h) {
         ctx.save();
@@ -84,14 +79,14 @@
     }
 
     function makeEnemy() {
-      console.log("made enemy")
+      console.log('makeEnemy');
       if (asteroidsCount >= 10) {
         return;
       }
     
-      var bigasteroids = Math.floor(Math.random(5, 10));
+      var bigasteroids = Math.floor(Math.random() * 6) + 5; // Random number between 5 and 10
     
-      if (asteroidsCount < 10 && asteroidsCount !== bigasteroids) {
+      if (asteroidsCount < 10 || (asteroidsCount === bigasteroids && asteroidsCount < 11)) {
         aw.push(50);
         ahp.push(20);
       } else {
@@ -119,7 +114,8 @@
     
         makeEnemy();
       }, delay, asteroidsCount);
-    }    
+    }
+        
 
     function draw(){//put graphics on to screen(updated every frame)
       //player
@@ -156,10 +152,9 @@
         var dx = player.x - ax[i];//distance to playerX
         var dy = player.y - ay[i];//distance to PlayerY
         var distance = Math.sqrt(dx * dx + dy * dy);
-
+        console.log(dx,dy)
         if (distance < (player.width + aw[i]) / 2) {
           // Collision occurred, asteroid reached player
-          console.log("Damage Taken!");
           
           player.hp -= 1;
           
@@ -184,12 +179,31 @@
         ax[i] += Math.cos(adir[i]) * speed;
         ay[i] += Math.sin(adir[i]) * speed;
       }
+
+
+
+      for(var g = 0; g < asteroidsCount; g++){
+          for(var j = 0; j < bulletCount; j++){
+            if(bx[j] <= ax[g] + aw[g] && bx[j] >= ax[g]){
+              if(by[j] <= ay[g] + aw[g] && by[j] >= ay[g]){
+                
+                ahp[g] -= 10;
+                // Remove the asteroid from the arrays
+                bx.splice(j, 1);
+                by.splice(j, 1);
+                brot.splice(j, 1);
+                
+                // Update the asteroidsCount
+                bulletCount--;
+              }
+            }
+          }
+      }
     }  
 
 
     function bullet(){
       if(clicked){
-        console.log('bullet');
         bulletCount++;
         bx[bulletCount - 1] = player.x + (player.width / 2) * Math.cos(player.Rot + Math.PI / 2);
         by[bulletCount - 1] =  player.y + (player.height / 2) * Math.sin(player.Rot + Math.PI / 2);
@@ -235,36 +249,19 @@
       canClick = true;
     }
 
-    function deathscreen(){
-      if(player.hp <= 0){
-        ctx.font = "30px Arial";
-        ctx.fillText("You Died", player.x, player.y);
-        setTimeout(reset,1000);
-      }
-    }
-
-    function reset(){
-      player.Rot = 0;
-      player.hp = 3;
-      player.score = 0;
-
-      asteroidsCount = 0;
-
-      ax.length = 0;
-      ay.length = 0;
-      aw.length = 0;
-      adir.length = 0;
-      ahp.length = 0;
-      start();
-    }
-
+    var timer = 0;
     window.requestAnimationFrame(loop);
 
     function loop() {//... its in the name
     ctx.clearRect(0, 0, c.width, c.height);//clears screen
-    update();
+    setTimeout(function(){
+      timer++;
+      if(timer == 300){
+      makeEnemy();
+      }
+    },1)
+    update(); 
     bullet();
     draw();
-    deathscreen();
     window.requestAnimationFrame(loop);//makes it a loop
     }
