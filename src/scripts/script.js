@@ -69,12 +69,11 @@
       ctx.strokeStyle = colour;
       ctx.stroke();
       }else{
-          console.log('Spliced!');
-          ax.splice(count, 1);
-          ay.splice(count, 1);
-          aw.splice(count, 1);
-          adir.splice(count, 1);
-          ahp.splice(count, 1);
+        ax = ax.filter((_, index) => index !== count);
+        ay = ay.filter((_, index) => index !== count);
+        aw = aw.filter((_, index) => index !== count);
+        adir = adir.filter((_, index) => index !== count);
+        ahp = ahp.filter((_, index) => index !== count);
         }
     }
 
@@ -98,6 +97,9 @@
       var delay = Math.random() * (2000 - 1000) + 1000;
     
       setTimeout(function (index) {
+        console.clear();
+        console.log(ax);
+        console.log(ay);
         var angle = Math.random() * 2 * Math.PI;
         var x, y;
         do {
@@ -147,9 +149,6 @@
     }
 
     function update() {
-      console.clear();
-      console.log(ax);
-      console.log(ay);
       for (var i = 0; i < asteroidsCount; i++) {
 
         var dx = player.x - ax[i];//distance to playerX
@@ -161,12 +160,12 @@
           player.hp -= 1;
           
           // Remove the asteroid from the arrays
-          ax.splice(i, 1);
-          ay.splice(i, 1);
-          aw.splice(i, 1);
-          adir.splice(i, 1);
-          ahp.splice(i, 1);
-          
+          ax = ax.filter((_, index) => index !== i);
+          ay = ay.filter((_, index) => index !== i);
+          aw = aw.filter((_, index) => index !== i);
+          adir = adir.filter((_, index) => index !== i);
+          ahp = ahp.filter((_, index) => index !== i);
+                    
           // Update the asteroidsCount
           asteroidsCount--;
     
