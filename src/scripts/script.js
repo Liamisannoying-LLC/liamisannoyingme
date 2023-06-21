@@ -233,7 +233,7 @@
 
     window.addEventListener("mousedown",mouseDown);
     window.addEventListener("mouseup",mouseup);
-    window.addEventListener("keydown",mouseup);
+    window.addEventListener("keydown",start);
 
     function mouseDown(event){
       if(canClick){
@@ -248,15 +248,28 @@
       canClick = true;
       }, 100);
     }
+    var hasStarted = false;
+      start();
 
     function start(event){
-
+      document.addEventListener('keydown', function(event) {
+        if(event.key === ' '){
+        hasStarted = true;
+        makeEnemy();
+        }
+      });
     }
 
     window.requestAnimationFrame(loop);
 
     function loop() {//... its in the name
     ctx.clearRect(0, 0, c.width, c.height);//clears screen
+    if(!hasStarted){
+      ctx.font = "24px 'Font Name', sans-serif";
+      ctx.fillText("Look with the mouse",player.x - 100, 430);
+      ctx.fillText(" and click to shoot",player.x - 100, 460);
+      ctx.fillText("press space to start", player.x - 100, 520);
+    }
     update(); 
     bullet();
     draw();
