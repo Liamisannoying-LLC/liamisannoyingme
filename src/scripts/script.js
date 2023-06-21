@@ -69,37 +69,32 @@
       ctx.strokeStyle = colour;
       ctx.stroke();
       }else{
-        ax = ax.filter((_, index) => index !== count);
-        ay = ay.filter((_, index) => index !== count);
-        aw = aw.filter((_, index) => index !== count);
-        adir = adir.filter((_, index) => index !== count);
-        ahp = ahp.filter((_, index) => index !== count);
+        ax.splice(count, 1);
+        ay.splice(count, 1);
+        aw.splice(count, 1);
+        adir.splice(count, 1);
+        ahp.splice(count, 1);
+        asteroidsCount--;
+        player. score++;
         }
     }
 
     function makeEnemy() {
-      console.log('makeEnemy');
-      if (asteroidsCount >= 10) {
-        return;
-      }
-    
-      var bigasteroids = Math.floor(Math.random() * 6) + 5; // Random number between 5 and 10
-    
-      if (asteroidsCount < 10 || (asteroidsCount === bigasteroids && asteroidsCount < 11)) {
-        aw.push(50);
-        ahp.push(20);
-      } else {
+      var bigasteroids = Math.floor(Math.random() * 5) + asteroidsCount;
+
+      if(asteroidsCount == bigasteroids){
         aw.push(100);
         ahp.push(40);
+        bigasteroids = Math.floor(Math.random() * 4) + 1; // Random number between 1 and 5
+      }else{
+        aw.push(50);
+        ahp.push(20);
       }
     
       var distance = c.width / 2 + 100;
       var delay = Math.random() * (2000 - 1000) + 1000;
     
       setTimeout(function (index) {
-        console.clear();
-        console.log(ax);
-        console.log(ay);
         var angle = Math.random() * 2 * Math.PI;
         var x, y;
         do {
@@ -160,11 +155,11 @@
           player.hp -= 1;
           
           // Remove the asteroid from the arrays
-          ax = ax.filter((_, index) => index !== i);
-          ay = ay.filter((_, index) => index !== i);
-          aw = aw.filter((_, index) => index !== i);
-          adir = adir.filter((_, index) => index !== i);
-          ahp = ahp.filter((_, index) => index !== i);
+          ax.splice(i, 1);
+          ay.splice(i, 1);
+          aw.splice(i, 1);
+          adir.splice(i, 1);
+          ahp.splice(i, 1);
                     
           // Update the asteroidsCount
           asteroidsCount--;
@@ -238,6 +233,7 @@
 
     window.addEventListener("mousedown",mouseDown);
     window.addEventListener("mouseup",mouseup);
+    window.addEventListener("keydown",mouseup);
 
     function mouseDown(event){
       if(canClick){
@@ -245,22 +241,22 @@
         canClick = false;
       }
     }
+
     function mouseup(event){
       clicked = false;
+      setTimeout(function (){
       canClick = true;
+      }, 100);
     }
 
-    var timer = 0;
+    function start(event){
+
+    }
+
     window.requestAnimationFrame(loop);
 
     function loop() {//... its in the name
     ctx.clearRect(0, 0, c.width, c.height);//clears screen
-    setTimeout(function(){
-      timer++;
-      if(timer == 300){
-      makeEnemy();
-      }
-    },1)
     update(); 
     bullet();
     draw();
