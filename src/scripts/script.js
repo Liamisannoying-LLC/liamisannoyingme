@@ -75,7 +75,7 @@
         adir.splice(count, 1);
         ahp.splice(count, 1);
         asteroidsCount--;
-        player. score++;
+        player.score++;
         }
     }
 
@@ -260,6 +260,17 @@
       });
     }
 
+    function Dead(){
+      if(player.hp <= 0){
+        asteroidsCount = 0;
+
+        player.hp = 3;
+        player.score = 0;
+
+        hasStarted = false;
+      }
+    }
+
     window.requestAnimationFrame(loop);
 
     function loop() {//... its in the name
@@ -275,6 +286,7 @@
     ctx.fillText("hp:" + player.hp,75, 120);
     ctx.fillText("score:" + player.score,400, 120);
     }
+    Dead();
     update(); 
     bullet();
     draw();
