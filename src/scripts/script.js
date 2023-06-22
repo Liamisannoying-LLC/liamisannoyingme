@@ -272,8 +272,8 @@
     }else{
     ctx.font = "24px 'Font Name', sans-serif";
     ctx.fillStyle = 'black';
-    ctx.fillText("hp:" + player.hp,50, 200);
-    ctx.fillText("score:" + player.score,400, 150);
+    ctx.fillText("hp:" + player.hp,75, 120);
+    ctx.fillText("score:" + player.score,400, 120);
     }
     update(); 
     bullet();
