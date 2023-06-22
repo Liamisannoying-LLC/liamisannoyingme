@@ -269,6 +269,11 @@
       ctx.fillText("Look with the mouse",player.x - 100, 430);
       ctx.fillText(" and click to shoot",player.x - 100, 460);
       ctx.fillText("press space to start", player.x - 100, 520);
+    }else{
+    ctx.font = "24px 'Font Name', sans-serif";
+    ctx.fillStyle = 'black';
+    ctx.fillText("hp:" + player.hp,50, 200);
+    ctx.fillText("score:" + player.score,400, 150);
     }
     update(); 
     bullet();
