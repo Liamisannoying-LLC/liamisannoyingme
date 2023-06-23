@@ -4,7 +4,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap" rel="stylesheet">
 </head>
-<H1 class="name">ASTEROIDBLASTER9000</H1>
 <style>
   body, html {
     height: 100%;
@@ -47,10 +46,44 @@
   -ms-user-select: none;
   user-select: none;
   }
+
+  ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover:not(.active) {
+    background-color: #111;
+  }
+
+  .active {
+    background-color: #04AA6D;
+  }
 </style>
 
 <body>
-
+  <ul>
+    <li><a href="main.html">Home</a></li>
+    <li><a class="active" href="games.html">Games</a></li>
+    <li><a href="secret.html">Top Secret</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <H1 class="name">ASTEROIDBLASTER9000</H1>
 <div id="circle">
 <canvas id="cvs"></canvas>
 </div>
