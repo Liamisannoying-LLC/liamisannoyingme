@@ -25,3 +25,9 @@ a:link {color: rgb(255, 43, 6);}
 a:visited {color: #eccb0c}  
 a:hover {color: #0cfc0c}  
 a:active {color: #fcf8c0}  
+
+
+p {
+  color: red;
+}
+
