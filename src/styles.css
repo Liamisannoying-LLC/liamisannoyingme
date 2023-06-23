@@ -21,13 +21,13 @@ main > h1 {
 }
 
 
-a:link {color: rgb(255, 43, 6);}  
+a:link {color: rgb#eccb0c;}  
 a:visited {color: #eccb0c}  
 a:hover {color: #0cfc0c}  
 a:active {color: #fcf8c0}  
 
 
-h1 {
+text {
   color: red;
 }
 
