@@ -5,7 +5,7 @@ html, body {
   margin: 0;
   border: 0;
   padding: 0;
-  background-color: #c1afc9;
+  background-color: #333533;
 }
 
 main {
@@ -44,6 +44,40 @@ li a:hover:not(.active) {
 }
 
 .active {
-  background-color: #570a96;
+  background-image: linear-gradient(to right, #570a96 , #7535aa);
   border-radius: 0% 25% 25% 0%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+  -moz-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.textbox{
+  padding:10%;
+  background-image:radial-gradient(#35075a , #722bac);
+  border-radius: 10%;
 }

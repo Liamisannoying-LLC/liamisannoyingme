@@ -39,6 +39,7 @@
     transform: translate(-50%, -50%);
 
     /* this fixes the overflow:hidden in Chrome/Opera */
+    mask-image:none;
     -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
   }
 
@@ -76,13 +77,17 @@
   }
 
   .active {
-    background-color: #04AA6D;
+  background-image: linear-gradient(to right, #570a96 , #7535aa);
+  border-radius: 0% 25% 25% 0%;
+  }
+  .prev{
+    background-color:#570a96;
   }
 </style>
 
 <body>
   <ul>
-    <li><a href="main.html">Home</a></li>
+    <li><a class="prev" href="main.html">Home</a></li>
     <li><a class="active" href="games.html">Games</a></li>
     <li><a href="about.html">About</a></li>
   </ul>

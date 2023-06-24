@@ -1,8 +1,13 @@
 <html>
   <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+  <ul>
+    <li><a class="previous" href="main.html">Home</a></li>
+    <li><a class="previous" href="games.html">Games</a></li>
+    <li><a class="active" href="about.html">About</a></li>
+  </ul>
   </head>
 
     <script>
@@ -19,6 +24,7 @@
     </script>
     <style>
       *{
+        margin: 0;
         font-family: 'Roboto', sans-serif;
         }
         ul {
@@ -46,15 +52,14 @@ li a:hover:not(.active) {
 }
 
 .active {
-  background-color: #04AA6D;
+  background-image: linear-gradient(to right, #570a96 , #7535aa);
+  border-radius: 0% 25% 25% 0%;
+}
+.previous {
+  background-color:#570a96;
 }
     </style>
     <body>
-        <ul>
-            <li><a href="main.html">Home</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a class="active" href="about.html">About</a></li>
-          </ul>
         <h1 id="h1">Hmmm...</h1>
         <h1> 
             <div>
