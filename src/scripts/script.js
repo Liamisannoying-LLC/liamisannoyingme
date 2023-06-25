@@ -30,10 +30,6 @@
       score:0
     }
 
-
-
-
-
     function triangle(x, y, r, w, h) {
         ctx.save();
         ctx.translate(x, y);
@@ -180,8 +176,8 @@
 
       for(var g = 0; g < asteroidsCount; g++){
           for(var j = 0; j < bulletCount; j++){
-            if(bx[j] <= ax[g] + aw[g] && bx[j] >= ax[g]){
-              if(by[j] <= ay[g] + aw[g] && by[j] >= ay[g]){
+            if (bx[j] >= ax[g] - aw[g] / 2 && bx[j] <= ax[g] + aw[g] / 2) {
+              if (by[j] >= ay[g] - aw[g] / 2 && by[j] <= ay[g] + aw[g] / 2) {           
                 
                 ahp[g] -= 10;
                 // Remove the asteroid from the arrays
@@ -253,7 +249,7 @@
 
     function start(event){
       document.addEventListener('keydown', function(event) {
-        if(event.key === ' '){
+        if(event.key === ' ' && hasStarted == false){
         hasStarted = true;
         makeEnemy();
         }
@@ -276,15 +272,16 @@
     function loop() {//... its in the name
     ctx.clearRect(0, 0, c.width, c.height);//clears screen
     if(!hasStarted){
-      ctx.font = "24px 'Font Name', sans-serif";
-      ctx.fillText("Look with the mouse",player.x - 100, 430);
-      ctx.fillText(" and click to shoot",player.x - 100, 460);
-      ctx.fillText("press space to start", player.x - 100, 520);
+      ctx.font = "24px 'Bold Roboto', sans-serif";
+      ctx.fillStyle = 'black';
+      ctx.fillText("Look with the mouse",player.x - 100, player.y  + 50);
+      ctx.fillText(" and click to shoot",player.x - 100, player.y + 80);
+      ctx.fillText("press space to start", player.x - 100, player.y + 120);
     }else{
-    ctx.font = "24px 'Font Name', sans-serif";
+    ctx.font = "24px 'Bold Roboto', sans-serif";
     ctx.fillStyle = 'black';
-    ctx.fillText("hp:" + player.hp,75, 120);
-    ctx.fillText("score:" + player.score,400, 120);
+    ctx.fillText("hp:" + player.hp,player.x - 175, player.y - 350);
+    ctx.fillText("score:" + player.score,player.x + 100, player.y - 350);
     }
     Dead();
     update(); 
