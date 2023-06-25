@@ -18,34 +18,39 @@
       display: inline-block;
     }
     
-    .dropdown-content {
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover {
+      background-color: #111;
+    }
+
+    .dropdown .dropdown-content {
       display: none;
       position: absolute;
-      background-color:#272727;
+      background-color: #272727;
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       padding: 12px 16px;
       z-index: 1;
     }
-    
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    .dropdown:hover{
-      background-color: #111;
-    }
+
     </style>
 </head>
 
 <body>
   <ul>
     <li><a class="active" href="index.html">Home</a></li>
-    <li><div class="dropdown"><span>Games</span>
-      <div class="dropdown-content">
-      <a href="games.html">Liam-Blaster-9000</a>
-      <p>highahgha</p>
+    <li>
+      <div class="dropdown">
+        <span>Games</span>
+        <div class="dropdown-content">
+          <a href="games.html">Liam-Blaster-9000</a>
+          <p>highahgha</p>
+        </div>
       </div>
-    </div></li>
+    </li>
     <li><a href="about.html">About</a></li>
   </ul>
   

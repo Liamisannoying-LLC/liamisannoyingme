@@ -23,7 +23,7 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: visible;
   background-color: #272727;
 }
 
@@ -55,7 +55,7 @@ li a:hover:not(.active) {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #1d1d1d; 
   border-radius: 5px;
 }
  
