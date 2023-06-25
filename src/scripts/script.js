@@ -4,6 +4,8 @@
     var oli = document.getElementById("oli");
     var liam = document.getElementById("liam");
     var BulletImg = document.getElementById("Bullet");
+
+    var div = document.getElementById('circle');
     //I am going insane.
     //triangle and update function have used chat gpt only because so confusing
     
@@ -265,12 +267,20 @@
 
     function Dead(){
       if(player.hp <= 0){
-        asteroidsCount = 0;
+        
 
         player.hp = 3;
         player.score = 0;
 
         hasStarted = false;
+      }
+      if(!hasStarted){
+        asteroidsCount = 0;
+        ax.splice(0, ax.length);
+        ay.splice(0, ay.length);
+        aw.splice(0, aw.length);
+        adir.splice(0, adir.length);
+        ahp.splice(0, ahp.length);
       }
     }
 
@@ -287,8 +297,8 @@
     }else{
     ctx.font = "24px 'Bold Roboto', sans-serif";
     ctx.fillStyle = 'black';
-    ctx.fillText("hp:" + player.hp,player.x - 175, player.y - 350);
-    ctx.fillText("score:" + player.score,player.x + 100, player.y - 350);
+    ctx.fillText("hp:" + player.hp,c.width/2 - 78,c.height / 10);
+    ctx.fillText("score:" + player.score,c.width/2 + 24, c.height / 10);
     }
     Dead();
     update(); 
