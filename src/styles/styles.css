@@ -31,7 +31,7 @@ li {
   float: left;
 }
 
-li a {
+li a,span {
   display: block;
   color: white;
   text-align: center;
