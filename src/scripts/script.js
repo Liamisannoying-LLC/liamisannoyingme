@@ -1,5 +1,9 @@
     var c = document.getElementById("cvs");
     var ctx = c.getContext("2d");
+
+    var oli = document.getElementById("oli");
+    var liam = document.getElementById("liam");
+    var BulletImg = document.getElementById("Bullet");
     //I am going insane.
     //triangle and update function have used chat gpt only because so confusing
     
@@ -34,13 +38,14 @@
         ctx.save();
         ctx.translate(x, y);
         ctx.rotate(r);
-        ctx.beginPath();
-        ctx.moveTo(-w / 2, -h / 2);
-        ctx.lineTo(w / 2, -h / 2);
-        ctx.lineTo(0, h / 2);
-        ctx.closePath();
-        ctx.fillStyle = '#3A4750';
-        ctx.fill();
+        //ctx.beginPath();
+        //ctx.moveTo(-w / 2, -h / 2);
+        //ctx.lineTo(w / 2, -h / 2);
+        //ctx.lineTo(0, h / 2);
+        //ctx.closePath();
+        //ctx.fillStyle = '#3A4750';
+        //ctx.fill();
+        ctx.drawImage(oli, -w / 2, -h / 2, w, h);
         ctx.restore();
       }//stole triangle from gpt(why is it so annoying to make one?)
 
@@ -49,21 +54,22 @@
       var colour;
       
       if (w === 100) {//makes more red based on health
-        var dif = 40 - hp;
-        colour = "rgb(" + (58 + dif * 4) + ", 71, 80)";
+        //var dif = 40 - hp;
+        //colour = "rgb(" + (58 + dif * 4) + ", 71, 80)";
       } else if (w === 50) {
-        var dif = 20 - hp;
-        colour = "rgb(" + (58 + dif * 8) + ", 71, 80)";
+        //var dif = 20 - hp;
+        //colour = "rgb(" + (58 + dif * 8) + ", 71, 80)";
       }
       
       w = w / 2;//draws circle
-      ctx.beginPath();
-      ctx.arc(x, y, w, 0, 2 * Math.PI, false);
-      ctx.fillStyle = colour;
-      ctx.fill();
-      ctx.lineWidth = 5;
-      ctx.strokeStyle = colour;
-      ctx.stroke();
+      //ctx.beginPath();
+      //ctx.arc(x, y, w, 0, 2 * Math.PI, false);
+      //ctx.fillStyle = colour;
+      //ctx.fill();
+      //ctx.lineWidth = 5;
+      //ctx.strokeStyle = colour;
+      //ctx.stroke();
+      ctx.drawImage(liam, x, y, w, w);
       }else{
         ax.splice(count, 1);
         ay.splice(count, 1);
@@ -79,11 +85,11 @@
       var bigasteroids = Math.floor(Math.random() * 5) + asteroidsCount;
 
       if(asteroidsCount == bigasteroids){
-        aw.push(100);
+        aw.push(150);
         ahp.push(40);
         bigasteroids = Math.floor(Math.random() * 4) + 1; // Random number between 1 and 5
       }else{
-        aw.push(50);
+        aw.push(100);
         ahp.push(20);
       }
     
@@ -128,8 +134,9 @@
         ctx.save();
         ctx.translate(bx[h], by[h]);
         ctx.rotate(brot[h]);
-        ctx.fillStyle = '#3A4750';
-        ctx.fillRect(-12.5, -5, 25, 10);
+        //ctx.fillStyle = '#3A4750';
+        //ctx.fillRect(-12.5, -5, 25, 10);
+        ctx.drawImage(BulletImg, -22.5,-22.5,45,45)
         ctx.restore();
 
         bx[h] += bspeed * Math.cos(brot[h]);

@@ -25,7 +25,6 @@
     justify-content: center;
     width:100%;
     height:100%;
-
   }
 
   #cvs{
@@ -93,6 +92,11 @@
   .prev{
     background-color:#570a96;
   }
+  @media screen {
+    img{
+      display: none;
+    }
+  }
 </style>
 
 <body>
@@ -101,12 +105,15 @@
     <li><a class="active" href="games.html">Games</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
-  <H1 class="name">ASTEROIDBLASTER9000</H1>
+  <H1 class="name">LIAM-BLASTER-9000</H1>
 <div id="circle">
 <canvas id="cvs"></canvas>
 </div>
-
+  <img id="oli" src="imgs/OLI.png">
+  <img id="liam" src="imgs/Liam.png">
+  <img id="Bullet" src="imgs/C++bullet.png">
   <script src="scripts/script.js"></script>
+  
 </body>
 
 </html>
