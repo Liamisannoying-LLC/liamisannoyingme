@@ -2,7 +2,7 @@
 <head>
 <title>LiamBlaster</title>
 
-<link rel="icon" type="image/png" href="l2.png">
+<link rel="icon" type="image/png" href="../../l2.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -90,11 +90,13 @@
   }
 
   .active {
-  background-image: linear-gradient(to right, #570a96 , #7535aa);
-  border-radius: 0% 15% 15% 0%;
+    background-image: linear-gradient(to right, #15ff00 , #104608);
+    border-radius: 0% 15% 15% 0%;
+    color:black;
   }
   .prev{
-    background-color:#570a96;
+    color:black;
+    background-color:#15ff00;
   }
   @media screen {
     img{
@@ -105,18 +107,19 @@
 
 <body>
   <ul>
-    <li><a class="prev" href="index.html">Home</a></li>
-    <li><a class="active" href="games.html">Games</a></li>
-    <li><a href="about.html">About</a></li>
+    <li><a class="prev" href="../../index.html">Home</a></li>
+    <li><a class="active" href="../../games.html">Games</a></li>
+    <li><a href="../../about.html">About</a></li>
   </ul>
   <H1 class="name">LIAM-BLASTER-9000</H1>
 <div id="circle">
 <canvas id="cvs"></canvas>
 </div>
-  <img id="oli" src="imgs/OLI.png">
-  <img id="liam" src="imgs/Liam.png">
-  <img id="Bullet" src="imgs/C++bullet.png">
-  <script src="scripts/script.js"></script>
+  <img id="oli" src="LiamBlasterImages/OLI.png">
+  <img id="liam" src="LiamBlasterImages/Liam.png">
+  <img id="Bullet" src="LiamBlasterImages/C++bullet.png">
+
+  <script src="LiamBlasterScripts.js"></script>
   
 </body>
 
