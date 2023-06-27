@@ -44,7 +44,7 @@ li a:hover:not(.active) {
 }
 
 .active {
-  background-image: linear-gradient(to right, #570a96 , #7535aa);
+  background-image: linear-gradient(to right, #15ff00 , rgb(73, 69, 69));
   border-radius: 0% 15% 15% 0%;
 }
 
@@ -78,6 +78,6 @@ li a:hover:not(.active) {
 
 .textbox{
   padding:10%;
-  background-image:radial-gradient(#15ff00 , #5d248b);
+  background-image:color(#15ff00)
   border-radius: 10%;
 }
