@@ -33,7 +33,7 @@ li {
 
 li a,span {
   display: block;
-  color: black;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -44,6 +44,7 @@ li a:hover:not(.active) {
 }
 
 .active {
+  color:black;
   background-image: linear-gradient(to right, #15ff00 , #104608);
   border-radius: 0% 15% 15% 0%;
 }
