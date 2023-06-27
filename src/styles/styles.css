@@ -78,6 +78,5 @@ li a:hover:not(.active) {
 
 .textbox{
   padding:10%;
-  background-image:(#15ff00)
-  border-radius 10%;
+  background-image: green;
 }
