@@ -6,7 +6,17 @@
     <title>spaceSim</title>
 </head>
 <body>
-    <canvas id="cvs" style="border: 5px solid black;"></canvas>
+    <h2>Orbit Simulation</h2>
+    <ul>
+    <label for="fuel">Fuel:</label>
+    <input type="range" id="fuel" min="0" max="1000000" value="100">
+    <br>
+    <label for="thrust">Thrust:</label>
+    <input type="range" id="thrust" min="0" max="1000000" step="0.1" value="5">
+    </ul>
+    
+    <canvas id="cvs" width="800" height="600" style="border: 5px solid black;"></canvas>
+  
     <script src="sim.js"></script>
 </body>
 </html>
