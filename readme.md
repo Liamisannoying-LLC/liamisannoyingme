@@ -1,6 +1,15 @@
-# Vanilla JavaScript App
+IF YOU ARE READING THIS THEN YOU ARE NOT AVERAGE
+This is a random static site that's going to change the world.
 
+Like, a little bit.
+Big dreams, lets say.
+Don't tell the site that I said that.
 
-[Azure Static Web Apps](https://docs.microsoft.com/azure/static-web-apps/overview) allows you to easily build JavaScript apps in minutes. Use this repo with the [quickstart](https://docs.microsoft.com/azure/static-web-apps/getting-started?tabs=vanilla-javascript) to build and customize a new static site.
+I juat need a README honestly.
+www.liamisannoying.me is SOOOO much better than www.neal.fun.
 
-This repo is used as a starter for a _very basic_ HTML web application using no front-end frameworks.
+It seems you have reached the bottom of the description. Welcome! Enjoy your stay as long as you like.
+
+thanks for watching
+
+BUT THAT'S JUST A THEORY, A GAAAME THEORY

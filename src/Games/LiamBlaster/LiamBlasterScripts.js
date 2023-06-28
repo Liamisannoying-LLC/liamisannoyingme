@@ -138,7 +138,7 @@
         ctx.rotate(brot[h]);
         //ctx.fillStyle = '#3A4750';
         //ctx.fillRect(-12.5, -5, 25, 10);
-        ctx.drawImage(BulletImg, -22.5,-22.5,45,45)
+        ctx.drawImage(BulletImg, 0,-15, 30, 30);
         ctx.restore();
 
         bx[h] += bspeed * Math.cos(brot[h]);
