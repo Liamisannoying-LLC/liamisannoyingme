@@ -12,4 +12,4 @@ It seems you have reached the bottom of the description. Welcome! Enjoy your sta
 
 thanks for watching
 
-BUT THAT'S JUST A THEORY, A GAAAME THEORY thanks for watching
+BUT THAT'S JUST A THEORY, A GAAAME THEORY
