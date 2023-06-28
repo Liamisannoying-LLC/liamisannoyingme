@@ -149,7 +149,7 @@
     
           // Skip the rest of the loop iteration
           continue;
-        }//i stole this from chat gpt ^
+        }
 
         var angle = Math.atan2(dy, dx);//calculates angle
         adir[i] = angle;
