@@ -7,7 +7,6 @@
 
     var div = document.getElementById('circle');
     //I am going insane.
-    //triangle and update function have used chat gpt only because so confusing
     
     c.width = window.innerHeight - 100;
     c.height = window.innerHeight - 100;
@@ -40,37 +39,18 @@
         ctx.save();
         ctx.translate(x, y);
         ctx.rotate(r);
-        //ctx.beginPath();
-        //ctx.moveTo(-w / 2, -h / 2);
-        //ctx.lineTo(w / 2, -h / 2);
-        //ctx.lineTo(0, h / 2);
-        //ctx.closePath();
-        //ctx.fillStyle = '#3A4750';
-        //ctx.fill();
         ctx.drawImage(oli, -w / 2, -h / 2, w, h);
         ctx.restore();
-      }//stole triangle from gpt(why is it so annoying to make one?)
-
+      }
     function circle(x, y, w, hp, count) {
       if(hp != 0){
       var colour;
       
-      if (w === 100) {//makes more red based on health
-        //var dif = 40 - hp;
-        //colour = "rgb(" + (58 + dif * 4) + ", 71, 80)";
+      if (w === 100) {
       } else if (w === 50) {
-        //var dif = 20 - hp;
-        //colour = "rgb(" + (58 + dif * 8) + ", 71, 80)";
       }
       
-      w = w / 2;//draws circle
-      //ctx.beginPath();
-      //ctx.arc(x, y, w, 0, 2 * Math.PI, false);
-      //ctx.fillStyle = colour;
-      //ctx.fill();
-      //ctx.lineWidth = 5;
-      //ctx.strokeStyle = colour;
-      //ctx.stroke();
+      w = w / 2;
       ctx.drawImage(liam, x, y, w, w);
       }else{
         ax.splice(count, 1);
@@ -89,8 +69,7 @@
       if(asteroidsCount == bigasteroids){
         aw.push(150);
         ahp.push(40);
-        bigasteroids = Math.floor(Math.random() * 4) + 1; // Random number between 1 and 5
-      }else{
+        bigasteroids = Math.floor(Math.random() * 4) + 1;
         aw.push(100);
         ahp.push(20);
       }
@@ -118,8 +97,7 @@
     }
         
 
-    function draw(){//put graphics on to screen(updated every frame)
-      //player
+    function draw(){
       triangle(player.x, player.y, player.Rot, player.width, player.height);
 
       //asteroids
