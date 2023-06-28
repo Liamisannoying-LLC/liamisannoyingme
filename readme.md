@@ -1,4 +1,5 @@
 IF YOU ARE READING THIS THEN YOU ARE NOT AVERAGE
+
 This is a random static site that's going to change the world.
 
 Like, a little bit.
