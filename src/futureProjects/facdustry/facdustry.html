@@ -21,10 +21,28 @@
     <style>
       *{
         margin: 0;
-        background-color: #333533;
         }
+      body{
+        background-color: #333533;
+      }
+      canvas{
+        margin: 20px 20px;
+        overflow: hidden;
+        align-self: center;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
     </style>
 
     <body>
+      <div id="cookies"><!--dont put anything in here-->
+      </div>
+      
+        <canvas id="cvs" style="border: 2px solid black;"></canvas>
+
+      <script src="facdustry.js"></script>
     </body>
 </html>
