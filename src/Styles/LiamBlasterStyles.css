@@ -1,19 +1,4 @@
-<html>
-<head>
-<title>LiamBlaster</title>
-
-<link rel="icon" type="image/png" href="../../All_Favicons/l3.png">
-
-<link rel="stylesheet" type="text/css" href="../../universal.css"/>
-<link rel="stylesheet" type="text/css" href="../../Styles/LiamBlasterStyles.css"/>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
-</head>
-
-<style>
-  *{
+*{
     font-family: 'Roboto', sans-serif;
     }
 
@@ -67,24 +52,3 @@
       display: none;
     }
   }
-</style>
-
-<body>
-  <ul>
-    <li><a class="prev" href="../../index.html">Home</a></li>
-    <li><a class="active" href="../../games.html">Games</a></li>
-    <li><a href="../../about.html">About</a></li>
-  </ul>
-  <H1 class="name">LIAM-BLASTER-9000</H1>
-<div id="circle">
-<canvas id="cvs"></canvas>
-</div>
-  <img id="oli" src="LiamBlasterImages/OLI.png">
-  <img id="liam" src="LiamBlasterImages/Liam.png">
-  <img id="Bullet" src="LiamBlasterImages/C++bullet.png">
-
-  <script src="LiamBlasterScripts.js"></script>
-  
-</body>
-
-</html>
