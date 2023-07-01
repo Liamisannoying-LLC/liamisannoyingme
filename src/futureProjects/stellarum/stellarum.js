@@ -1,62 +1,64 @@
-var c = document.getElementById('cvs');
-var ctx = c.getContext('2d');
+var canvas = document.getElementById('cvs');
+var ctx = canvas.getContext('2d');
 
-c.width = window.innerWidth - (window.innerWidth / 10);
-c.height = window.innerHeight - (window.innerHeight / 10);
+canvas.width = window.innerWidth - (window.innerWidth / 10);
+canvas.height = window.innerHeight - (window.innerHeight / 10);
 
-const pointCount = 500;
-const points = [];
-
-// Initialize points with default y-levels
-for (let i = 0; i < pointCount; i++) {
-    points.push({
-        x: i * (c.width / (pointCount - 1)),
-        y: c.height / 2, // Default y-level in the middle of the canvas
-        isSpecified: false
-    });
-}
-
-var randomWave = Math.floor(Math.random()  * 30);
-
-points[randomWave].y = c.height * -7;
-points[250].y = c.height * -8;
-
-points[randomWave].isSpecified = true;
-points[250].isSpecified = true;
-
-function update(){
-    for (let k = 0; k < pointCount; k++) {
-        const previousPoint = points[(k === 0) ? pointCount - 1 : k - 1];
-        const nextPoint = points[(k === pointCount - 1) ? 0 : k + 1];
-        points[k].y = (previousPoint.y + points[k].y + nextPoint.y) / 3;
-
-        points[k].x -= 1;
-
-        if (points[k].x <= 0) {
-            points[k].x = c.width;
-            points[k].y = c.height / 2;
-        }
+// Wave object
+function Wave(x, y, amplitude, wavelength, speed) {
+    this.x = x; // x position
+    this.y = y; // y position
+    this.amplitude = amplitude; // wave amplitude
+    this.wavelength = wavelength; // wave wavelength
+    this.speed = speed; // wave speed
+  }
+  
+  // Array to store waves
+  const waves = [];
+  
+  // Function to generate waves
+  function generateWaves() {
+    // Add a new wave to the array with random properties
+    const x = canvas.width / 2;
+    const y = canvas.height;
+    const amplitude = Math.random() * 100 + 50;
+    const wavelength = Math.random() * 200 + 100;
+    const speed = Math.random() * 2 + 1;
+  
+    waves.push(new Wave(x, y, amplitude, wavelength, speed));
+  }
+  
+  // Function to update wave positions
+  function updateWaves() {
+    for (let i = 0; i < waves.length; i++) {
+      const wave = waves[i];
+      wave.x -= wave.speed;
+  
+      // Remove waves that are off the canvas
+      if (wave.x - wave.wavelength / 2 > canvas.width) {
+        waves.splice(i, 1);
+        i--;
+      }
     }
-}
-
-function draw() {
-    ctx.clearRect(0, 0, c.width, c.height);
-
-    update();
-
-    ctx.beginPath();
-    ctx.moveTo(points[0].x, points[0].y);
-
-    for (let i = 1; i < pointCount; i++) {
-        ctx.lineTo(points[i].x, points[i].y);
-        if (i === pointCount - 1) {
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(points[i].x, points[i].y);
-        }
+  }
+  
+  // Function to render waves
+  function renderWaves() {
+    for (let i = 0; i < waves.length; i++) {
+      const wave = waves[i];
+  
+      // Draw waves as curved shapes
+      ctx.beginPath();
+      ctx.moveTo(wave.x - wave.wavelength / 2, wave.y);
+      for (let x = wave.x - wave.wavelength / 2; x <= wave.x + wave.wavelength / 2; x++) {
+        const y = wave.y - wave.amplitude * Math.sin((x - wave.x) / wave.wavelength * 2 * Math.PI);
+        ctx.lineTo(x, y);
+      }
+      ctx.lineTo(wave.x + wave.wavelength / 2, wave.y);
+      ctx.closePath();
+  
+      // Customize wave appearance
+      ctx.fillStyle = "blue";
+      ctx.fill();
     }
-
-
-    requestAnimationFrame(draw);
-}
-draw();
+  }
