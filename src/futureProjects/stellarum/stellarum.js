@@ -5,55 +5,21 @@ canvas.width = window.innerWidth - (window.innerWidth / 10);
 canvas.height = window.innerHeight - (window.innerHeight / 10);
 
 let waves = [];
+let pointCount = 1000;
 
-function createNewWave() {
-  const wave = {
-    x: canvas.width + 50,
-    amplitude: 100,
-    length: 200,
-    speed: 2,
-  };
+function drawWave(length,amplitude){
+  ctx.fillStyle = "blue";
+  ctx.beginPath();
+  ctx.moveTo(canvas.width, 50);
 
-  waves.push(wave);
-}
-
-function drawWave() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  for (let i = 0; i < waves.length; i++) {
-    const wave = waves[i];
-
-    ctx.beginPath();
-
-    for (let x = 0; x < canvas.width; x++) {
-      const waveHeight =
-        Math.pow(Math.E, -Math.pow(x - wave.x, 2) / wave.length) *
-        wave.amplitude;
-
-      if (x === 0) {
-        ctx.moveTo(x, canvas.height / 2 + waveHeight);
-      } else {
-        ctx.lineTo(x, canvas.height / 2 + waveHeight);
-      }
-
-    }
-
-    ctx.strokeStyle = "blue";
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    wave.x -= wave.speed;
-
-    wave.amplitude *= 0.99;
-    wave.length *= 0.99;
-
-    if (wave.x < -canvas.width) {
-      waves.splice(i, 1);
-      i--;
-    }
+  for (var i = 0; i < pointCount; i++) {
+    var x = canvas.width - (canvas.width / (pointCount - 1)) * i;
+    var y = (canvas.height - 100);
+    ctx.lineTo(x, y);
+    ctx.moveTo(x, y);
+    console.log(x, y);
   }
 
-  requestAnimationFrame(drawWave);
+  ctx.stroke();
 }
-
-drawWave();
+drawWave(10,10);
