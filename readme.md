@@ -1,1 +1,1 @@
-Proper readme needs to be done.
+Proper readme needs to be written.
