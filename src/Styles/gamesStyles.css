@@ -1,3 +1,7 @@
+*{
+  font-family: 'Roboto', sans-serif;
+  }
+
 body, html {
     height: 100%;
     overflow:hidden;
@@ -6,3 +10,43 @@ body, html {
   html{
     background-color: #333533;
   }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #272727;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #333533;
+    }
+
+    .active {
+    background-image: linear-gradient(to right, #15ff00 , green);
+    border-radius: 0% 15% 15% 0%;
+    color:black;
+    }
+    .prev{
+      color:black;
+      background-color:#15ff00;
+    }
