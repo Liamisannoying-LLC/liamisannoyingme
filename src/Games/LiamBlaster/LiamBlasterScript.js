@@ -42,23 +42,22 @@
         ctx.drawImage(oli, -w / 2, -h / 2, w, h);
         ctx.restore();
       }
+
+
     function circle(x, y, w, hp, count) {
       if(hp != 0){
-      var colour;
-      
-      if (w === 100) {
-      } else if (w === 50) {
-      }
       
       w = w / 2;
       ctx.drawImage(liam, x, y, w, w);
       }else{
+
         ax.splice(count, 1);
         ay.splice(count, 1);
         aw.splice(count, 1);
         adir.splice(count, 1);
         ahp.splice(count, 1);
         asteroidsCount--;
+
         player.score++;
         }
     }
@@ -70,6 +69,7 @@
         aw.push(150);
         ahp.push(40);
         bigasteroids = Math.floor(Math.random() * 4) + 1;
+      }else{
         aw.push(100);
         ahp.push(20);
       }
@@ -78,6 +78,7 @@
       var delay = Math.random() * (2000 - 1000) + 1000;
     
       setTimeout(function (index) {
+        console.log(index);
         var angle = Math.random() * 2 * Math.PI;
         var x, y;
         do {
@@ -127,7 +128,8 @@
     }
 
     function update() {
-      for (var i = 0; i < asteroidsCount; i++) {
+
+      for(var i = 0; i < asteroidsCount; i++) {
 
         var dx = player.x - ax[i];//distance to playerX
         var dy = player.y - ay[i];//distance to PlayerY
@@ -154,7 +156,7 @@
         var angle = Math.atan2(dy, dx);//calculates angle
         adir[i] = angle;
 
-      if(aw[i] == 100){var speed = 1;}else if(aw[i] == 50){var speed = 2;}; // Adjust the asteroid speed based on the size
+      if(aw[i] == 100){var speed = 1 + player.score;}else if(aw[i] == 50){var speed = 2 + player.score;}; // Adjust the asteroid speed based on the size
         ax[i] += Math.cos(adir[i]) * speed;
         ay[i] += Math.sin(adir[i]) * speed;
       }
@@ -231,8 +233,9 @@
       canClick = true;
       }, 100);
     }
+
     var hasStarted = false;
-      start();
+    start();
 
     function start(event){
       document.addEventListener('keydown', function(event) {
@@ -266,6 +269,7 @@
 
     function loop() {//... its in the name
     ctx.clearRect(0, 0, c.width, c.height);//clears screen
+
     if(!hasStarted){
       ctx.font = "24px 'Bold Roboto', sans-serif";
       ctx.fillStyle = 'black';
@@ -278,6 +282,7 @@
     ctx.fillText("hp:" + player.hp,c.width/2 - 78,c.height / 10);
     ctx.fillText("score:" + player.score,c.width/2 + 24, c.height / 10);
     }
+
     Dead();
     update(); 
     bullet();
