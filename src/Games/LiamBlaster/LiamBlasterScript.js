@@ -156,7 +156,7 @@
         var angle = Math.atan2(dy, dx);//calculates angle
         adir[i] = angle;
 
-      if(aw[i] == 100){var speed = 1 + player.score;}else if(aw[i] == 50){var speed = 2 + player.score;}; // Adjust the asteroid speed based on the size
+      if(aw[i] == 100){var speed = 1 + (player.score/10);}else if(aw[i] == 50){var speed = 2 + (player.score/10);}; // Adjust the asteroid speed based on the size
         ax[i] += Math.cos(adir[i]) * speed;
         ay[i] += Math.sin(adir[i]) * speed;
       }
