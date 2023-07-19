@@ -11,6 +11,11 @@
     c.width = window.innerHeight - 100;
     c.height = window.innerHeight - 100;
 
+    if ("ontouchstart" in document.documentElement)
+    {
+      window.location = "../Mobile/LiamBlasterMobile.html";
+    }
+
     var asteroidsCount = 0;
 
     var ax = [];
