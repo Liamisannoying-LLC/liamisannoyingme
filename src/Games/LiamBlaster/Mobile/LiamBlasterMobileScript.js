@@ -221,7 +221,7 @@
     var clicked = false;
     var canClick = true;
 
-    window.addEventListener("mousedown",mouseDown);
+    window.addEventListener("touchstart",mouseDown);
     window.addEventListener("mouseup",mouseup);
     window.addEventListener("keydown",start);
 
