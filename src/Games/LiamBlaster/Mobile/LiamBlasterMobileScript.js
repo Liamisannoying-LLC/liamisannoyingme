@@ -129,7 +129,6 @@
         by[h] += bspeed * Math.sin(brot[h]);
       }
 
-
     }
 
     function update() {
@@ -186,7 +185,6 @@
           }
       }
     }  
-
 
     function bullet(){
       if(clicked){

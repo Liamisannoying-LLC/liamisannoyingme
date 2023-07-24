@@ -48,7 +48,6 @@
         ctx.restore();
       }
 
-
     function circle(x, y, w, hp, count) {
       if(hp != 0){
       
@@ -102,7 +101,6 @@
       }, delay, asteroidsCount);
     }
         
-
     function draw(){
       triangle(player.x, player.y, player.Rot, player.width, player.height);
 
@@ -166,8 +164,6 @@
         ay[i] += Math.sin(adir[i]) * speed;
       }
 
-
-
       for(var g = 0; g < asteroidsCount; g++){
           for(var j = 0; j < bulletCount; j++){
             if (bx[j] >= ax[g] - aw[g] / 2 && bx[j] <= ax[g] + aw[g] / 2) {
@@ -186,7 +182,6 @@
           }
       }
     }  
-
 
     function bullet(){
       if(clicked){
@@ -254,7 +249,6 @@
     function Dead(){
       if(player.hp <= 0){
         
-
         player.hp = 3;
         player.score = 0;
 
