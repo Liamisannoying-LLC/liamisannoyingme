@@ -11,6 +11,11 @@
     c.width = window.innerHeight - 100;
     c.height = window.innerHeight - 100;
 
+    if (!"ontouchstart" in document.documentElement)
+    {
+      window.location = "../Desktop/LiamBlaster.html";
+    }
+
     var asteroidsCount = 0;
 
     var ax = [];
@@ -124,7 +129,6 @@
         by[h] += bspeed * Math.sin(brot[h]);
       }
 
-
     }
 
     function update() {
@@ -182,7 +186,6 @@
       }
     }  
 
-
     function bullet(){
       if(clicked){
         bulletCount++;
@@ -216,7 +219,7 @@
     var clicked = false;
     var canClick = true;
 
-    window.addEventListener("mousedown",mouseDown);
+    window.addEventListener("touchstart",mouseDown);
     window.addEventListener("mouseup",mouseup);
     window.addEventListener("keydown",start);
 
