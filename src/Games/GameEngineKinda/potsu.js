@@ -1,14 +1,20 @@
-
+var ctx
+function Canvas(cvs){
+    ctx = cvs;
+}
 
 class GameObject {
-    constructor(hitboxVertices, image, x, y, w, h,canvas){
+    constructor(hitboxVertices, image, x, y, width, height, Velocity, LockedX, LockedY, state){
         this.hitbox = hitboxVertices;
         this.image = image;
         this.x = x;
         this.y = y;
-        this.w = w;
-        this.h = h;
-        ctx = canvas;
+        this.w = width;
+        this.h = height;
+        this.LockedX = LockedX;
+        this.LockedY = LockedY;
+        this.state = state;
+        this.v = Velocity
     }
 
     draw(){
@@ -18,12 +24,9 @@ class GameObject {
     }
 }
 
-
-
-
 function CheckCollsions(object1, object2){
 
-checkPolygonOverlap(object1, object2)
+return checkPolygonOverlap(object1, object2);
 
 function dotProduct(vector1, vector2) {
     return vector1.x * vector2.x + vector1.y * vector2.y;
