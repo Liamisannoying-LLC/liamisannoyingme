@@ -1,20 +1,20 @@
-var ctx
+var ctx;
 function Canvas(cvs){
     ctx = cvs;
 }
 
 class GameObject {
-    constructor(hitboxVertices, image, x, y, width, height, Velocity, LockedX, LockedY, state){
+    constructor(hitboxVertices, image, x, y, width, height, Velocity, mass,density, state){
         this.hitbox = hitboxVertices;
         this.image = image;
         this.x = x;
         this.y = y;
         this.w = width;
         this.h = height;
-        this.LockedX = LockedX;
-        this.LockedY = LockedY;
         this.state = state;
         this.v = Velocity
+        this.mass = mass;
+        this.density = density;
     }
 
     draw(){
@@ -22,6 +22,10 @@ class GameObject {
             ctx.drawImage
         }
     }
+}
+
+function boyancy(object,liquid){
+ return liquid.density * object.v * (object.w * object.h * object.w);
 }
 
 function CheckCollsions(object1, object2){
