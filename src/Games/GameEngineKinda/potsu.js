@@ -24,14 +24,11 @@ class GameObject {
     }
 }
 
-function boyancyForce(object,liquid){
- return liquid.density * object.v * (object.w * object.h * object.w);
+function boyancyForce(object,air){
+ return air.density * object.v * (object.w * object.h * object.w);
  //buoyancyForce = (airDensity - densityOfHotAir) * balloonVolume * gravity;
 }
 
 function AirDensity(){
     //p = p/rt
 }
-
-
-function
