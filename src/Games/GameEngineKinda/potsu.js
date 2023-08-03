@@ -30,7 +30,7 @@ class GameObject {
                     y: edges[i].x / length,
                 };
                 // project polygon under axis
-                const { min: minA, max: maxA } = polygon.projectInAxis(axis.x, axis.y);
+                const { min: minA, max: maxA } = this.projectInAxis(axis.x, axis.y);
                 const { min: minB, max: maxB } = otherPolygon.projectInAxis(axis.x, axis.y);
                 if (intervalDistance(minA, maxA, minB, maxB) > 0) {
                     return false;

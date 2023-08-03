@@ -23,7 +23,7 @@ La Montgolfiere (hot air baloon):
 
     Survive game:
 
-        la montgolfiere is breaking down and ypu need parts to fix it as your flying
+        la montgolfiere is breaking down and you need parts to fix it as your flying
 
 
 
