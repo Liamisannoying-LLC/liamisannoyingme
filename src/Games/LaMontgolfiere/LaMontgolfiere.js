@@ -50,5 +50,21 @@ La Montgolfiere (hot air baloon):
     Art Style:
         idk something like alto's oddesy
 */
+var c = document.getElementById("cvs");
+var ctx = c.getContext("2d");
 
+Canvas(ctx);
 
+var vertices = [
+    {x:0,y:0},
+    {x:1,y:0},
+    {x:1,y:1},
+    {x:0,y:1}
+]
+
+var image = new image();
+image.src = "Images/RedSquare.png";
+
+object = new GameObject(vertices,image,200,200,50,50,0,50);
+
+object.render();
