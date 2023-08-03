@@ -50,6 +50,7 @@ La Montgolfiere (hot air baloon):
     Art Style:
         idk something like alto's oddesy
 */
+
 var c = document.getElementById("cvs");
 var ctx = c.getContext("2d");
 
