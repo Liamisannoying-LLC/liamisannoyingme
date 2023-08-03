@@ -4,25 +4,25 @@ this code doesnt effect liam blaster but is with other games so if you dont coun
 */
 
 var ctx;
+
 function Canvas(cvs){
     ctx = cvs;
 }
 
 class GameObject {
-    constructor(hitboxVertices, image, x, y, width, height, Velocity, mass){
+    constructor(hitboxVertices, image, x, y, width, height, Velocity, mass, density){
         this.image = image;
         this.y = y;
         this.x = x;
         this.w = width;
         this.h = height;
-        this.state = state;
         this.v = Velocity
         this.mass = mass;
         this.density = density;
 
         //collision
-        this.hitbox = hitboxVertices;
-        this.edges = buildEdges(this.hitbox);
+        this.vertices = hitboxVertices;
+        this.edges = buildEdges(this.vertices);
         this.projectInAxis = function(x, y) {}
         this.testWith = function (otherPolygon) {} 
         this.renderImage = function() {
@@ -30,15 +30,18 @@ class GameObject {
         }
 
         this.render = function(fillColour,borderColour) {
+            console.log("drawnaedaefa");
             ctx.fillStyle = borderColour;
             ctx.beginPath();
             ctx.moveTo(this.x, this.y);
-            for(var i; i < this.vertices.length; i++){
+            for(var i = 0; i < this.vertices.length; i++){
             ctx.lineTo(this.vertices[i].x, this.vertices[i].y);
+            console.log("drawn");
             }
             ctx.closePath();
             ctx.fillStyle = fillColour;
             ctx.fill();
+            console.log("drawns");
         }
 
         this.offset = function(dx, dy) {
