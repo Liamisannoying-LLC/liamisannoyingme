@@ -60,12 +60,26 @@ var vertices = [
     {x:0,y:0},
     {x:100,y:0},
     {x:100,y:100},
+    {x:50,y:150},
     {x:0,y:100}
+]
+var vertices2 = [
+    {x:0,y:0},
+    {x:100,y:0},
+    {x:100,y:100},
+    {x:50,y:150},
+    {x:5,y:100}
 ]
 
 const img = new Image();
 img.src = "Images/RedSquare.png";
 
 object = new GameObject(vertices,img,500,500,50,50,0,50,0);
+object2 = new GameObject(vertices2,img,500,500,50,50,0,50,0);
+
+object2.offset(200,20);
 
 object.render("red","black");
+object2.render("blue","black");
+
+console.log(object.testCollide(object2));
