@@ -1,6 +1,23 @@
-/*
+/* 
+
+This is potsu the JS Library made for the www.liamisannoying.me website
+
+This Library contains Advanced collision Detection(Seperating Axis Theorum)
+And physics tool's for easy Game Development across multiple Games
+
+
+
+
+-Disclamer-
 This is very math-y so a lot of it is stolen from the internet and gpt(if I couldnt find it on the interweb)
-this code doesnt effect liam blaster but is with other games so if you dont count it, LiamBlasters Still legitimate.
+this code doesnt effect liam blaster but is with other games so if you dont count it, LiamBlaster is still legitimate.
+
+From websites:
+    Seperating Axis Theorum
+    Rendering objects
+
+Gpt:
+    bouyancy for Hot air balloons(not very many studies on that, exspecialy in js)
 */
 
 var ctx;
@@ -97,25 +114,28 @@ class GameObject {
 }
 
 
-const Gravity = 9.8;
+//const Gravity = 9.8;
 
 
-function boyancyForce(airDensity, hotAirTemp, pressureInsideBalloon, balloonRadius) {
-    const molarMassAir = 0.029;
-    const gasConstant = 8.314;
-    //https://www.omnicalculator.com/physics/air-density
+// function boyancyForce(airDensity, hotAirTemp, pressureInsideBalloon, balloonRadius) {
+//     const molarMassAir = 0.029;
+//     const gasConstant = 8.314;
+//     //https://www.omnicalculator.com/physics/air-density
 
-    // Calculate hot air density using the Ideal Gas Law
-    const hotAirDensity = (pressureInsideBalloon * molarMassAir) / (gasConstant * hotAirTemp);
+//     // Calculate hot air density using the Ideal Gas Law
+//     const hotAirDensity = (pressureInsideBalloon * molarMassAir) / (gasConstant * hotAirTemp);
 
-    // Calculate the volume of the hot air balloon (assuming spherical shape)
-    const balloonVolume = (4 / 3) * Math.PI * Math.pow(balloonRadius, 3);
+//     // Calculate the volume of the hot air balloon (assuming spherical shape)
+//     const balloonVolume = (4 / 3) * Math.PI * Math.pow(balloonRadius, 3);
 
-    // Calculate the buoyant force
-    const buoyantForce = (airDensity - hotAirDensity) * balloonVolume * Gravity;
+//     // Calculate the buoyant force
+//     const buoyantForce = (airDensity - hotAirDensity) * balloonVolume * Gravity;
 
-    return buoyantForce;
-}
+//     return buoyantForce;
+// }
+
+
+
 
 //SATTTTTTTTTTTTTTTTT stolen from the interweb
 
