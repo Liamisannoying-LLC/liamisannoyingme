@@ -43,22 +43,21 @@ class GameObject {
         this.projectInAxis = function(x, y) {}
         this.testWith = function (otherPolygon) {} 
         this.renderImage = function() {
-            ctx.drawImage(this.image,this.x,this.y,thsi.width);
+            ctx.drawImage(this.image,this.x,this.y,this.width);
         }
 
         this.render = function(fillColour,borderColour) {
-            console.log("drawnaedaefa");
             ctx.fillStyle = borderColour;
+            ctx.lineWidth = 10;
             ctx.beginPath();
             ctx.moveTo(this.x, this.y);
             for(var i = 0; i < this.vertices.length; i++){
-            ctx.lineTo(this.vertices[i].x, this.vertices[i].y);
-            console.log("drawn");
+            ctx.lineTo(this.vertices[i].x + this.x, this.vertices[i].y + this.y);
             }
             ctx.closePath();
             ctx.fillStyle = fillColour;
+            ctx.stroke();
             ctx.fill();
-            console.log("drawns");
         }
 
         this.offset = function(dx, dy) {

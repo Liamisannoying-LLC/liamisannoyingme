@@ -58,14 +58,14 @@ Canvas(ctx);
 
 var vertices = [
     {x:0,y:0},
-    {x:1,y:0},
-    {x:1,y:1},
-    {x:0,y:1}
+    {x:100,y:0},
+    {x:100,y:100},
+    {x:0,y:100}
 ]
 
 const img = new Image();
 img.src = "Images/RedSquare.png";
 
-object = new GameObject(vertices,img,200,200,50,50,0,50,0);
+object = new GameObject(vertices,img,500,500,50,50,0,50,0);
 
 object.render("red","black");
