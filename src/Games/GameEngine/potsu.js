@@ -17,7 +17,7 @@ this code doesnt effect liam blaster but is with other games so if you dont coun
 From websites:
 
 Gpt:
-
+    Expanding on SAT algorythem
 */
 
 var ctx;
@@ -33,10 +33,11 @@ class GameObject {
         this.x = x;
         this.w = width;
         this.h = height;
-        this.v = Velocity
+        this.v = Velocity;
         this.mass = mass;
         this.density = density;
-        this.vertices = hitboxVertices;
+        this.vertOrigin = hitboxVertices;
+        this.vertices ;
 
         //render
         this.renderImage = function() {
@@ -60,6 +61,10 @@ class GameObject {
         this.offset = function(dx, dy) {
             this.x += dx;
             this.y += dy;
+            for(let i = 0; i < this.vertOrigin.length; i++){
+                this.vertices[i].x = this.vertOrigin[i].x + this.x;
+                this.vertices[i].y = this.vertOrigin[i].y + this.y;
+            }
         }
     }
 }
@@ -81,40 +86,53 @@ function boyancyForce(balloonRadius, altitude){//meters
 
     return balloonVolume * airDensity * 9.8;//bf = V x D * G
 }
+//collision detection SAT
 
+function CheckCollide(object1, object2) {
 
-//collision detection its Kinda SAT
+    function getMinMax(vertices, axis) {
+        let min = Number.POSITIVE_INFINITY;
+        let max = Number.NEGATIVE_INFINITY;
 
-function CheckCollide(object, object2){
-    var objectMin = { x:10000000000, y:10000000000};
-    var objectMax = { x:-10000000000, y:-10000000000};
-    var object2Min = { x:10000000000, y:10000000000};
-    var object2Max = { x:-10000000000, y:-10000000000};
+        for (let i = 0; i < vertices.length; i++) {
+            let projection = vertices[i].x * axis.x + vertices[i].y * axis.y;
+            min = Math.min(min, projection);
+            max = Math.max(max, projection);
+        }
 
-    for (var i = 0; i < object.vertices.length; i++) {
-        var vertex = object.vertices[i];
-        objectMin.x = Math.min(objectMin.x, vertex.x);
-        objectMax.x = Math.max(objectMax.x, vertex.x);
-        objectMin.y = Math.min(objectMin.y, vertex.y);
-        objectMax.y = Math.max(objectMax.y, vertex.y);
+        return { min: min, max: max };
     }
 
-    for (var i = 0; i < object2.vertices.length; i++) {
-        var vertex = object2.vertices[i];
-        object2Min.x = Math.min(object2Min.x, vertex.x);
-        object2Max.x = Math.max(object2Max.x, vertex.x);
-        object2Min.y = Math.min(object2Min.y, vertex.y);
-        object2Max.y = Math.max(object2Max.y, vertex.y);
+    function axisSeparation(axis) {
+        let minMax1 = getMinMax(object1.vertices, axis);
+        let minMax2 = getMinMax(object2.vertices, axis);
+
+        return (minMax1.min > minMax2.max || minMax1.max < minMax2.min);
     }
 
-    if (
-        objectMax.x >= object2Min.x &&
-        objectMin.x <= object2Max.x &&
-        objectMax.y >= object2Min.y &&
-        objectMin.y <= object2Max.y
-    ) {
-        return true;
-    } else {
-        return false;
+    for (let i = 0; i < object1.vertices.length; i++) {
+        let j = (i + 1) % object1.vertices.length;
+        let axis = {
+            x: object1.vertices[j].y - object1.vertices[i].y,
+            y: object1.vertices[i].x - object1.vertices[j].x
+        };
+
+        if (axisSeparation(axis)) {
+            return false;
+        }
     }
+
+    for (let i = 0; i < object2.vertices.length; i++) {
+        let j = (i + 1) % object2.vertices.length;
+        let axis = {
+            x: object2.vertices[j].y - object2.vertices[i].y,
+            y: object2.vertices[i].x - object2.vertices[j].x
+        };
+
+        if (axisSeparation(axis)) {
+            return false;
+        }
+    }
+
+    return true;
 }

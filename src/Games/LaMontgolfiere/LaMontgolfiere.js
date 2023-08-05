@@ -73,7 +73,7 @@ const img = new Image();
 img.src = "Images/RedSquare.png";
 
 object = new GameObject(vertices,img,500,500,50,50,{x:0, y:0},50,0);
-object2 = new GameObject(vertices2,img,705,520,50,50,{x:0, y:0},50,0);
+object2 = new GameObject(vertices2,img,705,720,50,50,{x:0, y:0},50,0);
 
 function loop(){
 ctx.clearRect(0,0,c.width,c.height)
