@@ -15,9 +15,9 @@ This is very math-y so some of it is stolen from the internet and gpt(if I could
 this code doesnt effect liam blaster but is with other games so if you dont count it, LiamBlaster is still legitimate.
 
 From websites:
-
+    SAT algorythem
 Gpt:
-    Expanding on SAT algorythem
+    
 */
 
 var ctx;
@@ -37,12 +37,29 @@ class GameObject {
         this.mass = mass;
         this.density = density;
         this.vertOrigin = hitboxVertices;
-        this.vertices ;
+
+        //collision
+        this.projectInAxis = function(x, y) {
+            let min = 10000000000;
+            let max = -10000000000;
+            for (let i = 0; i < polygon.vertices.length; i++) {
+                let px = polygon.vertices[i].x;
+                let py = polygon.vertices[i].y;
+                var projection = (px * x + py * y) / (Math.sqrt(x * x + y * y));
+                if (projection > max) {
+                    max = projection;
+                }
+                if (projection < min) {
+                    min = projection;
+                }
+            }
+            return { min, max };
+        };
 
         //render
         this.renderImage = function() {
             ctx.drawImage(this.image,this.x,this.y,this.width);
-        }
+        };
 
         this.render = function(fillColour,borderColour) {
             ctx.fillStyle = borderColour;
@@ -56,7 +73,7 @@ class GameObject {
             ctx.fillStyle = fillColour;
             ctx.stroke();
             ctx.fill();
-        }
+        };
 
         this.offset = function(dx, dy) {
             this.x += dx;
@@ -65,7 +82,7 @@ class GameObject {
                 this.vertices[i].x = this.vertOrigin[i].x + this.x;
                 this.vertices[i].y = this.vertOrigin[i].y + this.y;
             }
-        }
+        };
     }
 }
 
@@ -86,53 +103,11 @@ function boyancyForce(balloonRadius, altitude){//meters
 
     return balloonVolume * airDensity * 9.8;//bf = V x D * G
 }
-//collision detection SAT
 
-function CheckCollide(object1, object2) {
-
-    function getMinMax(vertices, axis) {
-        let min = Number.POSITIVE_INFINITY;
-        let max = Number.NEGATIVE_INFINITY;
-
-        for (let i = 0; i < vertices.length; i++) {
-            let projection = vertices[i].x * axis.x + vertices[i].y * axis.y;
-            min = Math.min(min, projection);
-            max = Math.max(max, projection);
-        }
-
-        return { min: min, max: max };
+function verts(origin){
+    var vert = [];
+    for(var i = 0; i < origin.length; i++){
+        vert[i].x = origin[i].x + 
     }
-
-    function axisSeparation(axis) {
-        let minMax1 = getMinMax(object1.vertices, axis);
-        let minMax2 = getMinMax(object2.vertices, axis);
-
-        return (minMax1.min > minMax2.max || minMax1.max < minMax2.min);
-    }
-
-    for (let i = 0; i < object1.vertices.length; i++) {
-        let j = (i + 1) % object1.vertices.length;
-        let axis = {
-            x: object1.vertices[j].y - object1.vertices[i].y,
-            y: object1.vertices[i].x - object1.vertices[j].x
-        };
-
-        if (axisSeparation(axis)) {
-            return false;
-        }
-    }
-
-    for (let i = 0; i < object2.vertices.length; i++) {
-        let j = (i + 1) % object2.vertices.length;
-        let axis = {
-            x: object2.vertices[j].y - object2.vertices[i].y,
-            y: object2.vertices[i].x - object2.vertices[j].x
-        };
-
-        if (axisSeparation(axis)) {
-            return false;
-        }
-    }
-
-    return true;
 }
+//collision detection SAT
