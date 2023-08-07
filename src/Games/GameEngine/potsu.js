@@ -29,15 +29,13 @@ function Canvas(cvs){
 class GameObject {
     constructor(hitboxVertices, image, x, y, width, height, Velocity, mass, density){
         this.image = image;
-        this.y = y;
-        this.x = x;
         this.w = width;
         this.h = height;
         this.v = Velocity;
         this.mass = mass;
         this.density = density;
         this.vertOrigin = hitboxVertices;
-        this.vertices = verts(this.vertOrigin);
+        this.vertices = this.vertOrigin;
         this.edges = buildEdges(this.vertices);
 
         //collision
@@ -87,7 +85,7 @@ class GameObject {
 
         //render
         this.renderImage = function() {
-            ctx.drawImage(this.image,this.x,this.y,this.width);
+            ctx.drawImage(this.image,this.vertices[1].x,this.vertices[1].y,this.width);
         };
 
         this.render = function(fillColour,borderColour) {
@@ -105,15 +103,21 @@ class GameObject {
         };
 
         this.offset = function(dx, dy) {
-            this.x += dx;
-            this.y += dy;
-            this.vertices = verts(this.vertOrigin);
+            for (let i = 0; i < this.vertices.length; i++) {
+                this.vertices[i] = {
+                    x: this.vertices[i].x + dx,
+                    y: this.vertices[i].y + dy,
+                };
+            }
         };
 
         this.goTo = function(x,y) {
-            this.x = x;
-            this.y = y;
-            this.vertices = verts(this.vertOrigin);
+            for (let i = 0; i < this.vertices.length; i++) {
+                this.vertices[i] = {
+                    x: this.vertOrigin[i].x + x,
+                    y: this.vertOrigin[i].y + y
+                }
+            }
         }
     }
 }
@@ -134,15 +138,6 @@ function boyancyForce(balloonRadius, altitude){//meters
     }
 
     return balloonVolume * airDensity * 9.8;//bf = V x D * G
-}
-
-function verts(origin){
-    var a = [];
-    for(var i = 0; i < origin.length; i++){
-        a[i].x = origin[i].x + this.x;
-        a[i].y = origin[i].y + this.y;
-    }
-    return a;
 }
 
 //collision detection SAT

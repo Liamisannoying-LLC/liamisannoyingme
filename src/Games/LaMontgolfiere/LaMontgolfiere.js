@@ -70,8 +70,10 @@ var vertices2 = [
 ]
 
 
-object = new GameObject(vertices,img,500,500,50,50,{x:0, y:0},50,0);
-object2 = new GameObject(vertices2,img,705,720,50,50,{x:0, y:0},50,0);
+object = new GameObject(vertices,null,50,50,{x:0, y:0},50,0);
+object2 = new GameObject(vertices2,null,50,50,{x:0, y:0},50,0);
+
+object2.offset(100,150);
 
 function loop(){
 ctx.clearRect(0,0,c.width,c.height)
@@ -80,4 +82,5 @@ object2.render("blue","black");
 window.requestAnimationFrame(loop);
 }
 loop();
-console.log(CheckCollide(object,object2));
+
+console.log(object.testWith(object2));
