@@ -37,6 +37,7 @@ class GameObject {
         this.mass = mass;
         this.density = density;
         this.vertOrigin = hitboxVertices;
+        this.vertices = verts(this.vertOrigin);
 
         //collision
         this.projectInAxis = function(x, y) {
@@ -67,7 +68,7 @@ class GameObject {
             ctx.beginPath();
             ctx.moveTo(this.x, this.y);
             for(var i = 0; i < this.vertices.length; i++){
-            ctx.lineTo(this.vertices[i].x + this.x, this.vertices[i].y + this.y);
+            ctx.lineTo(this.vertices[i].x, this.vertices[i].y);
             }
             ctx.closePath();
             ctx.fillStyle = fillColour;
@@ -78,11 +79,13 @@ class GameObject {
         this.offset = function(dx, dy) {
             this.x += dx;
             this.y += dy;
-            for(let i = 0; i < this.vertOrigin.length; i++){
-                this.vertices[i].x = this.vertOrigin[i].x + this.x;
-                this.vertices[i].y = this.vertOrigin[i].y + this.y;
-            }
+            this.vertices = verts(this.vertOrigin);
         };
+        this.goTo = function(x,y) {
+            this.x = x;
+            this.y = y;
+            this.vertices = verts(this.vertOrigin);
+        }
     }
 }
 
@@ -105,9 +108,12 @@ function boyancyForce(balloonRadius, altitude){//meters
 }
 
 function verts(origin){
-    var vert = [];
+    var a = [];
     for(var i = 0; i < origin.length; i++){
-        vert[i].x = origin[i].x + 
+        a[i].x = origin[i].x + this.x;
+        a[i].y = origin[i].y + this.y;
     }
+    return a;
 }
+
 //collision detection SAT
