@@ -58,13 +58,26 @@ Canvas(ctx);
 
 var vertices = [
     {x:0,y:0},
-    {x:100,y:0},
+    {x:0,y:100},
     {x:100,y:100},
-    {x:0,y:100}
+    {x:100,y:0}
+]
+var vertices2 = [
+    {x:0,y:0},
+    {x:0,y:100},
+    {x:100,y:100},
+    {x:100,y:0}
 ]
 
 
-object = new GameObject(vertices,img,500,500,50,50,0,50,0);
+object = new GameObject(vertices,img,500,500,50,50,{x:0, y:0},50,0);
+object2 = new GameObject(vertices2,img,705,720,50,50,{x:0, y:0},50,0);
 
-//object.render("red","black");
-object.renderImage();
+function loop(){
+ctx.clearRect(0,0,c.width,c.height)
+object.render("red","black");
+object2.render("blue","black");
+window.requestAnimationFrame(loop);
+}
+loop();
+console.log(CheckCollide(object,object2));
