@@ -54,6 +54,9 @@ La Montgolfiere (hot air baloon):
 var c = document.getElementById("cvs");
 var ctx = c.getContext("2d");
 
+c.width = window.innerWidth;
+c.height = window.innerHeight;
+
 Canvas(ctx);
 
 var vertices = [
@@ -73,7 +76,7 @@ var vertices2 = [
 object = new GameObject(vertices,null,50,50,{x:0, y:0},50,0);
 object2 = new GameObject(vertices2,null,50,50,{x:0, y:0},50,0);
 
-object2.offset(100,150);
+object2.offset(100,100);
 
 function loop(){
 ctx.clearRect(0,0,c.width,c.height)
