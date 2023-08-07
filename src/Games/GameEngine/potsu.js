@@ -38,14 +38,15 @@ class GameObject {
         this.density = density;
         this.vertOrigin = hitboxVertices;
         this.vertices = verts(this.vertOrigin);
+        this.edges = buildEdges(this.vertices);
 
         //collision
         this.projectInAxis = function(x, y) {
             let min = 10000000000;
             let max = -10000000000;
-            for (let i = 0; i < polygon.vertices.length; i++) {
-                let px = polygon.vertices[i].x;
-                let py = polygon.vertices[i].y;
+            for (let i = 0; i < this.vertices.length; i++) {
+                let px = this.vertices[i].x;
+                let py = this.vertices[i].y;
                 var projection = (px * x + py * y) / (Math.sqrt(x * x + y * y));
                 if (projection > max) {
                     max = projection;
@@ -55,6 +56,33 @@ class GameObject {
                 }
             }
             return { min, max };
+        };
+
+        this.testWith = function (otherPolygon) {
+            // get all edges
+            const edges = [];
+            for (let i = 0; i < this.edges.length; i++) {
+                edges.push(this.edges[i]);
+            }
+            for (let i = 0; i < otherPolygon.edges.length; i++) {
+                edges.push(otherPolygon.edges[i]);
+            }
+            // build all axis and project
+            for (let i = 0; i < edges.length; i++) {
+                // get axis
+                const length = Math.sqrt(edges[i].y * edges[i].y + edges[i].x * edges[i].x);
+                const axis = {
+                    x: -edges[i].y / length,
+                    y: edges[i].x / length,
+                };
+                // project polygon under axis
+                const { min: minA, max: maxA } = this.projectInAxis(axis.x, axis.y);
+                const { min: minB, max: maxB } = otherPolygon.projectInAxis(axis.x, axis.y);
+                if (intervalDistance(minA, maxA, minB, maxB) > 0) {
+                    return false;
+                }
+            }
+            return true;
         };
 
         //render
@@ -81,6 +109,7 @@ class GameObject {
             this.y += dy;
             this.vertices = verts(this.vertOrigin);
         };
+
         this.goTo = function(x,y) {
             this.x = x;
             this.y = y;
@@ -117,3 +146,30 @@ function verts(origin){
 }
 
 //collision detection SAT
+
+function buildEdges(vertices) {
+    const edges = [];
+    if (vertices.length < 3) {
+        console.error("Only polygons supported.");
+        return edges;
+    }
+    for (let i = 0; i < vertices.length; i++) {
+        const a = vertices[i];
+        let b = vertices[0];
+        if (i + 1 < vertices.length) {
+            b = vertices[i + 1];
+        }
+        edges.push({
+            x: (b.x - a.x),
+            y: (b.y - a.y),
+        });
+    }
+    return edges;
+}
+
+function intervalDistance(minA, maxA, minB, maxB) {
+    if (minA < minB) {
+        return (minB - maxA);
+    }
+    return (minA - maxB);
+}
