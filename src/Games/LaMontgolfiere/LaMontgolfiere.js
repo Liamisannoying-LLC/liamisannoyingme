@@ -54,18 +54,36 @@ La Montgolfiere (hot air baloon):
 var c = document.getElementById("cvs");
 var ctx = c.getContext("2d");
 
+c.width = window.innerWidth;
+c.height = window.innerHeight;
+
 Canvas(ctx);
 
 var vertices = [
     {x:0,y:0},
-    {x:1,y:0},
-    {x:1,y:1},
-    {x:0,y:1}
+    {x:0,y:100},
+    {x:100,y:100},
+    {x:100,y:0}
+]
+var vertices2 = [
+    {x:0,y:0},
+    {x:0,y:100},
+    {x:100,y:100},
+    {x:100,y:0}
 ]
 
-var image = new image();
-image.src = "Images/RedSquare.png";
 
-object = new GameObject(vertices,image,200,200,50,50,0,50);
+object = new GameObject(vertices,null,50,50,{x:0, y:0},50,0);
+object2 = new GameObject(vertices2,null,50,50,{x:0, y:0},50,0);
 
-object.render();
+object2.offset(100,100);
+
+function loop(){
+ctx.clearRect(0,0,c.width,c.height)
+object.render("red","black");
+object2.render("blue","black");
+window.requestAnimationFrame(loop);
+}
+loop();
+
+console.log(object.testWith(object2));
