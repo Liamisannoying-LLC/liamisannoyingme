@@ -16,8 +16,6 @@ this code doesnt effect liam blaster but is with other games so if you dont coun
 
 From websites:
     SAT algorythem
-Gpt:
-    
 */
 
 var ctx;
@@ -127,8 +125,8 @@ var PressureList = [101, 99.5, 97.7, 96.0, 94.2, 92.5, 90.8, 89.1, 87.5, 85.9, 8
 //meters
 var PressureAlt = [0, 152, 305, 457, 610, 762, 914, 1067, 1219, 1372, 1524, 1829, 2134, 2438, 2743, 3048, 4572, 6096, 7620, 9144, 10668, 12192, 13716, 15240]
 
-function boyancyForce(balloonRadius, altitude){//meters
-    let balloonVolume = 4/3 * Math.PI * Math.pow(balloonRadius, 3);//meters^3
+function AirboyancyForce(volume, altitude){//meters
+
     let airDensity;//kg/m^3
 
     for(let i = 0; i < PressureAlt.length; i++){//finds air pressure of altitude
@@ -137,9 +135,15 @@ function boyancyForce(balloonRadius, altitude){//meters
         }
     }
 
-    return balloonVolume * airDensity * 9.8;//bf = V x D * G
+    return volume * airDensity * 9.8;//bf = V x D * G
+}
+function BoyantForce(volume, liquidDensity){
+    return volume * liquidDensity * 9.8;
 }
 
+function shpereVolume(Radius){
+    return 4/3 * Math.PI * Math.pow(Radius, 3);//meters^3
+}
 //collision detection SAT
 
 function buildEdges(vertices) {
