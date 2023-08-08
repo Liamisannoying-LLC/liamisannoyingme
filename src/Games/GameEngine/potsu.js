@@ -83,10 +83,17 @@ class GameObject {
 
         //render
         this.renderImage = function() {
+            if(ctx === null){
+                console.error("No CanvasRenderingContext2D applied");
+            }else{
             ctx.drawImage(this.image,this.vertices[1].x,this.vertices[1].y,this.width);
+            }
         };
 
         this.render = function(fillColour,borderColour) {
+            if(ctx === null){
+                console.error("No CanvasRenderingContext2D applied");
+            }else{
             ctx.fillStyle = borderColour;
             ctx.lineWidth = 10;
             ctx.beginPath();
@@ -98,6 +105,7 @@ class GameObject {
             ctx.fillStyle = fillColour;
             ctx.stroke();
             ctx.fill();
+            }
         };
 
         this.offset = function(dx, dy) {
