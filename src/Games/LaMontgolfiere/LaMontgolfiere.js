@@ -59,31 +59,16 @@ c.height = window.innerHeight;
 
 Canvas(ctx);
 
-var vertices = [
-    {x:0,y:0},
-    {x:0,y:100},
-    {x:100,y:100},
-    {x:100,y:0}
-]
-var vertices2 = [
-    {x:0,y:0},
-    {x:0,y:100},
-    {x:100,y:100},
-    {x:100,y:0}
-]
+//vertices
+ 
+//making objects
 
-
-object = new GameObject(vertices,null,50,50,{x:0, y:0},50,0);
-object2 = new GameObject(vertices2,null,50,50,{x:0, y:0},50,0);
-
-object2.offset(100,100);
+//vars
 
 function loop(){
-ctx.clearRect(0,0,c.width,c.height)
-object.render("red","black");
-object2.render("blue","black");
-window.requestAnimationFrame(loop);
+
+
+    window.requestAnimationFrame(loop);
 }
 loop();
 
-console.log(object.testWith(object2));
