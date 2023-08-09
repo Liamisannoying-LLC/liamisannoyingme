@@ -18,6 +18,54 @@ From websites:
     SAT algorythem
 */
 
+
+
+
+/*
+shape vertices:
+
+square = [
+  { x: 0, y: 0 },
+  { x: 50, y: 0 },
+  { x: 50, y: 50 },
+  { x: 0, y: 50 }
+];
+
+triangle = [
+  { x: 25, y: 0 },
+  { x: 50, y: 50 },
+  { x: 0, y: 50 }
+];
+
+hexagon = [
+  { x: 30, y: 0 },
+  { x: 60, y: 20 },
+  { x: 60, y: 50 },
+  { x: 30, y: 70 },
+  { x: 0, y: 50 },
+  { x: 0, y: 20 }
+];
+
+octagon = [
+  { x: 20, y: 0 },
+  { x: 50, y: 0 },
+  { x: 70, y: 20 },
+  { x: 70, y: 50 },
+  { x: 50, y: 70 },
+  { x: 20, y: 70 },
+  { x: 0, y: 50 },
+  { x: 0, y: 20 }
+];
+
+pentagon = [
+  { x: 25, y: 0 },
+  { x: 50, y: 18 },
+  { x: 42, y: 50 },
+  { x: 8, y: 50 },
+  { x: 0, y: 18 }
+];
+
+*/
 var ctx;
 
 function Canvas(cvs){
@@ -25,7 +73,7 @@ function Canvas(cvs){
 }
 
 class GameObject {
-    constructor(hitboxVertices, image, x, y, width, height, Velocity, mass, density){
+    constructor(hitboxVertices, image, width, height, Velocity, mass, density){
         this.image = image;
         this.w = width;
         this.h = height;
