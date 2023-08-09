@@ -70,8 +70,10 @@ balloonVerts = [
         { x: 0, y: 50 },
         { x: 0, y: 20 }
 ];
+
 //making objects
 var balloon = new GameObject(balloonVerts,null,50,50,{x:0,y:0},1,1);
+
 //vars
 
 balloon.goTo(500,500);
