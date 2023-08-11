@@ -4,8 +4,9 @@
     }
 
 .textbox{
-    color: black;
-    font-weight: bold;
+  padding: 10%;
+  background-color: #15ff00;
+  border-radius: 15%;
 }
 
 h1 {
