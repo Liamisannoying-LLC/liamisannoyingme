@@ -88,9 +88,12 @@ loop();
 
 balloon.render("red","black");
 
-function move(e){
-if(e.key == "w"){
-    
+function move(Event){
+if(Event.key === "w"){
+    balloonTemp += 0.5;
+}
+if(Event.key === "s"){
+    balloonTemp -= 0.5;
 }
 }
 
