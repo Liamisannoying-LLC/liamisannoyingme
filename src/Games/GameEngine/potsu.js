@@ -196,6 +196,15 @@ function shpereVolume(Radius){
     return 4/3 * Math.PI * Math.pow(Radius, 3);//meters^3
 }
 
+function hotAirBalloonVolume(Temp, altitude,radius){
+    const GasConst = 287;//J/(kg*K)
+    Temp = Temp += 273.15;
+    var p_alt = airDensity(altitude);
+    var m_air = shpereVolume(radius);
+    //V = (m_air * R_air * T) / P_alt
+    return (m_air * GasConst * Temp) / p_alt;
+}
+
 function airDensity(altitude){
     for(let i = 0; i < PressureAlt.length; i++){//finds air pressure of altitude
         if(altitude > PressureAlt[i] && altitude < PressureAlt[i+1]){
