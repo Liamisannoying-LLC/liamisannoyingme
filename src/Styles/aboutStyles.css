@@ -1,9 +1,14 @@
 *{
-    margin: 0;
-    background-color: #333533;
-    }
+  margin: 0;
+  background-color: #333533;
+}
 
 .textbox{
-    color: black;
-    font-weight: bold;
+  padding: 10%;
+  background-color: #15ff00;
+  border-radius: 15%;
+}
+
+h1 {
+    background-color: #15ff00;
 }
