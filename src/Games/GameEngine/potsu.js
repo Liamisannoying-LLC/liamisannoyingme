@@ -183,22 +183,25 @@ var PressureAlt = [0, 152, 305, 457, 610, 762, 914, 1067, 1219, 1372, 1524, 1829
 
 function AirboyancyForce(volume, altitude){//meters
 
-    let airDensity;//kg/m^3
+    let airdensity = airDensity(altitude);//kg/m^3
 
-    for(let i = 0; i < PressureAlt.length; i++){//finds air pressure of altitude
-        if(altitude > PressureAlt[i] && altitude < PressureAlt[i+1]){
-            airDensity = PressureList[i];
-        }
-    }
-
-    return volume * airDensity * 9.8;//bf = V x D * G
+    return volume * airdensity * 9.8;//bf = V x D * G
 }
+
 function BoyantForce(volume, liquidDensity){
     return volume * liquidDensity * 9.8;
 }
 
 function shpereVolume(Radius){
     return 4/3 * Math.PI * Math.pow(Radius, 3);//meters^3
+}
+
+function airDensity(altitude){
+    for(let i = 0; i < PressureAlt.length; i++){//finds air pressure of altitude
+        if(altitude > PressureAlt[i] && altitude < PressureAlt[i+1]){
+            return PressureList[i];
+        }
+    }
 }
 //collision detection SAT
 

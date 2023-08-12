@@ -75,6 +75,8 @@ balloonVerts = [
 var balloon = new GameObject(balloonVerts,null,50,50,{x:0,y:0},1,1);
 
 //vars
+var balloonTemp;
+var balloonRadius;
 
 balloon.goTo(500,500);
 function loop(){
@@ -85,3 +87,11 @@ function loop(){
 loop();
 
 balloon.render("red","black");
+
+function move(e){
+if(e.key == "w"){
+    
+}
+}
+
+document.onkeydown = move();
