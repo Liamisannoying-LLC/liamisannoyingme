@@ -176,6 +176,10 @@ class GameObject {
     }
 }
 
+
+
+//SCIENCE
+
 //kpa
 var PressureList = [101, 99.5, 97.7, 96.0, 94.2, 92.5, 90.8, 89.1, 87.5, 85.9, 84.3, 81.2, 78.2, 75.3, 72.4, 69.7, 57.2, 46.6, 37.6, 30.1, 23.8, 18.7, 14.5, 11.1]
 //meters
@@ -192,18 +196,22 @@ function BoyantForce(volume, liquidDensity){
     return volume * liquidDensity * 9.8;
 }
 
-function shpereVolume(Radius){
-    return 4/3 * Math.PI * Math.pow(Radius, 3);//meters^3
+
+function IdealGasLaw(altitude,Temp){
+    Temp = Temp += 273.15;
+    return airDensity(altitude) / (287 * Temp)
 }
 
-function hotAirBalloonVolume(Temp, altitude,radius){
-    const GasConst = 287;//J/(kg*K)
-    Temp = Temp += 273.15;
-    var p_alt = airDensity(altitude);
-    var m_air = shpereVolume(radius);
-    //V = (m_air * R_air * T) / P_alt
-    return (m_air * GasConst * Temp) / p_alt;
+//(1.2−0.946)×2800
+function balloonNetBouyancy(altitude,Temp){
+    var volume = 2800;
+    var OutsideAir = AirboyancyForce(volume,altitude);
+
+    var WeirdPThingy = IdealGasLaw(altitude, Temp);
+    
+    return (OutsideAir - volume)
 }
+
 
 function airDensity(altitude){
     for(let i = 0; i < PressureAlt.length; i++){//finds air pressure of altitude
@@ -212,6 +220,12 @@ function airDensity(altitude){
         }
     }
 }
+
+
+
+
+
+
 //collision detection SAT
 
 function buildEdges(vertices) {
