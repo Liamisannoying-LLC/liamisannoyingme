@@ -80,13 +80,13 @@ var balloonRadius;
 
 balloon.goTo(500,500);
 function loop(){
-
-
+    ctx.clearRect(0,0,c.width,c.height);
+    balloon.render("red","black");
     window.requestAnimationFrame(loop);
 }
 loop();
 
-balloon.render("red","black");
+
 
 function move(Event){
 if(Event.key === "w"){

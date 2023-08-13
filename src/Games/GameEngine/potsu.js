@@ -207,9 +207,9 @@ function balloonNetBouyancy(altitude,Temp){
     var volume = 2800;
     var OutsideAir = AirboyancyForce(volume,altitude);
 
-    var WeirdPThingy = IdealGasLaw(altitude, Temp);
+    var IdealGasLaw = IdealGasLaw(altitude, Temp);
     
-    return (OutsideAir - volume)
+    return (OutsideAir - IdealGasLaw) * volume;
 }
 
 
