@@ -129,6 +129,12 @@ class GameObject {
             return true;
         };
 
+        this.testGroup = function(array){
+            for(var i = 0; i < array.length; i++){
+                this.testWith(array[i]);
+            }
+        }
+
         //render
         this.renderImage = function() {
             if(ctx === null){
