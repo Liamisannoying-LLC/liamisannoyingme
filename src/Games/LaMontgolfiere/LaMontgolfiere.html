@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    #cvs {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+    }
+</style>
 <body>
-    <canvas id="cvs" style="border: 5px solid black; display: block;"></canvas>
+    <canvas id="cvs" style="border: 20px solid black; display: block;"></canvas>
     <script src="../GameEngine/potsu.js"></script>
     <script src="LaMontgolfiere.js"></script>
 </body>
