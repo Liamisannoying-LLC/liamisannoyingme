@@ -80,10 +80,10 @@ var balloon = new GameObject(balloonVerts,balloonImg,c.width/6,c.height/1.5,{x:0
 
 //vars
 var balloonTemp;
-var balloonRadius;
 
-balloon.goTo(c.width/2,c.height/2);
+balloon.goTo(500,500);
 function loop(){
+    balloon.offset(0, balloonNetBouyancy(balloon.y,balloonTemp))
     ctx.clearRect(0,0,c.width,c.height);
     balloon.renderImage();
     ctx.beginPath();
@@ -101,9 +101,11 @@ loop();
 function move(event){
 if(event.key === "w"){
     balloonTemp += 0.5;
+        console.log('ahhhhhhhhhhhhhhhhhh');
 }
 if(event.key === "s"){
     balloonTemp -= 0.5;
+    console.log('ahhhhhhhhhhhhhhhhhh');
 }
 }
 
