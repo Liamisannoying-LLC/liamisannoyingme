@@ -1,6 +1,6 @@
 This is the documentation for Postu
 
-for all this to work you need to call the Canvas(ctx) and make a canvas in html
+For all this to work you need to call the Canvas(ctx) and make a canvas in html
 
 GameObject - used to make a new object for collisions and physics
 
@@ -19,7 +19,7 @@ GameObject - used to make a new object for collisions and physics
 
         object.offset(dx,dy) - used to move a given amount from the objects position
 
-        object.goTo(x,y) - moves to given coordantes(i cant spell)
+        object.goTo(x,y) - moves to given coordinates
 
 
 Functions:

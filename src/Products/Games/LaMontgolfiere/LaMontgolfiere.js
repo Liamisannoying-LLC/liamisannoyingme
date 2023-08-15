@@ -54,8 +54,8 @@ La Montgolfiere (hot air baloon):
 var c = document.getElementById("cvs");
 var ctx = c.getContext("2d");
 
-c.width = window.innerWidth;
-c.height = window.innerHeight;
+c.width = window.innerWidth * 0.75;
+c.height = window.innerHeight * 0.75;
 
 Canvas(ctx);
 
@@ -71,30 +71,40 @@ balloonVerts = [
         { x: 0, y: 20 }
 ];
 
+//images
+var balloonImg = new Image();
+balloonImg.src = "Images/balloon.png";
+
 //making objects
-var balloon = new GameObject(balloonVerts,null,50,50,{x:0,y:0},1,1);
+var balloon = new GameObject(balloonVerts,balloonImg,c.width/6,c.height/1.5,{x:0,y:0},100,1);
 
 //vars
 var balloonTemp;
 var balloonRadius;
 
-balloon.goTo(500,500);
+balloon.goTo(c.width/2,c.height/2);
 function loop(){
     ctx.clearRect(0,0,c.width,c.height);
-    balloon.render("red","black");
+    balloon.renderImage();
+    ctx.beginPath();
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "blue";
+    ctx.moveTo(c.width/2, 0);
+    ctx.lineTo(c.width/2, c.height);
+    ctx.stroke();
     window.requestAnimationFrame(loop);
 }
 loop();
 
 
 
-function move(Event){
-if(Event.key === "w"){
+function move(event){
+if(event.key === "w"){
     balloonTemp += 0.5;
 }
-if(Event.key === "s"){
+if(event.key === "s"){
     balloonTemp -= 0.5;
 }
 }
 
-document.onkeydown = move();
+document.onkeydown = move;

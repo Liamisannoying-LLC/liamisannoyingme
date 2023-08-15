@@ -75,9 +75,9 @@ function Canvas(cvs){
 class GameObject {
     constructor(hitboxVertices, image, width, height, Velocity, mass, density){
         this.image = image;
-        this.w = width;
-        this.h = height;
-        this.v = Velocity;
+        this.width = width;
+        this.height = height;
+        this.Velocity = Velocity;
         this.mass = mass;
         this.density = density;
         this.vertOrigin = hitboxVertices;
@@ -140,7 +140,7 @@ class GameObject {
             if(ctx === null){
                 console.error("No CanvasRenderingContext2D applied");
             }else{
-            ctx.drawImage(this.image,this.vertices[1].x,this.vertices[1].y,this.width);
+            ctx.drawImage(this.image,this.vertices[1].x,this.vertices[1].y,this.width,this.height);
             }
         };
 
@@ -165,8 +165,8 @@ class GameObject {
         this.offset = function(dx, dy) {
             for (let i = 0; i < this.vertices.length; i++) {
                 this.vertices[i] = {
-                    x: this.vertices[i].x + dx,
-                    y: this.vertices[i].y + dy,
+                    x: this.vertices[i].x + dx - this.width/2,
+                    y: this.vertices[i].y + dy - this.height/2,
                 };
             }
         };
@@ -174,8 +174,8 @@ class GameObject {
         this.goTo = function(x,y) {
             for (let i = 0; i < this.vertices.length; i++) {
                 this.vertices[i] = {
-                    x: this.vertOrigin[i].x + x,
-                    y: this.vertOrigin[i].y + y
+                    x: this.vertOrigin[i].x + x - this.width/2,
+                    y: this.vertOrigin[i].y + y - this.height/3
                 }
             }
         }
