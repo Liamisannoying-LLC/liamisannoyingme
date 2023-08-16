@@ -109,7 +109,6 @@ function physicsLoop(){
 function move(event){
 if(event.key === "w"){
     balloonTemp += 0.5;
-
     balloon.Velocity.y -= balloonNetBouyancy(balloon.y, balloonTemp)/10000;
 }
 if(event.key === "s"){
