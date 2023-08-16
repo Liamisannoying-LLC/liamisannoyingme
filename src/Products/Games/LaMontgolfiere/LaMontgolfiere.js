@@ -79,33 +79,43 @@ balloonImg.src = "Images/balloon.png";
 var balloon = new GameObject(balloonVerts,balloonImg,c.width/6,c.height/1.5,{x:0,y:0},100,1);
 
 //vars
-var balloonTemp;
+var balloonTemp = 0;
 
 balloon.goTo(500,500);
 function loop(){
-    balloon.offset(0, balloonNetBouyancy(balloon.y,balloonTemp))
+    if(balloon.Velocity.y > 3.8){
+        balloon.Velocity.y = 3.8;
+    }
+    balloon.offset(balloon.Velocity.x, balloon.Velocity.y);
+
+
     ctx.clearRect(0,0,c.width,c.height);
     balloon.renderImage();
-    ctx.beginPath();
-    ctx.lineWidth = 5;
-    ctx.strokeStyle = "blue";
-    ctx.moveTo(c.width/2, 0);
-    ctx.lineTo(c.width/2, c.height);
-    ctx.stroke();
+
     window.requestAnimationFrame(loop);
 }
 loop();
 
+SetLoopSpeed(physicsLoop, 1000);
+
+function physicsLoop(){
+    console.log(balloonTemp);
+    balloon.Velocity.y += 9.8;
+    balloonTemp -= 0.2;
+
+}
 
 
 function move(event){
 if(event.key === "w"){
     balloonTemp += 0.5;
-        console.log('ahhhhhhhhhhhhhhhhhh');
+
+    balloon.Velocity.y -= balloonNetBouyancy(balloon.y, balloonTemp)/10000;
 }
 if(event.key === "s"){
     balloonTemp -= 0.5;
-    console.log('ahhhhhhhhhhhhhhhhhh');
+    console.log(balloon.y);
+    balloon.Velocity.y -= balloonNetBouyancy(balloon.y, balloonTemp)/10000;
 }
 }
 
