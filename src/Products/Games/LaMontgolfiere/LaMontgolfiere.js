@@ -76,10 +76,10 @@ var balloonImg = new Image();
 balloonImg.src = "Images/balloon.png";
 
 //making objects
-var balloon = new GameObject(balloonVerts,balloonImg,c.width/6,c.height/1.5,{x:0,y:0},3409.7,1);
+var balloon = new GameObject(balloonVerts,balloonImg,c.width/6,c.height/1.5,{x:0,y:0},1409.7,1);
 
 //vars
-var balloonTemp = 0;
+var balloonTemp = 100;
 
 balloon.goTo(500,500);
 function loop(){
@@ -96,20 +96,22 @@ SetLoopSpeed(physicsLoop, 1000);
 function physicsLoop(){
     console.log(balloonTemp);
     balloon.Velocity.y += 9.8;
-    balloon.Velocity.y += mass * 9.8;
+    balloon.Velocity.y += balloon.mass * 9.8;
     balloonTemp -= 0.2;
 
 }
-
+var PastForce = 0;
 
 function move(event){
     if(event.key === "w"){
-        balloonTemp += 0.5;
-        balloon.Velocity.y -= balloonNetBouyancy(balloon.y, balloonTemp) / balloon.mass;
+        balloonTemp += 5;
+        var Bouynacy = balloonNetBouyancy(balloon.y, balloonTemp) / balloon.mass;
+        console.log((Bouynacy - PastForce) / balloon.mass);
+        balloon.Velocity.y -= (Bouynacy - PastForce) / balloon.mass;
+        PastForce = Bouynacy;
     }
     if(event.key === "s"){
         balloonTemp -= 0.5;
-        balloon.Velocity.y -= balloonNetBouyancy(balloon.y, balloonTemp) / balloon.mass;
     }
 }
 
