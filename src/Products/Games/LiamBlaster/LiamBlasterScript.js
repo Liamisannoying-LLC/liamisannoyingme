@@ -267,9 +267,9 @@
     if(!hasStarted){
       ctx.font = "24px 'Bold Roboto', sans-serif";
       ctx.fillStyle = 'black';
-      ctx.fillText("Look with the mouse",player.x - 100, player.y  + 50);
-      ctx.fillText(" and click to shoot",player.x - 100, player.y + 80);
-      ctx.fillText("press space to start", player.x - 100, player.y + 120);
+      ctx.fillText("Look with the mouse,",player.x - 100, player.y  + 50);
+      ctx.fillText("and click to shoot",player.x - 100, player.y + 80);
+      ctx.fillText("Press space to start", player.x - 100, player.y + 120);
     }else{
     ctx.font = "24px 'Bold Roboto', sans-serif";
     ctx.fillStyle = 'black';
