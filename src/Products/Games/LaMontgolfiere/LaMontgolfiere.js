@@ -76,37 +76,43 @@ var balloonImg = new Image();
 balloonImg.src = "Images/balloon.png";
 
 //making objects
-var balloon = new GameObject(balloonVerts,balloonImg,c.width/6,c.height/1.5,{x:0,y:0},100,1);
+var balloon = new GameObject(balloonVerts,balloonImg,c.width/6,c.height/1.5,{x:0,y:0},1409.7,1);
 
 //vars
-var balloonTemp;
+var balloonTemp = 100;
 
 balloon.goTo(500,500);
 function loop(){
-    balloon.offset(0, balloonNetBouyancy(balloon.y,balloonTemp))
+    balloon.offset(balloon.Velocity.x, balloon.Velocity.y);;
     ctx.clearRect(0,0,c.width,c.height);
     balloon.renderImage();
-    ctx.beginPath();
-    ctx.lineWidth = 5;
-    ctx.strokeStyle = "blue";
-    ctx.moveTo(c.width/2, 0);
-    ctx.lineTo(c.width/2, c.height);
-    ctx.stroke();
+
     window.requestAnimationFrame(loop);
 }
 loop();
 
+SetLoopSpeed(physicsLoop, 1000);
 
+function physicsLoop(){
+    console.log(balloonTemp);
+    balloon.Velocity.y += 9.8;
+    balloon.Velocity.y += balloon.mass * 9.8;
+    balloonTemp -= 0.2;
+
+}
+var PastForce = 0;
 
 function move(event){
-if(event.key === "w"){
-    balloonTemp += 0.5;
-        console.log('ahhhhhhhhhhhhhhhhhh');
-}
-if(event.key === "s"){
-    balloonTemp -= 0.5;
-    console.log('ahhhhhhhhhhhhhhhhhh');
-}
+    if(event.key === "w"){
+        balloonTemp += 5;
+        var Bouynacy = balloonNetBouyancy(balloon.y, balloonTemp) / balloon.mass;
+        console.log((Bouynacy - PastForce) / balloon.mass);
+        balloon.Velocity.y -= (Bouynacy - PastForce) / balloon.mass;
+        PastForce = Bouynacy;
+    }
+    if(event.key === "s"){
+        balloonTemp -= 0.5;
+    }
 }
 
 document.onkeydown = move;

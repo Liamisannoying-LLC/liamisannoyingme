@@ -82,6 +82,8 @@ class GameObject {
         this.density = density;
         this.vertOrigin = hitboxVertices;
         this.vertices = this.vertOrigin;
+        this.x = this.vertices[1].x;
+        this.y = this.vertices[1].y;
         this.edges = buildEdges(this.vertices);
 
         //collision
@@ -151,7 +153,7 @@ class GameObject {
             ctx.fillStyle = borderColour;
             ctx.lineWidth = 10;
             ctx.beginPath();
-            ctx.moveTo(this.x, this.y);
+            ctx.moveTo(this.vertices[1].x, this.vertices[1].y);
             for(var i = 0; i < this.vertices.length; i++){
             ctx.lineTo(this.vertices[i].x, this.vertices[i].y);
             }
@@ -165,8 +167,8 @@ class GameObject {
         this.offset = function(dx, dy) {
             for (let i = 0; i < this.vertices.length; i++) {
                 this.vertices[i] = {
-                    x: this.vertices[i].x + dx - this.width/2,
-                    y: this.vertices[i].y + dy - this.height/2,
+                    x: this.vertices[i].x + dx,
+                    y: this.vertices[i].y + dy,
                 };
             }
         };
@@ -174,8 +176,8 @@ class GameObject {
         this.goTo = function(x,y) {
             for (let i = 0; i < this.vertices.length; i++) {
                 this.vertices[i] = {
-                    x: this.vertOrigin[i].x + x - this.width/2,
-                    y: this.vertOrigin[i].y + y - this.height/3
+                    x: this.vertOrigin[i].x + x,
+                    y: this.vertOrigin[i].y + y
                 }
             }
         }
@@ -191,9 +193,9 @@ var PressureList = [101, 99.5, 97.7, 96.0, 94.2, 92.5, 90.8, 89.1, 87.5, 85.9, 8
 //meters
 var PressureAlt = [0, 152, 305, 457, 610, 762, 914, 1067, 1219, 1372, 1524, 1829, 2134, 2438, 2743, 3048, 4572, 6096, 7620, 9144, 10668, 12192, 13716, 15240]
 
-function AirboyancyForce(volume, altitude){//meters
+function AirboyancyForce(volume, alt){//meters
 
-    let airdensity = airDensity(altitude);//kg/m^3
+    let airdensity = airDensity(alt);//kg/m^3
 
     return volume * airdensity * 9.8;//bf = V x D * G
 }
@@ -204,14 +206,14 @@ function BoyantForce(volume, liquidDensity){
 
 
 function IdealGasLaw(altitude,Temp){
-    Temp = Temp += 273.15;
-    return airDensity(altitude) / (287 * Temp)
+    TempKelvin = Temp += 273.15;
+    return  airDensity(altitude) / (287 * TempKelvin)
 }
 
 //(1.2−0.946)×2800
 function balloonNetBouyancy(altitude,Temp){
     var volume = 2800;
-    var OutsideAir = AirboyancyForce(volume,altitude);
+    var OutsideAir = airDensity(altitude);
 
     var IdealGas = IdealGasLaw(altitude, Temp);
     
@@ -219,15 +221,18 @@ function balloonNetBouyancy(altitude,Temp){
 }
 
 
-function airDensity(altitude){
-    for(let i = 0; i < PressureAlt.length; i++){//finds air pressure of altitude
-        if(altitude > PressureAlt[i] && altitude < PressureAlt[i+1]){
+function airDensity(alt){
+    for(var i = 0; i < PressureAlt.length; i++){//finds air pressure of altitude
+        if(alt => PressureAlt[i] && alt < PressureAlt[i + 1]){
             return PressureList[i];
         }
     }
 }
 
-
+// gameLoops And stuff
+function SetLoopSpeed(functionName, interval){
+    setInterval(functionName, interval);
+}
 
 
 
