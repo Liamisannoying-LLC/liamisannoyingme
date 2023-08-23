@@ -153,7 +153,7 @@ class GameObject {
             ctx.fillStyle = borderColour;
             ctx.lineWidth = 10;
             ctx.beginPath();
-            ctx.moveTo(this.x, this.y);
+            ctx.moveTo(this.vertices[1].x, this.vertices[1].y);
             for(var i = 0; i < this.vertices.length; i++){
             ctx.lineTo(this.vertices[i].x, this.vertices[i].y);
             }
