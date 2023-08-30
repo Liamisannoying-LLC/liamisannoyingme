@@ -146,23 +146,25 @@ class GameObject {
             }
         };
 
-        this.render = function(fillColour,borderColour) {
-            if(ctx === null){
+        this.render = function(fillColour, borderColour) {
+            if (ctx === null) {
                 console.error("No CanvasRenderingContext2D applied");
-            }else{
-            ctx.fillStyle = borderColour;
-            ctx.lineWidth = 10;
-            ctx.beginPath();
-            ctx.moveTo(this.vertices[1].x, this.vertices[1].y);
-            for(var i = 0; i < this.vertices.length; i++){
-            ctx.lineTo(this.vertices[i].x, this.vertices[i].y);
-            }
-            ctx.closePath();
-            ctx.fillStyle = fillColour;
-            ctx.stroke();
-            ctx.fill();
+            } else {
+                ctx.fillStyle = borderColour;
+                ctx.lineWidth = 10;
+                ctx.beginPath();
+        
+                for (var i = 0; i < this.vertices.length; i++) {
+                    ctx.lineTo(this.vertices[i].x, this.vertices[i].y);
+                }
+        
+                ctx.closePath();
+                ctx.fillStyle = fillColour;
+                ctx.stroke();
+                ctx.fill();
             }
         };
+        
 
         this.offset = function(dx, dy) {
             for (let i = 0; i < this.vertices.length; i++) {
