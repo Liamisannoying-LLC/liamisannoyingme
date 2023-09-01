@@ -77,13 +77,13 @@ class GameObject {
         this.image = image;
         this.width = width;
         this.height = height;
-        this.Velocity = Velocity;
+        this.velocity = Velocity;
         this.mass = mass;
         this.density = density;
         this.vertOrigin = hitboxVertices;
         this.vertices = this.vertOrigin;
-        this.x = this.vertices[1].x;
-        this.y = this.vertices[1].y;
+        this.x = this.vertices[0].x;
+        this.y = this.vertices[0].y;
         this.edges = buildEdges(this.vertices);
 
         //collision
@@ -132,9 +132,11 @@ class GameObject {
         };
 
         this.testGroup = function(array){
+            var collide = [{}];
             for(var i = 0; i < array.length; i++){
-                this.testWith(array[i]);
+                collide.push({Object: array[i], collision: this.testWith(array[i])});
             }
+            return collide;
         }
 
         //render
