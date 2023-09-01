@@ -265,3 +265,27 @@ function intervalDistance(minA, maxA, minB, maxB) {
     }
     return (minA - maxB);
 }
+
+//custom
+
+    function makeHitBox(){
+        var a;
+        var i = 0;
+        window.addEventListener(mousedown, e=> {
+            if(i = 0){
+                var originX = e.clientX;
+                var originY = e.clientY;
+                a[i].x = 0;
+                a[i].y = 0;
+            }else{
+            a[i].x = e.clientX - originX;
+            a[i].y = e.clientY - originY;
+            }
+            i++;
+        });
+        window.addEventListener("keydown", (event) => {
+            if(event.key == " "){
+                return a;
+            }
+          });
+    }
