@@ -1,7 +1,7 @@
-<div>
+<div align="center">
 <h1>Potsu </h1> the pure js game engine
 <br>
-[![GitHub](https://github.com/The-Liamisannoying-Foundation/liamisannoyingme)
+[![GitHub](https://img.shields.io/github/license/facebookresearch/nougat)](https://github.com/facebookresearch/nougat)
 <br>
 </div>
 
@@ -19,7 +19,7 @@
     Canvas(CanvasRenderingContext2d);
 
 
-## References
+<h2>References</h2>
 
 
 
