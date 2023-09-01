@@ -6,7 +6,7 @@ c.height = window.innerHeight * 0.75;
 
 var teminalVelocity = 15;
 var speed = 1;
-var friction = 0.9;
+var friction = 0.95;
 
 var PlayerHitbox = [
     { x: 0, y: 0 },
@@ -31,13 +31,17 @@ function loop(){
     //moving
     Player.Velocity.x = Player.Velocity.x * friction;
     Player.Velocity.y = Player.Velocity.y * friction;
-    Player.offset(Player.Velocity.x, Player.Velocity.y);
+    WorldOfset(Player.Velocity.x, Player.Velocity.y);
 
     Player.render("red", "black");
-    ctx.fillStyle = "blue";
 
     window.requestAnimationFrame(loop);
 }
+
+function WorldOfset(vX, vY){
+
+}
+
 
 function move(event){
   if(event.key === "w" && Player.Velocity.y < teminalVelocity){

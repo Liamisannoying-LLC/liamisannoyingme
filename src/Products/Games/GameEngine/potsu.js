@@ -5,12 +5,12 @@ This is potsu the JS Library made for the www.liamisannoying.me website
 This Library contains Advanced collision Detection(Seperating Axis Theorum)
 And physics tool's for easy Game Development across multiple Games
 
-
+-Copyright-
+this program is *definitely* under hundreds of copyright restrictions
 
 
 -Disclamer- 
 
-!!!!!currently not true!!!!!!
 This is very math-y so some of it is stolen from the internet and gpt(if I couldnt find it on the interweb)
 this code doesnt effect liam blaster but is with other games so if you dont count it, LiamBlaster is still legitimate.
 
