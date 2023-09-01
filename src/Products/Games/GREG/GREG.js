@@ -6,7 +6,7 @@ c.height = window.innerHeight * 0.75;
 
 var teminalVelocity = 15;
 var speed = 1;
-var friction = 0.1;
+var friction = 0.9;
 
 var PlayerHitbox = [
     { x: 0, y: 0 },
@@ -28,41 +28,15 @@ function loop(){
     var fps = 1000 / (thisLoop - lastLoop);
     lastLoop = thisLoop;
 
+    //moving
+    Player.Velocity.x = Player.Velocity.x * friction;
+    Player.Velocity.y = Player.Velocity.y * friction;
+    Player.offset(Player.Velocity.x, Player.Velocity.y);
+
     Player.render("red", "black");
     ctx.fillStyle = "blue";
 
     window.requestAnimationFrame(loop);
-}
-
-SetLoopSpeed(physicsLoop, 10);
-
-function physicsLoop(){
-  Player.offset(Player.Velocity.x, Player.Velocity.y);
-
-  if(Player.Velocity.x > 0.001){
-  Player.Velocity.x -= friction;
-  }else if(Player.Velocity.x < 0.001){
-    Player.Velocity.x -= friction;
-  }
-
-  if(Player.Velocity.y > 0.001){
-    Player.Velocity.y -= friction;
-  }else if(Player.Velocity.y < -0.001){
-    Player.Velocity.y += friction;
-  }
-
-  if(Player.Velocity.x > teminalVelocity){
-    Player.Velocity.x = teminalVelocity;
-  }else if(Player.Velocity.x < -teminalVelocity){
-    Player.Velocity.x = -teminalVelocity;
-  }
-
-  if(Player.Velocity.y > teminalVelocity){
-    Player.Velocity.y = teminalVelocity;
-  }else if(Player.Velocity.y < -teminalVelocity){
-    Player.Velocity.y = -teminalVelocity;
-  }
-
 }
 
 function move(event){
