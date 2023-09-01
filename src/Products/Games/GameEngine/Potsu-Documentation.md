@@ -1,7 +1,7 @@
 <div align="center">
-<h1>Potsu </h1> the pure js game engine
+<h1>Potsu </h1> the pure js game engine.<br>
+made by and for <a src="https://github.com/The-Liamisannoying-Foundation">the liamisannoying foundation</a>
 <br>
-[![GitHub](https://img.shields.io/github/license/facebookresearch/nougat)](https://github.com/facebookresearch/nougat)
 <br>
 </div>
 
