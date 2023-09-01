@@ -3,7 +3,6 @@
 made by and for <a href="https://github.com/The-Liamisannoying-Foundation" target="_top">The liamisannoying foundation</a>
 <br>
 <br>
-</div>
 
 <h2>Setup</h2>
     <h4> Html: </h4>
