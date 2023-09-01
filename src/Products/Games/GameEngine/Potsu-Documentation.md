@@ -2,7 +2,7 @@
 <h1>Potsu </h1> the pure js game engine.
 </div>
 
-made by and for [liamisannoying](https://github.com/The-Liamisannoying-Foundation)
+ <p align="center">made by and for </p> [liamisannoying](https://github.com/The-Liamisannoying-Foundation)
 <br>
 <br>
 
