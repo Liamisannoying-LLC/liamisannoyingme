@@ -1,9 +1,10 @@
 <div align="center">
-<h1>Potsu </h1> the pure js game engine. <br>
+<h1>Potsu </h1> the pure js game engine.
+</div>
+
 made by and for [liamisannoying](https://github.com/The-Liamisannoying-Foundation)
 <br>
 <br>
-</div>
 
 <h2>Setup</h2>
     <h4> Html: </h4>
