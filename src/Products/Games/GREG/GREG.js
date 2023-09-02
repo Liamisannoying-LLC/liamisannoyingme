@@ -14,6 +14,16 @@ var PlayerHitbox = [
     { x: 50, y: 50 },
     { x: 0, y: 50 }
   ];
+
+var room1 = [1,1,1,1,1,1,1,1,
+             1,0,0,0,0,0,0,2,
+             1,0,0,0,0,0,0,2,     
+             1,1,1,1,0,0,0,1,         
+             0,0,0,2,0,0,0,1,
+             1,1,1,1,0,0,0,1,
+             1,3,0,0,0,0,0,1,     
+             1,1,1,1,1,1,1,1,                           
+            ];
   
 var Player = new GameObject(PlayerHitbox, null, null, null, {x:0, y:0}, 0, 0);
 
@@ -36,6 +46,22 @@ function loop(){
     Player.render("red", "black");
 
     window.requestAnimationFrame(loop);
+}
+
+function buildroom(room){
+  for(var i = 0; i < room.length; i++){
+    switch(room[i]){
+      case 1:
+        //wall
+        break;
+      case 2:
+        //door
+        break;
+      case 3:
+        //spawn
+        break;
+    }
+  }
 }
 
 function WorldOfset(vX, vY){
