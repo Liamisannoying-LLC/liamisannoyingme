@@ -92,3 +92,4 @@ Made by and for <a href="https://github.com/Liamisannoying-LLC" target="_top">Li
 <h3 align="center">GameObject.renderImage()</h3>
 
     draws image to canvas requires a GameObject.image, GameObject.vertices, GameObject.width and GameObject.height
+    
