@@ -68,7 +68,6 @@ function WorldOfset(vX, vY){
 
 }
 
-
 function move(event){
   if(event.key === "w" && Player.Velocity.y < teminalVelocity){
     Player.Velocity.y -= speed;
@@ -83,6 +82,5 @@ function move(event){
     Player.Velocity.x += speed;
   }
 }
-
 
 document.onkeydown = move;

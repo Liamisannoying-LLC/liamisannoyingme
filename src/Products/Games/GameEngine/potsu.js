@@ -1,5 +1,4 @@
-/* 
-
+/*
 This is potsu the JS Library made for the www.liamisannoying.me website
 
 This Library contains Advanced collision Detection(Seperating Axis Theorum)
@@ -8,18 +7,15 @@ And physics tool's for easy Game Development across multiple Games
 -Copyright-
 this program is *definitely* under hundreds of copyright restrictions
 
-
 -Disclamer- 
 
-This is very math-y so some of it is stolen from the internet and gpt(if I couldnt find it on the interweb)
+This is very math-y so some of it is stolen from the internet and gpt (if I couldnt find it on the interweb)
 this code doesnt effect liam blaster but is with other games so if you dont count it, LiamBlaster is still legitimate.
 
 From websites:
     SAT algorythem
+
 */
-
-
-
 
 /*
 shape vertices:
@@ -166,7 +162,6 @@ class GameObject {
                 ctx.fill();
             }
         };
-        
 
         this.offset = function(dx, dy) {
             for (let i = 0; i < this.vertices.length; i++) {
@@ -188,7 +183,6 @@ class GameObject {
     }
 }
 
-
 //SCIENCE
 
 //kpa
@@ -207,7 +201,6 @@ function BoyantForce(volume, liquidDensity){
     return volume * liquidDensity * 9.8;
 }
 
-
 function IdealGasLaw(altitude,Temp){
     TempKelvin = Temp += 273.15;
     return  airDensity(altitude) / (287 * TempKelvin)
@@ -223,7 +216,6 @@ function balloonNetBouyancy(altitude,Temp){
     return (OutsideAir - IdealGas) * volume;
 }
 
-
 function airDensity(alt){
     for(var i = 0; i < PressureAlt.length; i++){//finds air pressure of altitude
         if(alt => PressureAlt[i] && alt < PressureAlt[i + 1]){
@@ -236,9 +228,6 @@ function airDensity(alt){
 function SetLoopSpeed(functionName, interval){
     setInterval(functionName, interval);
 }
-
-
-
 
 //collision detection SAT
 

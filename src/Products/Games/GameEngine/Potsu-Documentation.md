@@ -7,8 +7,6 @@ Made by and for <a href="https://github.com/Liamisannoying-LLC" target="_top">Li
 
 <h2 align="center">Setup</h2>
 
-
-
     <h3 align="center"> Html: </h3>
     
     <canvas id="myCanvas"></canvas>
@@ -20,7 +18,6 @@ Made by and for <a href="https://github.com/Liamisannoying-LLC" target="_top">Li
     var c = document.getElementById("myCanvas);
     var CanvasRenderingContext2d = c.getContext("2d");
     Canvas(CanvasRenderingContext2d);
-
 
 <h2 align="center">References</h2>
 
@@ -52,7 +49,6 @@ Made by and for <a href="https://github.com/Liamisannoying-LLC" target="_top">Li
 
     stores the original positions of the vertices and is not modified by GameObject.offset() or GameObject.goTo();
 
-
 <h3 align="center">GameObject.vertices</h3>
 
     is the modified list of vertices location is modified by GameObject.offset() or GameObject.goTo();
@@ -78,7 +74,6 @@ Made by and for <a href="https://github.com/Liamisannoying-LLC" target="_top">Li
     tests if GameObject used to call function and every game object are colliding. list with name of GameObject and is it has collided
 
 <h4 align="center">Example:</h4>
-           
 
        var listOfGameObjects = [object2, object3, object4];
        console.log(object1.testGroup(listOfGameObjects));
