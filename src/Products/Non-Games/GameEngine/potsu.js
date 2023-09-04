@@ -162,6 +162,24 @@ class GameObject {
                 ctx.fill();
             }
         };
+        
+            this.clone = function (amount) {
+                var clones = [];
+                for (let i = 0; i < amount; i++) {
+                    // Create a new instance with the same properties as the original object
+                    const clone = new GameObject(
+                        this.vertOrigin, // You can pass the same hitbox vertices
+                        this.image,
+                        this.width,
+                        this.height,
+                        this.velocity,
+                        this.mass,
+                        this.density
+                    );
+                    clones.push(clone);
+                }
+                return clones;
+            }
 
         this.offset = function(dx, dy) {
             for (let i = 0; i < this.vertices.length; i++) {
