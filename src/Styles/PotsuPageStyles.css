@@ -2,8 +2,7 @@
     margin: 0;
     padding: 0;
   }
-
-  body {
+    body {
     background-image: linear-gradient(to bottom, #030420, #000000 70%);
     display: flex;
     justify-content: center;
@@ -13,7 +12,7 @@
     overflow: hidden;
   }
   
-  hr {
+    hr{
     width: 50px;
     border-color: transparent;
     border-right-color: rgba(255, 255, 255, 0.7);
@@ -27,12 +26,11 @@
     animation-iteration-count: infinite;
   }
   
-  @keyframes rain {
+    @keyframes rain {
     from {
-      transform: rotate(105deg) translateX(0);
+     transform: rotate(105deg) translateX(0);
     }
     to {
-      transform: rotate(105deg) translateX(calc(100vh + 20px));
+     transform: rotate(105deg) translateX(calc(100vh + 20px));
     }
-  }
-  
+   }
