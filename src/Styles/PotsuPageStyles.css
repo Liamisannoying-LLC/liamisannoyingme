@@ -11,6 +11,9 @@
     height: 100vh;
     overflow: hidden;
   }
+h1{
+    color:red;
+}
   
     hr{
     width: 50px;
