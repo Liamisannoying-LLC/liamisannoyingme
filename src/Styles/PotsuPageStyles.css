@@ -3,7 +3,7 @@
     padding: 0;
   }
     body {
-    background-image: linear-gradient(to bottom, #030420, #000000 70%);
+    background-image: linear-gradient(to bottom, rgb(49, 49, 49), black 70%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,8 +12,9 @@
     overflow: hidden;
   }
 h1{
-    color:red;
+    color: lightblue;
     text-align: center;
+    
 }
   
     hr{
