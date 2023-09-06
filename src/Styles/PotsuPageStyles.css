@@ -1,3 +1,17 @@
+*
+h1, h2{
+  text-align: center;
+  transform: rotate(-15deg);
+  color: aquamarine;  
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(0deg, #000000, #313131);
+  height: 100vh;
+  transform: rotate(15deg);
+  overflow: hidden;
+}
 i {
   position: absolute;
   height: 160px;
@@ -6,45 +20,35 @@ i {
   border-bottom-right-radius: 5px;
   animation: raining 5s linear Infinite;
 }
-
 @-moz-keyframes raining {
   0% {
-      transform: translateY(-160px);
+    transform: translateY(-160px);
   }
   100% {
-      transform: translateY(calc(100vh + 160px));
+    transform: translateY(calc(100vh + 160px));
   }
 }
-
 @-webkit-keyframes raining {
   0% {
-      transform: translateY(-160px);
+    transform: translateY(-160px);
   }
   100% {
-      transform: translateY(calc(100vh + 160px));
+    transform: translateY(calc(100vh + 160px));
   }
 }
-
 @-o-keyframes raining {
   0% {
-      transform: translateY(-160px);
+    transform: translateY(-160px);
   }
   100% {
-      transform: translateY(calc(100vh + 160px));
+    transform: translateY(calc(100vh + 160px));
   }
 }
-
 @keyframes raining {
   0% {
-      transform: translateY(-160px);
+    transform: translateY(-160px);
   }
   100% {
-      transform: translateY(calc(100vh + 160px));
+    transform: translateY(calc(100vh + 160px));
   }
-}
-
-h1{
-    color: rgb(16, 37, 105);
-    text-align: center;
-    
 }
