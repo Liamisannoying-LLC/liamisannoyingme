@@ -49,23 +49,39 @@ function loop(){
 }
 
 function buildroom(room){
+  var objects = [];
   for(var i = 0; i < room.length; i++){
     switch(room[i]){
       case 1:
-        //wall
+        object[i] = new GameObject([{ x: 0, y: 0 },
+          { x: 50, y: 0 },
+          { x: 50, y: 50 },
+          { x: 0, y: 50 }],
+          null, null, null, null, null, null,"wall");
         break;
       case 2:
-        //door
+        object[i] = new GameObject([{ x: 0, y: 0 },
+          { x: 50, y: 0 },
+          { x: 50, y: 50 },
+          { x: 0, y: 50 }],
+          null, null, null, null, null, null,"door");
         break;
       case 3:
-        //spawn
+        object[i] = new GameObject([{ x: 0, y: 0 },
+          { x: 50, y: 0 },
+          { x: 50, y: 50 },
+          { x: 0, y: 50 }],
+          null, null, null, null, null, null,"spawn");
         break;
     }
   }
+  return objects;
 }
 
-function WorldOfset(vX, vY){
-
+function WorldOfset(a, vX, vY){
+  for(var i = 0; i < a.length; i++){
+    a[i].offset(vx,vy);
+  }
 }
 
 function move(event){
