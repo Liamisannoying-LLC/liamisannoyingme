@@ -1,10 +1,19 @@
-let hrElement;
-let counter = 100;
-
-for (let i = 0; i < counter; i++) {
-    hrElement = document.createElement("HR");
-    hrElement.style.left = Math.floor(Math.random() * window.innerWidth) + "px";
-    hrElement.style.animationDuration = 0.2 + Math.random() * 0.3 + "s";
-    hrElement.style.animationDelay = Math.random() * 5 + "s";
-    document.body.appendChild(hrElement);
+function meteor() {
+  let amount = 150;
+  let body = document.querySelector("body");
+  let count = 0;
+  while (count < amount) {
+  let drop = document.createElement("i");
+  let size = Math.random() * 5;
+  let posX = Math.floor(Math.random() * window.innerWidth);
+  let delay = Math.random() * -20;
+  let duration = Math.random() * 5;
+  drop.style.width = `${0.1 + size}px`;
+  drop.style.left = `${posX}px`;
+  drop.style.animationDelay = `${delay}s`;
+  drop.style.animationDuration = `${1 + duration}s`;
+  body.appendChild(drop);
+  count++;
   }
+  }
+  meteor();
