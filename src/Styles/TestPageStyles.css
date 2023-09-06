@@ -1,11 +1,19 @@
 *{
     text-align: center;
+    margin: 0;
+    padding: 0;
   }
-  html{
-    background: #000000;
-    background: linear-gradient(#6482e6, #000000);
-    background-image: linear-gradient(
-        #6482e6 0%,
-        rgba(0, 0, 0, 1.0) 100%
-      );
+ 
+  h1{
+    margin:10%;
+    font-size: 200px;
   }
+        body {
+ 
+        /* Set the height of the div to
+            the entire screen */
+        height: 100vh;
+ 
+        /* linear-gradient syntax */
+        background-image: linear-gradient(#43589b, black);
+    }
