@@ -15,7 +15,7 @@ body {
 i {
   position: absolute;
   height: 160px;
-  background: linear-gradient(transparent, #fff);
+  background: linear-gradient(transparent, #004855);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   animation: raining 5s linear Infinite;
