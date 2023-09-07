@@ -69,7 +69,7 @@ function Canvas(cvs){
 }
 
 class GameObject {
-    constructor(hitboxVertices, image, width, height, Velocity, mass, density){
+    constructor(hitboxVertices, image, width, height, Velocity, mass, density, tag){
         this.image = image;
         this.width = width;
         this.height = height;
@@ -80,6 +80,7 @@ class GameObject {
         this.vertices = this.vertOrigin;
         this.x = this.vertices[0].x;
         this.y = this.vertices[0].y;
+        this.tag = tag;
         this.edges = buildEdges(this.vertices);
 
         //collision
