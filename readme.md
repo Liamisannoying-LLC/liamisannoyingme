@@ -6,6 +6,6 @@ For more information on Potsu (the game engine) and more, please check out the W
 
 Beware: __**spagetti code lies within**__.
 
-Yes, that is why we can't be bothered to explain it, it's funny to see -you people- try to understand.
+Yes, that is why we can't be bothered to explain it, it's funny to see _you people_ try to understand.
 
 Good luck.
