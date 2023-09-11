@@ -9,5 +9,3 @@ Beware: **spagetti code lies within**.
 Yes, that is why we can't be bothered to explain it, it's funny to see _you people_ try to understand.
 
 Good luck.
-
-Yep, testing commit clashes...
