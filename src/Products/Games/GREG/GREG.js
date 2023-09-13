@@ -24,7 +24,7 @@ var room1 = [1,1,1,1,1,1,1,1,
              3,0,0,0,0,0,0,1,     
              1,1,1,1,1,1,1,1,                           
             ];
-  
+
 var Player = new GameObject(PlayerHitbox, null, null, null, {x:0, y:0}, 0, 0,"player");
 
 Player.goTo(c.width/2, c.height/2);

@@ -8,11 +8,11 @@ Made by and for <a href="https://github.com/Liamisannoying-LLC" target="_top">Li
 <h2 align="center">Setup</h2>
 
     <h3 align="center"> Html: </h3>
-    
+
     <canvas id="myCanvas"></canvas>
     <script src="potsu.js"></script>
     <script src="GREG.js"></script>
-    
+
 <h3 align="center"> JavaScript: </h3>
 
     var c = document.getElementById("myCanvas);
@@ -77,9 +77,9 @@ Made by and for <a href="https://github.com/Liamisannoying-LLC" target="_top">Li
 
        var listOfGameObjects = [object2, object3, object4];
        console.log(object1.testGroup(listOfGameObjects));
-           
+
 <h4 align="center">Output:</h4>
-           
+
       [{name: object2,collision: false},
       {name: object3,collision: true},
       {name: object4,collision: true},
