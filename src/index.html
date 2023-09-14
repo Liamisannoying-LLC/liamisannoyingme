@@ -1,44 +1,73 @@
 <!DOCTYPE html>
-<html lang="ch">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-  <link rel="stylesheet" type="text/css" href="Styles/universal.css"/>
-  <link rel="stylesheet" type="text/css" href="Styles/indexStyles.css"/>
-  
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Home</title>
-  
-  <link rel="icon" type="image/png" href="Images/l3.png">
-</head>
+        <link rel="stylesheet" href="Styles/indexStyles.css">
 
-<body>
-  <script src="PageScripts/MOBILEdetector.js"></script>
-                
-  <main>
+        <title>Main</title>
+    </head>
 
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="Pages/GamesPage.html">Games</a></li>
-      <li><a href="Pages/ToolsPage.html">Tools</a></li>
-      <li><a href="Pages/AboutPage.html">About</a></li>
-    </ul>
-    
-    <div class="textbox">
-    <h1>This is the placeholder for liamisannoyingme Alpha 1.0</h1>
-    <h2 style="font-weight: bolder;">We are undergoing large changes right now, and major functions of the site may be non-operational. Please stand by.</h1>
+    <body id="body-pd"> 
+        <header class="header" id="header">
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+            <div class="header__img">
+                <img decoding="async" src="img/p-1.jpg">
+            </div>
+        </header> 
 
-    <b>Update: venturing past this point of the site may result in major loss of life. jk???</b>
-    </div>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav"></nav>
+                        <a href="#" class="nav__logo">
+                        <i class='bx bx-layer nav__logo-icon'></i>
+                        <span class="nav__logo-name">CODE4EDUCATION</span>
+                    </a>
+                    
+                    <div class="nav__list">
+                        
+                      <a href="#" class="nav__link active">
+                            <i class='bx bx-grid-alt nav__icon' ></i>
+                            <span class="nav__name">Dashboard</span>
+                        </a>
+                        
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-stopwatch nav__icon'></i>
+                            <span class="nav__name">Campaigns</span>
+                        </a>
+                        
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-message-square-detail nav__icon' ></i>
+                            <span class="nav__name">Notification</span>
+                        </a>
+                        
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-list-ul nav__icon'></i>
+                            <span class="nav__name">Lists</span>
+                        </a>
+                        
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
+                            <span class="nav__name">Analytics</span>
+                        </a>
+                        
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-mail-send nav__icon'></i>
+                            <span class="nav__name">Support</span>
+                        </a>
 
-    <h6 style="padding-top: 500px;">Hello, humans of planet earth (and probably of class M106). If you are reading this, then I am NOT dead. I mean, what did you expect?! Weirdos.</h9>
-    
-  </main>
-  
-</body>
+                    </div>
+                </a>
+            </nav>
+        </div>
+
+        <h1>Responsive Sidebar Menu</h1>
+        
+        <!--===== MAIN JS =====-->
+        <script src="/src/PageScripts/indexScript.js"></script>
+    </body>
 </html>
