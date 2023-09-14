@@ -7,7 +7,7 @@
 
     var div = document.getElementById('circle');
     //I am going insane.
-    
+  
     c.width = window.innerHeight - 100;
     c.height = window.innerHeight - 100;
 
@@ -45,7 +45,7 @@
 
     function circle(x, y, w, hp, count) {
       if(hp != 0){
-      
+
       w = w / 2;
       ctx.drawImage(liam, x, y, w, w);
       }else{
@@ -72,10 +72,10 @@
         aw.push(100);
         ahp.push(20);
       }
-    
+
       var distance = c.width / 2 + 100;
       var delay = Math.random() * (2000 - 1000) + 1000;
-    
+
       setTimeout(function (index) {
         console.log(index);
         var angle = Math.random() * 2 * Math.PI;
@@ -85,17 +85,17 @@
           y = c.height / 2 + distance * Math.sin(angle);
           angle = Math.random() * 2 * Math.PI;
         } while (x >= 0 && x <= c.width && y >= 0 && y <= c.height);
-    
+
         ax[index] = x;
         ay[index] = y;
         circle(ax[index], ay[index], aw[index], ahp[index], index);
-    
+
         asteroidsCount++;
-    
+
         makeEnemy();
       }, delay, asteroidsCount);
     }
-        
+
     function draw(){
       triangle(player.x, player.y, player.Rot, player.width, player.height);
 
@@ -134,19 +134,19 @@
         var distance = Math.sqrt(dx * dx + dy * dy);
         if (distance < (player.width + aw[i]) / 2) {
           // Collision occurred, asteroid reached player
-          
+
           player.hp -= 1;
-          
+
           // Remove the asteroid from the arrays
           ax.splice(i, 1);
           ay.splice(i, 1);
           aw.splice(i, 1);
           adir.splice(i, 1);
           ahp.splice(i, 1);
-                    
+
           // Update the asteroidsCount
           asteroidsCount--;
-    
+
           // Skip the rest of the loop iteration
           continue;
         }
@@ -163,13 +163,13 @@
           for(var j = 0; j < bulletCount; j++){
             if (bx[j] >= ax[g] - aw[g] / 2 && bx[j] <= ax[g] + aw[g] / 2) {
               if (by[j] >= ay[g] - aw[g] / 2 && by[j] <= ay[g] + aw[g] / 2) {           
-                
+
                 ahp[g] -= 10;
                 // Remove the asteroid from the arrays
                 bx.splice(j, 1);
                 by.splice(j, 1);
                 brot.splice(j, 1);
-                
+
                 // Update the asteroidsCount
                 bulletCount--;
               }
@@ -196,11 +196,11 @@
         var rect = c.getBoundingClientRect();
         var mouseX = event.clientX - rect.left;
         var mouseY = event.clientY - rect.top;
-      
+
         var dx = mouseX - player.x;
         var dy = mouseY - player.y;
         var angle = Math.atan2(dy, dx);
-      
+
         // Adjust the angle to rotate the top of the triangle towards the mouse
         player.Rot = angle - Math.PI / 2;
         if (bulletCount > 0) {
@@ -243,7 +243,7 @@
 
     function Dead(){
       if(player.hp <= 0){
-        
+
         player.hp = 3;
         player.score = 0;
 

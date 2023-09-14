@@ -5,7 +5,7 @@ This Library contains Advanced collision Detection(Seperating Axis Theorum)
 And physics tool's for easy Game Development across multiple Games
 
 -Copyright-
-this program is *definitely* under hundreds of copyright restrictions
+this program is *definitely* under hundreds of copyright restrictions. Yeah this is a joke.
 
 -Disclamer- 
 
@@ -152,18 +152,18 @@ class GameObject {
                 ctx.fillStyle = borderColour;
                 ctx.lineWidth = 10;
                 ctx.beginPath();
-        
+
                 for (var i = 0; i < this.vertices.length; i++) {
                     ctx.lineTo(this.vertices[i].x, this.vertices[i].y);
                 }
-        
+
                 ctx.closePath();
                 ctx.fillStyle = fillColour;
                 ctx.stroke();
                 ctx.fill();
             }
         };
-        
+
             this.clone = function (amount) {
                 var clones = [];
                 for (let i = 0; i < amount; i++) {
@@ -231,7 +231,7 @@ function balloonNetBouyancy(altitude,Temp){
     var OutsideAir = airDensity(altitude);
 
     var IdealGas = IdealGasLaw(altitude, Temp);
-    
+
     return (OutsideAir - IdealGas) * volume;
 }
 
@@ -300,4 +300,3 @@ function intervalDistance(minA, maxA, minB, maxB) {
             }
           });
     }
-    
