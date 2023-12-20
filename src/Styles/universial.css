@@ -1,3 +1,12 @@
 *{
     font-family: 'ABeeZee', sans-serif;
+    --text: #1d525d;
+    --background: #171717;
+    --primary: #23433b;
+    --secondary: #273527;
+    --accent: #3a735d;
+}
+
+body{
+    background-color: #171717;
 }
