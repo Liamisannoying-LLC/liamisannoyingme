@@ -1,6 +1,6 @@
 <div align="center">
 <h1>Potsu </h1>The pure js game engine<br>
-Made by and for <a href="https://github.com/Liamisannoying-LLC" target="_top">Liamisannoying LLC</a>
+Made by and for <a href="https://github.com/Liamisannoying-Project" target="_top">The Liamisannoying Project</a>
 <br>
 <br>
 </div> 
