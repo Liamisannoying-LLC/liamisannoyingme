@@ -6,4 +6,4 @@ potato2 = 0
 potato3 = 0
 potato4 = "why are there so many potatos?"
 
-print(potato)
+print(potato4)
