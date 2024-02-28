@@ -110,4 +110,3 @@ function startCanvas(){
 
 console.log("Finished")
 }
-s
