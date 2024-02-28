@@ -74,5 +74,3 @@ if ( false ) { // Add your own condition
 	// This is a debug statement. It might be useful later...
 	console.log("mouseX, mouseY", mouseX, mouseY, " Color",color)
 }
-
-
