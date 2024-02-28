@@ -1,4 +1,4 @@
-# Developer - Liam Mitchell
+# Developer -  Tonumoy Mukherjee + Liam Mitchell
 
 
 import turtle as tu
