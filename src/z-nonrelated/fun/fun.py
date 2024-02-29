@@ -9,7 +9,7 @@ wn = tu.Screen() #Screen Object
 wn.bgcolor("black") #Screen Bg color
 wn.title("Fractal Tree Pattern")
 roo.left(90) #moving the turtle 90 degrees towards left
-roo.speed(20)#setting the speed of the turtle
+roo.speed(0)#setting the speed of the turtle
 
 
 def  draw(l): #recursive function taking length 'l' as argument
@@ -31,7 +31,7 @@ def  draw(l): #recursive function taking length 'l' as argument
 draw (20) # drawing 20 times 
 
 roo.right(90)
-roo.speed(2000)
+roo.speed(0)
 
 #recursion
 def  draw(l):
@@ -53,7 +53,7 @@ draw (20)
 
 
 roo.left(270)
-roo.speed(2000)
+roo.speed(0)
 
 #recursion
 def  draw(l):
@@ -74,7 +74,7 @@ def  draw(l):
 draw (20)
 
 roo.right(90)
-roo.speed(2000)
+roo.speed(0)
 
 #recursion
 def  draw(l):
@@ -114,7 +114,7 @@ def  draw(l):
 draw (40)
 
 roo.right(90)
-roo.speed(2000)
+roo.speed(0)
 
 #recursion
 def  draw(l):
@@ -136,7 +136,7 @@ draw (40)
 
 
 roo.left(270)
-roo.speed(2000)
+roo.speed(0)
 
 #recursion
 def  draw(l):
@@ -157,7 +157,7 @@ def  draw(l):
 draw (40)
 
 roo.right(90)
-roo.speed(2000)
+roo.speed(0)
 
 #recursion
 def  draw(l):
@@ -197,7 +197,7 @@ def  draw(l):
 draw (60)
 
 roo.right(90)
-roo.speed(2000)
+roo.speed(0)
 
 #recursion
 def  draw(l):
@@ -219,7 +219,7 @@ draw (60)
 
 
 roo.left(270)
-roo.speed(2000)
+roo.speed(0)
 
 #recursion
 def  draw(l):
@@ -240,7 +240,7 @@ def  draw(l):
 draw (60)
 
 roo.right(90)
-roo.speed(2000)
+roo.speed(0)
 
 #recursion
 def  draw(l):
