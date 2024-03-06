@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Population Simulation</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+    </style>
+</head>
+<body>
+    <h1>Rabbit Population Simulation</h1>
+    <p>Year: <span id="year">0</span></p>
+    <p>Population: <span id="population">0</span></p>
+    <button onclick="simulateYear()">Simulate One Year</button>
+    <button onclick="resetSimulation()">Reset</button>
+
+    <script>
+        let year = 0;
+        let population = 0;
+        const initialPopulation = 10; // Initial population of rabbits
+        const birthRate = 0.9; // Percentage of rabbits that reproduce each year
+        const deathRate = 0.5; // Percentage of rabbits that die each year
+
+        function simulateYear() {
+            year++;
+            let newRabbits = Math.floor(population * birthRate);
+            let deaths = Math.floor(population * deathRate);
+            population = population + newRabbits - deaths;
+            updateDisplay();
+        }
+
+        function resetSimulation() {
+            year = 0;
+            population = initialPopulation;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            document.getElementById('year').innerText = year;
+            document.getElementById('population').innerText = population;
+        }
+
+        // Initial setup
+        resetSimulation();
+    </script>
+</body>
+</html>
