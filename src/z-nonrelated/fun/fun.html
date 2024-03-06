@@ -20,8 +20,8 @@
 
         function simulateYear() {
             year++;
-            let birthRate = Math.random() * 0.2 + 0.6; // Random birth rate between 0.6 and 0.8
-            let deathRate = Math.random() * 0.2 + 0.2; // Random death rate between 0.2 and 0.4
+            let birthRate = Math.random() * 0.6 + 0.8; // Random birth rate between 0.6 and 0.8
+            let deathRate = Math.random() * 0.2 + 0.4; // Random death rate between 0.2 and 0.4
             let newRabbits = Math.floor(population * birthRate);
             let deaths = Math.floor(population * deathRate);
             population = population + newRabbits - deaths;
