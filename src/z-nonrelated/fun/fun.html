@@ -17,11 +17,11 @@
         let year = 0;
         let population = 0;
         const initialPopulation = 10; // Initial population of rabbits
-        const birthRate = 0.9; // Percentage of rabbits that reproduce each year
-        const deathRate = 0.5; // Percentage of rabbits that die each year
 
         function simulateYear() {
             year++;
+            let birthRate = Math.random() * 0.2 + 0.6; // Random birth rate between 0.6 and 0.8
+            let deathRate = Math.random() * 0.2 + 0.2; // Random death rate between 0.2 and 0.4
             let newRabbits = Math.floor(population * birthRate);
             let deaths = Math.floor(population * deathRate);
             population = population + newRabbits - deaths;
