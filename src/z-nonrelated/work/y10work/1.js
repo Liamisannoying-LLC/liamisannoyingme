@@ -1,66 +1,86 @@
 /**
 * Title: Canvas scripts
-* Author:
+* Author: 
 * Date: 
 * Version: 1.1 (typo fix 7-nov-22)
 * Purpose: Learn how to draw on the HTML canvas.
 *			Rectangles, coordinates, log messages
 **/
 
-
-/**
-* Logging messages
-**/
-// To begin with, just check to see that this script is running correctly.
-// Fix the console.log() statement. Replace the words broken message with "Hello World!" in quotes
-// console.log is a very helpful way to put debugging messages into your code. It can help you find out what is going wrong.
-
+//Becuase why not
 console.log("Hello World!")
 
-// This is the line that tells the browser that when the page has loaded, do the "startCanvas" function
-// Uncomment the onload line
+//Starts the canvas, and has an... interesting method to debug. If it returns correct info anout the console text, it should be good. 
+//I believe the reason for this is that it not only avoids syntax errors, but also logic ones. I think.
+
 window.onload=startCanvas
 
-// Below here we define what the "startCanvas" function does
 function startCanvas(){
-	/**
-	* Setting up the canvas
-	**/
-	// Before you start drawing the script needs to get the canvas info from the webpage.
-	// When the webpage loads this information gets put into the variable "ctx" (ctx stands for 'context')
-	// Uncomment the getContext line, and the log line
 	var ctx
 	ctx=document.getElementById("myCanvas").getContext("2d")
-	console.log(ctx.font) // This is a bit of debug code. If the ctx is working it tells us what the font is. 
+	console.log("debug: " + ctx.font)
 
-	/**
-	* Drawing with the rectangle tool
-	**/
-	// Now you can use the fillRect() function to draw a filled rectangle on the canvas.
-	// You pass four arguements in to the function. The first two are the top left corner, the third is the width, the fourth is the height.
-	// More info here: https://www.w3schools.com/tags/canvas_fillrect.asp
+	//The following draws the four side rectangles
 
-	// uncomment the line below
-	ctx.fillRect(0, 0, 100, 25); // This draws a 100 pixel wide, 25 pixel high rectangle at the top left
+	ctx.fillStyle = "black";
+	ctx.fillRect(0, 0, 100, 25);
 	
-	//
-	//  Hint: The canvas is 600 wide, 400 high
-	//
-	ctx.fillStyle = "red"; // set colour to red
-	// Draw a rectangle 25 wide, 100 high in the top right
-	// You need to work out the dimensions yourself
-	ctx.fillRect(575, 0, width, height);
+	ctx.fillStyle = "red";
+	ctx.fillRect(575, 0, 25, 100);
 	
-	ctx.fillStyle = "green"; // set colour to green
-	// Draw a rectangle 100 wide, 25 high in the bottom right 
-	// You need to work out the coordinates yourself
-	ctx.fillRect(x position, y position, width, height);
+	ctx.fillStyle = "green";
+	ctx.fillRect(500, 375, 100, 25);
 	
-	ctx.fillStyle = "blue"; // set colour to blue
-	// Draw a rectangle 25 wide, 100 high in the bottom left 
-	// You get to do it all yourself
+	ctx.fillStyle = "blue";
+	ctx.fillRect(0, 300, 25, 100);
 	
-	/**
-	** Extra challenge: Draw a robot face!
-	**/
-}
+	//The following draws the Robot
+	
+	ctx.fillStyle = "yellow";
+	ctx.fillRect(90, 35, 350, 400)
+
+	ctx.fillStyle = "black";
+  	ctx.fillRect(235, 275, 60, 210)
+	
+	ctx.fillStyle = "black";
+	ctx.fillRect(175, 75, 180, 210)
+
+	ctx.fillStyle = "black";
+	ctx.fillRect(255, 295, 60, 210)
+	
+	ctx.fillStyle = "black";
+	ctx.fillRect(195, 95, 180, 210)
+
+	ctx.fillStyle = "black";
+	ctx.fillRect(135, 335, 220, 110)
+	
+	ctx.fillStyle = "darkred";
+	ctx.fillRect(200, 100, 170, 200)
+
+	ctx.fillStyle = "black";
+	ctx.fillRect(155, 355, 220, 110)
+
+	ctx.fillStyle = "black";
+	ctx.fillRect(335, 150, 50, 50,)
+
+	ctx.fillStyle = "navy";
+	ctx.fillRect(340, 155, 40, 40,)
+
+	ctx.fillStyle = "black";
+	ctx.fillRect(260, 150, 50, 50,)
+
+	ctx.fillStyle = "navy";
+	ctx.fillRect(265, 155, 40, 40,)
+
+	ctx.fillStyle = "black";
+	ctx.fillRect(270, 235, 115, 30);
+
+	ctx.fillStyle = "navy";
+	ctx.fillRect(275, 240, 105, 20);
+
+	ctx.fillStyle = "darkred";
+	ctx.fillRect(260, 300, 50, 200)
+
+	ctx.fillStyle = "darkblue";
+	ctx.fillRect(160, 360, 210, 100)
+  }
