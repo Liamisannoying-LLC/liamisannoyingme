@@ -3,7 +3,7 @@ def startGame():
           This is a game originally by Liam Mitchell, 2024.
           This material does not have a licence. If a future version does have one, that version should be considered seperate from this one.
           More information should be here soon, if you happen to stumble on this before the next update.
-             ---
+---
 """)
     hall()
 
@@ -51,3 +51,5 @@ def kitchen():
         noGo()
     elif nextMove == ("west"):
         noGo()
+
+startGame()
