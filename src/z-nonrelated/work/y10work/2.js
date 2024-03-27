@@ -14,7 +14,6 @@ console.log("mouseEvent activity")
 // Declare a const for height on line 16.
 const WIDTH = 500
 
-
 // the context 'ctx' is another variable that will be used a lot, it is declared at the start of the program
 var ctx
 
