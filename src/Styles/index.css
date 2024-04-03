@@ -1,7 +1,7 @@
 .TextDiv{
     margin-left: 1%;
     margin-right: auto;
-    background-color: var(--Secondary);
+    background-color: var(--Highlight);
     color: var(--Text-Light);
     border-radius: 1em;
     width: 50%;

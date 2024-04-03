@@ -2,10 +2,10 @@
     font-family: 'ABeeZee', sans-serif;
     --Text-Dark: #312D29ff;
     --Text-Light: #CBCEBDff;
-    --Primary: #321F30ff;
-    --Highlight: rgb(66, 21, 50);
-    --Highlight2: rgb(126, 144, 180);
-    --Secondary: rgb(48, 48, 80);
+    --Primary: #35159C;
+    --Highlight: #CB731B;
+    --Highlight2: #E3CE14;
+    --Secondary: #B84141;
 }
 
 html{
