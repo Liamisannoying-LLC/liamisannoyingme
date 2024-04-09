@@ -1,3 +1,5 @@
+place = 0
+
 def startGame():
     print("""---
           This is a game originally by Liam Mitchell, 2024.
@@ -7,11 +9,19 @@ def startGame():
 """)
     hall()
 
+def takeInput():
+    
+
 def noGo():
     print("""You can't go there...
           """)
 
+def unknownCommand():
+    print("!! I don't recognise that command. Try help() for controls. !!")
+    takeInput()
+
 def hall():
+    place
     print("Welcome to the hall")
     print("What now?")
     nextMove = input(">")
@@ -24,7 +34,7 @@ def hall():
     elif nextMove == ("west"):
         kitchen()
     else:
-        print("I don't recognise that command. Try help() for controls.")
+        unknownCommand()
 
 def bedroom():
     print("You are now in the bedroom")

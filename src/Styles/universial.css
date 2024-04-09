@@ -1,12 +1,35 @@
 *{
     font-family: 'ABeeZee', sans-serif;
-    --text: #1d525d;
-    --background: #171717;
-    --primary: #23433b;
-    --secondary: #273527;
-    --accent: #3a735d;
+    --Text-Dark: #312D29ff;
+    --Text-Light: #CBCEBDff;
+    --Primary: #35159C;
+    --Highlight: #CB731B;
+    --Highlight2: #E3CE14;
+    --Secondary: #B84141;
 }
 
-body{
-    background-color: #171717;
+html{
+    background-color: var(--Primary);
+}
+
+h1,h2,h3,h4,h5,h6,p,span{
+    color: var(--Text-Light);
+}
+
+a {
+    color: var(--Highlight2);
+}
+
+button{
+    background: var(--Secondary);
+    color: var(--Highlight2);
+    padding: 10%;
+    border-radius: 0.3em;
+    border: none;
+}
+
+button:hover{
+    background: var(--Highlight2);
+    padding: 12%;
+    color: var(--Highlight1);
 }
