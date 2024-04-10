@@ -60,4 +60,3 @@ def kitchen():
         noGo()
 
 startGame()
-
