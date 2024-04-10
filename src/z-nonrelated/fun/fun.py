@@ -61,5 +61,6 @@ def kitchen():
         noGo()
     elif nextMove == ("west"):
         noGo()
+        
 
 startGame()
