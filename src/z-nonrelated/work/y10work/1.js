@@ -83,4 +83,70 @@ function startCanvas(){
 
 	ctx.fillStyle = "darkblue";
 	ctx.fillRect(160, 360, 210, 100)
+
+	ctx.beginPath();
+	ctx.moveTo(290, 0);
+	ctx.lineTo(35, 100);
+	ctx.lineTo(200, 300);
+	ctx.strokeStyle = "red";
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(310, 0);
+	ctx.lineTo(55, 100);
+	ctx.lineTo(200, 280);
+	ctx.strokeStyle = "red";
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(330, 0);
+	ctx.lineTo(75, 100);
+	ctx.lineTo(200, 260);
+	ctx.strokeStyle = "red";
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(350, 0);
+	ctx.lineTo(95, 100);
+	ctx.lineTo(200, 240);
+	ctx.strokeStyle = "red";
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(370, 0);
+	ctx.lineTo(115, 100);
+	ctx.lineTo(200, 220);
+	ctx.strokeStyle = "red";
+	ctx.stroke();
+
+
+
+	ctx.beginPath();
+	ctx.moveTo(390, 0);
+	ctx.lineTo(135, 100);
+	ctx.lineTo(200, 200);
+	ctx.strokeStyle = "red";
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(410, 0);
+	ctx.lineTo(155, 100);
+	ctx.lineTo(200, 180);
+	ctx.strokeStyle = "red";
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(430, 0);
+	ctx.lineTo(175, 100);
+	ctx.lineTo(200, 160);
+	ctx.strokeStyle = "red";
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(450, 0);
+	ctx.lineTo(195, 100);
+	ctx.lineTo(200, 140);
+	ctx.strokeStyle = "red";
+	ctx.stroke();
+
   }
