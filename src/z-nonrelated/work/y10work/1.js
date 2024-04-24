@@ -1,10 +1,11 @@
 /**
 * Title: Canvas scripts
 * Author: Unknown / mitchli
-* Date: Unknown / 
+* Date: Unknowns
 * Version: 1.1 (typo fix 7-nov-22)
 * Purpose: Learn how to draw on the HTML canvas.
 *			Rectangles, coordinates, log messages
+
 **/
 
 //Becuase why not

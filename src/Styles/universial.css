@@ -1,11 +1,11 @@
 *{
     font-family: 'ABeeZee', sans-serif;
-    --Text-Dark: #312D29ff;
-    --Text-Light: #CBCEBDff;
-    --Primary: #35159C;
-    --Highlight: #CB731B;
-    --Highlight2: #E3CE14;
-    --Secondary: #B84141;
+    --Text-Dark: rgb(50, 70, 10);
+    --Text-Light: rgb(4, 111, 0);
+    --Primary: #0a8b22;
+    --Highlight: #08ba14e1;
+    --Highlight2: #73b671;
+    --Secondary: #005406;
 }
 
 html{
