@@ -54,33 +54,33 @@ function mouseMovedFunction(mouseEvent){
 	// Use the mouseX and mouseY to draw a dot where the mouse pointer is
     ctx.fillRect(mouseX, mouseY, 6, 6)
 	
-	ctx.fillStyle = "orange"
+	//ctx.fillStyle = "orange"
 	// Use the mouseX and mouseY to draw a dot reflected horizontally across the centerline
-    ctx.fillRect(WIDTH-mouseX, , 6, 6)
+    //ctx.fillRect(WIDTH-mouseX, , 6, 6)
 	
-	ctx.fillStyle = "blue"
+	//ctx.fillStyle = "blue"
 	// Use the mouseX and mouseY to draw a dot reflected vertically across the centerline
-    ctx.fillRect(mouseX, HEIGHT, 6, 6)	
+    //ctx.fillRect(mouseX, HEIGHT, 6, 6)	
 	
-	ctx.fillStyle = "green" 
+	//ctx.fillStyle = "green" 
 	// Use the mouseX and mouseY to draw a dot reflected across the centerpoint
-    ctx.fillRect(, , 6, 6)	
+    //ctx.fillRect(, , 6, 6)	
 
-	ctx.fillStyle = "purple"
+	//ctx.fillStyle = "purple"
 	// Use the mouseX and mouseY to draw a dot reflected across a diagonal - see the image in the doc
-    ctx.fillRect(mouseY, , 6, 6)	
+    //ctx.fillRect(mouseY, , 6, 6)	
 
-	ctx.fillStyle = "yellow"
+	//ctx.fillStyle = "yellow"
 	// Use the mouseX and mouseY to draw a dot reflected across a diagonal - see the image in the doc
-    ctx.fillRect(, , 6, 6)	
+    //ctx.fillRect(, , 6, 6)	
 
-	ctx.fillStyle = "darkblue"
+	//ctx.fillStyle = "darkblue"
 	// Use the mouseX and mouseY to draw a dot reflected across a diagonal - see the image in the doc
-    ctx.fillRect(, , 6, 6)	
+    //ctx.fillRect(, , 6, 6)	
 
-	ctx.fillStyle = "darkcyan"
+	//ctx.fillStyle = "darkcyan"
 	// Use the mouseX and mouseY to draw a dot reflected across a diagonal - see the image in the doc
-    ctx.fillRect(, , 6, 6)	
+    //ctx.fillRect(, , 6, 6)	
 }
 
 // Add a new event listener (see line 37)
