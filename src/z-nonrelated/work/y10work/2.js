@@ -54,13 +54,13 @@ function mouseMovedFunction(mouseEvent){
 	// Use the mouseX and mouseY to draw a dot where the mouse pointer is
     ctx.fillRect(mouseX, mouseY, 6, 6)
 	
-	//ctx.fillStyle = "orange"
-	// Use the mouseX and mouseY to draw a dot reflected horizontally across the centerline
-    //ctx.fillRect(WIDTH-mouseX, , 6, 6)
+	ctx.fillStyle = "orange"
+	//Use the mouseX and mouseY to draw a dot reflected horizontally across the centerline
+    ctx.fillRect(HEIGHT-mouseX, WIDTH-mouseY, 6, 6)
 	
-	//ctx.fillStyle = "blue"
+	ctx.fillStyle = "blue"
 	// Use the mouseX and mouseY to draw a dot reflected vertically across the centerline
-    //ctx.fillRect(mouseX, HEIGHT, 6, 6)	
+    ctx.fillRect(mouseX, HEIGHT, 6, 6)	
 	
 	//ctx.fillStyle = "green" 
 	// Use the mouseX and mouseY to draw a dot reflected across the centerpoint
