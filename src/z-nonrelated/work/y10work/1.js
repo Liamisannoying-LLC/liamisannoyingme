@@ -1,11 +1,10 @@
 /**
 * Title: Canvas scripts
 * Author: Unknown / mitchli
-* Date: Unknowns
+* Date: Unknown
 * Version: 1.1 (typo fix 7-nov-22)
 * Purpose: Learn how to draw on the HTML canvas.
 *			Rectangles, coordinates, log messages
-
 **/
 
 //Becuase why not
@@ -85,6 +84,8 @@ function startCanvas(){
 	ctx.fillStyle = "darkblue";
 	ctx.fillRect(160, 360, 210, 100)
 
+	//The following draws some random lines for artistic/grading reasons
+	
 	ctx.beginPath();
 	ctx.moveTo(290, 0);
 	ctx.lineTo(35, 100);
@@ -119,8 +120,6 @@ function startCanvas(){
 	ctx.lineTo(200, 220);
 	ctx.strokeStyle = "red";
 	ctx.stroke();
-
-
 
 	ctx.beginPath();
 	ctx.moveTo(390, 0);
