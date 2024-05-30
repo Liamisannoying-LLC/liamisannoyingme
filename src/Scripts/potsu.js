@@ -10,7 +10,6 @@ this program is *definitely* under hundreds of copyright restrictions
 -Disclamer- 
 
 This is very math-y so some of it is stolen from the internet and gpt (if I couldnt find it on the interweb)
-this code doesnt effect liam blaster but is with other games so if you dont count it, LiamBlaster is still legitimate.
 
 From websites:
     SAT algorythem
