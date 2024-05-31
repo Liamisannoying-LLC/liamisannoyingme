@@ -6,6 +6,8 @@
 * Purpose: Learn how to use logic to color the screen
 **/
 
+//Following is setup
+
 console.log("Logic activity")
 
 const WIDTH = 600
@@ -20,15 +22,18 @@ function startCanvas(){
 	ctx=document.getElementById("myCanvas").getContext("2d")
 }
 
+//Following is detection of mouse
+
 window.addEventListener('mousemove', mouseMoved)
 
 function mouseMoved(mouseEvent){
 	var mouseX = mouseEvent.offsetX;
 	var mouseY = mouseEvent.offsetY
 
+//The logic. First, it detects if it should draw purple by finding if the mouse is in the ranges x(200-400) and y(200-400). 
+//If not it's just about what quadrant it's in.
+
 if (mouseX > 200 && mouseX < 400 && mouseY > 200 && mouseY < 400){
-
-
 		color = "purple"
 	}else if (mouseX > 300 && mouseY > 300){
 		color = "green"
@@ -40,19 +45,9 @@ if (mouseX > 200 && mouseX < 400 && mouseY > 200 && mouseY < 400){
 		color = "blue"
 }
 
-// Task 5:
-// If the mouse is in the middle 200 pixels the color should change to purple
-// See the image in the doc
-// There are many ways to do this, Experiment until you get it. Talk to your friends for ideas is you're stuck
+//Following is how to draw
 
-/*
-*  Here is where all the logic finishes
-*/
-	// Set the fill to the right color
-	ctx.fillStyle = color;
-	// Task 2: Draw a red square at the mouse pointer. Use the constant DOTSIZE instead of a literal value
-	ctx.fillRect(mouseX, mouseY, DOTSIZE, DOTSIZE)
-
-	// This is a debug statement. It might be useful later...
-	console.log("mouseX, mouseY", mouseX, mouseY, "Color", color)
+ctx.fillStyle = color;
+ctx.fillRect(mouseX, mouseY, DOTSIZE, DOTSIZE)
+console.log("mouseX, mouseY", mouseX, mouseY, "Color", color)
 }

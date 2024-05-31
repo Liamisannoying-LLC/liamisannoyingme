@@ -6,12 +6,12 @@
 * Purpose: Learn how to detect the mouse position
 **/
 
+//Following is setup
+
 console.log("mouseEvent activity")
 const WIDTH = 600
 const HEIGHT = 600
 var ctx
-
-//Following is setup
 
 window.onload=startCanvas
 
