@@ -28,33 +28,61 @@ function startCanvas(){
 	// Start with the first row:
     ctx.fillRect(0, 0, 50, 50)
     ctx.fillRect(100, 0, 50, 50)
-    /*ctx.fillRect(, , 50, 50)
-    ctx.fillRect(, , 50, 50)
-    ctx.fillRect(, , 50, 50)
-    ctx.fillRect(, , 50, 50)*/
-	// then go to the second row:
+    ctx.fillRect(200, 0, 50, 50)
+    ctx.fillRect(300, 0, 50, 50)
+    ctx.fillRect(400, 0, 50, 50)
+    ctx.fillRect(500, 0, 50, 50)
     ctx.fillRect(0, 100, 50, 50)
     ctx.fillRect(100, 100, 50, 50)
-    /*ctx.fillRect(, , 50, 50)
-    ctx.fillRect(, , 50, 50)
-    ctx.fillRect(, , 50, 50)
-    ctx.fillRect(, , 50, 50)*/
-	// and so on until you're done...
-    /*ctx.fillRect(, , 50, 50)*/
-    
-	
-	ctx.fillStyle = "green"
-	console.log("Starting green")
-	// Next draw the green squares.
-	// Use a while loop to draw six squares on each row
-	xPosition = 50; // Set the starting x position to 50
-	count = 0; // Reset the count
-	while(count < 6){ // Do this 6 times
-		ctx.fillRect(xPosition, 0, 50, 50) // The first row stats at y = 0
-		xPosition = xPosition + 100        // Change the xPosition 
-		count = count + 1				   // Increase the count by one
-	}
-	// Add more loops until you are done.
+    ctx.fillRect(200, 100, 50, 50)
+    ctx.fillRect(300, 100, 50, 50)
+    ctx.fillRect(400, 100, 50, 50)
+    ctx.fillRect(500, 100, 50, 50)
+    ctx.fillRect(0, 200, 50, 50)
+    ctx.fillRect(100, 200, 50, 50)
+    ctx.fillRect(200, 200, 50, 50)
+    ctx.fillRect(300, 200, 50, 50)
+    ctx.fillRect(400, 200, 50, 50)
+    ctx.fillRect(500, 200, 50, 50)
+    ctx.fillRect(0, 300, 50, 50)
+    ctx.fillRect(100, 300, 50, 50)
+    ctx.fillRect(200, 300, 50, 50)
+    ctx.fillRect(300, 300, 50, 50)
+    ctx.fillRect(400, 300, 50, 50)
+    ctx.fillRect(500, 300, 50, 50)
+    ctx.fillRect(0, 400, 50, 50)
+    ctx.fillRect(100, 400, 50, 50)
+    ctx.fillRect(200, 400, 50, 50)
+    ctx.fillRect(300, 400, 50, 50)
+    ctx.fillRect(400, 400, 50, 50)
+    ctx.fillRect(500, 400, 50, 50)
+    ctx.fillRect(0, 500, 50, 50)
+    ctx.fillRect(100, 500, 50, 50)
+    ctx.fillRect(200, 500, 50, 50)
+    ctx.fillRect(300, 500, 50, 50)
+    ctx.fillRect(400, 500, 50, 50)
+    ctx.fillRect(500, 500, 50, 50)
+
+	ctx.fillStyle = "green";
+
+    console.log("Starting green");
+
+yPosition = 0; // Set the starting y position to 0
+rowCount = 0; // Initialize the row count
+
+while(rowCount < 6) { // Do this 6 times for the rows
+    xPosition = 50; // Set the starting x position to 50
+    count = 0; // Reset the count for each row
+
+    while(count < 6) { // Do this 6 times for each square in the row
+        ctx.fillRect(xPosition, yPosition, 50, 50); // Draw the square
+        xPosition = xPosition + 100; // Change the xPosition
+        count = count + 1; // Increase the count by one
+    }
+
+    yPosition = yPosition + 100; // Move to the next row
+    rowCount = rowCount + 1; // Increase the row count by one
+}
 
 
 
