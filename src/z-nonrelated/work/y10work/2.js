@@ -2,7 +2,7 @@
 * Title: Mouse Position
 * Author: Unknown / mitchli
 * Date: Unknown
-* Version: 1
+* Version: Built off "1"
 * Purpose: Learn how to detect the mouse position
 **/
 
@@ -11,9 +11,9 @@ const WIDTH = 600
 const HEIGHT = 600
 var ctx
 
-window.onload=startCanvas
-
 //Following is setup
+
+window.onload=startCanvas
 
 function startCanvas(){
 	ctx=document.getElementById("myCanvas").getContext("2d")
@@ -35,6 +35,11 @@ function mouseMovedFunction(mouseEvent){
     ctx.fillRect(mouseX, mouseY, 6, 6)
 	
 	//Following draws the dots
+	//Important to note that if you follow the instructions given on here, you get a different result to the instructions given on the doc. 
+	//The difference relates to the positioning of the different coloured lines relative to the mouse pointer. 
+	//I followed as closely as I could to the original source code, here. 
+	//However, for some of them, I only had the doc to work with. This means that some are rotated, and some not. 
+	//I could have rotated some of them so that they are all wrong in the same way so that it can all be rotated to in effect be the same, but I decided not to for now.
 	
 	ctx.fillStyle = "orange"
     ctx.fillRect(mouseX, HEIGHT-mouseY, 6, 6)
