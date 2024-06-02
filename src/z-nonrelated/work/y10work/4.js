@@ -63,27 +63,17 @@ function startCanvas(){
     ctx.fillRect(400, 500, 50, 50)
     ctx.fillRect(500, 500, 50, 50)
 
-	ctx.fillStyle = "green";
+ctx.fillStyle = "green"
+console.log("Starting green")
 
-    console.log("Starting green");
+xPosition = 50
+count = 0
 
-yPosition = 0; // Set the starting y position to 0
-rowCount = 0; // Initialize the row count
-
-while(rowCount < 6) { // Do this 6 times for the rows
-    xPosition = 50; // Set the starting x position to 50
-    count = 0; // Reset the count for each row
-
-    while(count < 6) { // Do this 6 times for each square in the row
-        ctx.fillRect(xPosition, yPosition, 50, 50); // Draw the square
-        xPosition = xPosition + 100; // Change the xPosition
-        count = count + 1; // Increase the count by one
-    }
-
-    yPosition = yPosition + 100; // Move to the next row
-    rowCount = rowCount + 1; // Increase the row count by one
+while(count < 6){ // Do this 6 times
+    ctx.fillRect(xPosition, 0, 50, 50) // The first row stats at y = 0
+	xPosition = xPosition + 100        // Change the xPosition 
+	count = count + 1				   // Increase the count by one
 }
-
 
 
 
