@@ -1,33 +1,34 @@
 /**
 * Title: Canvas scripts
-* Author: 
-* Date: 
-* Version: 1
+* Author: Unknown / mitchli
+* Date: Unknown
+* Version: Built off "1"
 * Purpose: Learn how to use loops
 **/
 
+//Following is first part of setup
+
 console.log("Loop activity")
 
-// Some constants that will be used in this scripts
-const WIDTH = 600;
-const HEIGHT = 600;
+const WIDTH = 600
+const HEIGHT = 600
 
-// some variables that will be needed
 var ctx
 
-// Set up the canvas... You've done it before
 window.onload=startCanvas
+
+//All of following is second part of setup
 
 function startCanvas(){
 	ctx=document.getElementById("myCanvas").getContext("2d")
-	
+
+//Following draws the green squares, manually. 
+
 	ctx.fillStyle = "blue"
 	console.log("Starting blue")
-	// Draw blue squares on the canvas individually.
-	// Each square is 50 pixels across.
-	// Start with the first row:
-    ctx.fillRect(0, 0, 50, 50)
-    ctx.fillRect(100, 0, 50, 50)
+
+	ctx.fillRect(0, 0, 50, 50)
+	ctx.fillRect(100, 0, 50, 50)
     ctx.fillRect(200, 0, 50, 50)
     ctx.fillRect(300, 0, 50, 50)
     ctx.fillRect(400, 0, 50, 50)
@@ -63,55 +64,117 @@ function startCanvas(){
     ctx.fillRect(400, 500, 50, 50)
     ctx.fillRect(500, 500, 50, 50)
 
-ctx.fillStyle = "green"
-console.log("Starting green")
+	//Following draws the green squares, using a few nearly identical loops.
 
-xPosition = 50
-count = 0
+	ctx.fillStyle = "green"
+	console.log("Starting green")
 
-while(count < 6){ // Do this 6 times
-    ctx.fillRect(xPosition, 0, 50, 50) // The first row stats at y = 0
-	xPosition = xPosition + 100        // Change the xPosition 
-	count = count + 1				   // Increase the count by one
-}
+	xPosition = 50
+	count = 0
+	while(count < 6){
+    	ctx.fillRect(xPosition, 0, 50, 50)
+		xPosition = xPosition + 100
+		count = count + 1
+	}
+	xPosition = 50
+	count = 0
+	while(count < 6){
+    	ctx.fillRect(xPosition, 100, 50, 50)
+		xPosition = xPosition + 100
+		count = count + 1
+	}
+	xPosition = 50
+	count = 0
+	while(count < 6){
+    	ctx.fillRect(xPosition, 200, 50, 50)
+		xPosition = xPosition + 100
+		count = count + 1
+	}
+	xPosition = 50
+	count = 0
+	while(count < 6){
+    	ctx.fillRect(xPosition, 300, 50, 50)
+		xPosition = xPosition + 100
+		count = count + 1
+	}
+	xPosition = 50
+	count = 0
+	while(count < 6){
+   		ctx.fillRect(xPosition, 400, 50, 50)
+		xPosition = xPosition + 100
+		count = count + 1
+	}
+	xPosition = 50
+	count = 0
+	while(count < 6){
+   		ctx.fillRect(xPosition, 500, 50, 50)
+		xPosition = xPosition + 100
+		count = count + 1
+	}
 
-
+	//Following draws the orange squares, using the same method as the green squares, except instead of a count variable, we use WIDTH
 
 	ctx.fillStyle = "orange"
 	console.log("Starting orange")
-	// Next draw the green squares.
-	// This time, don't count. Just keep going until you have used up the width of the canvas
-	xPosition = 0 // reset the xPosition to the start
-	while(xPosition < WIDTH){ // Do this until you run out of canvas
-		ctx.fillRect(xPosition, 50, 50, 50) // The first row starts at y = 50
-		xPosition = xPosition + 100			// Change the xPosition
+
+	xPosition = 0
+	while(xPosition < WIDTH){
+		ctx.fillRect(xPosition, 50, 50, 50)
+		xPosition = xPosition + 100
 	}
-	// Add more loops until you are done.
+	xPosition = 0
+	while(xPosition < WIDTH){
+		ctx.fillRect(xPosition, 150, 50, 50)
+		xPosition = xPosition + 100
+	}
+	xPosition = 0
+	while(xPosition < WIDTH){
+		ctx.fillRect(xPosition, 250, 50, 50)
+		xPosition = xPosition + 100
+	}
+	xPosition = 0
+	while(xPosition < WIDTH){
+		ctx.fillRect(xPosition, 350, 50, 50)
+		xPosition = xPosition + 100
+	}
+	xPosition = 0
+	while(xPosition < WIDTH){
+		ctx.fillRect(xPosition, 450, 50, 50)
+		xPosition = xPosition + 100
+	}
+	xPosition = 0
+	while(xPosition < WIDTH){
+		ctx.fillRect(xPosition, 550, 50, 50)
+		xPosition = xPosition + 100
+	}
 
+	//Following draws the purple squares, using nested loop
 
-
-	
 	ctx.fillStyle = "purple"
 	console.log("Starting purple")
-	// Next draw the purple squares.
-	// Instead of doing six separate loops, use a nested loop
-	// This nested loop is broken. Change teh numbers to fix it!
-	xPosition = 450
+
+	xPosition = 50
 	while(xPosition < WIDTH){ 
-		yPosition = 450
+		yPosition = 50
 		while(yPosition < WIDTH){ 
 			ctx.fillRect(xPosition, yPosition, 50, 50)
 			yPosition = yPosition + 100
 		}
-		xPosition = xPosition + 50
+		xPosition = xPosition + 100
 	}
-	
-	ctx.fillStyle = "red"
-	console.log("Starting red")
+
+	//Following draws the red squares, using nested loop
 	// Now draw the small red dots.
 	// Each red dot is 10 pixels wide
 	// Use a nested loop to create all the red dots.
 	// you can copy and modify the nested loop from the purple squares
+	// the red dots must appear in the middle of all of the other squares
+
+	ctx.fillStyle = "red"
+	console.log("Starting red")
+	}
+	
+
 
 
 
