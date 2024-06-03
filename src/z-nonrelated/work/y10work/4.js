@@ -164,30 +164,26 @@ function startCanvas(){
 	}
 
 	//Following draws the red squares, using nested loop
-	// Now draw the small red dots.
-	// Each red dot is 10 pixels wide
-	// Use a nested loop to create all the red dots.
-	// you can copy and modify the nested loop from the purple squares
-	// the red dots must appear in the middle of all of the other squares
 
 	ctx.fillStyle = "red"
 	console.log("Starting red")
+
+	xPosition = 20
+	while(xPosition < WIDTH){ 
+		yPosition = 20
+		while(yPosition < WIDTH){ 
+			ctx.fillRect(xPosition, yPosition, 10, 10)
+			yPosition = yPosition + 50
+		}
+		xPosition = xPosition + 50
 	}
-	
 
-
-
-
-
+	//Following draws the black squares, using two nested loops
 
 	ctx.fillStyle = "black"
 	console.log("Starting black")
-	// Finally add the black squares
-	// Use loops to do it without doing each square manually
 
-
-
-
+	
 
 console.log("Finished")
 }
