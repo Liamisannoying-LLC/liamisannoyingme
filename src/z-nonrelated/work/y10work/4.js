@@ -178,12 +178,31 @@ function startCanvas(){
 		xPosition = xPosition + 50
 	}
 
-	//Following draws the black squares, using two nested loops
+	//Following draws the black squares, using two non-nested loops becuase making them nested was unnecessary for the product (for now)
 
 	ctx.fillStyle = "black"
 	console.log("Starting black")
-
 	
+	xPosition = 30;
+	yPosition = 30;
+	blacksquarecount = 0
+	
+	while(blacksquarecount < 11){
+		ctx.fillRect(xPosition, yPosition, 40, 40)
+		xPosition = xPosition + 50
+		yPosition = yPosition + 50
+		blacksquarecount = blacksquarecount + 1
+	}
+	xPosition = 530
+	yPosition = 30
+	blacksquarecount = 0
+
+	while (blacksquarecount < 11){
+		ctx.fillRect(xPosition, yPosition, 40, 40)
+		xPosition = xPosition - 50
+		yPosition = yPosition + 50
+		blacksquarecount = blacksquarecount + 1
+	}
 
 console.log("Finished")
 }
