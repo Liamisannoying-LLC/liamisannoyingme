@@ -186,6 +186,7 @@ function startCanvas(){
 	xPosition = 30;
 	yPosition = 30;
 	blacksquarecount = 0
+	blacksquaresdone = false
 	
 	while(blacksquarecount < 11){
 		ctx.fillRect(xPosition, yPosition, 40, 40)

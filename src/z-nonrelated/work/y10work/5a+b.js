@@ -1,23 +1,20 @@
 /**
 * Title: Functions excercise
-* Author:
-* Date:
+* Author: Unknown / mitchli
+* Date: Unknown
 * Version: 1.1 (9-Nob-22 - improve some instructions, break up tasks to make lesson into two parts)
 * Purpose: Learn how to use functions
 **/
 
 console.log("Functions activity")
 
-// Some constants that will be used in this script
 const WIDTH = 600;
 const HEIGHT = 600;
 
-// Some global variables that will be needed
 var ctx
 var textColor = "HotPink"
 var bgColor = "Beige"
 
-// Set up the canvas... You've done it before
 window.onload=startCanvas
 
 function startCanvas(){
@@ -34,7 +31,7 @@ function startCanvas(){
 // The format for an event listener is: element.addEventListener(<which event to listen for>, <what to do with the event>);
 // We are listening for the 'keydown' event in the HTML window element. When a key on the keyboard is pressed we want to run the keyDownFunction.
 // Task 2a: Uncomment the line below
-///window.addEventListener('keydown', keyDownFunction)
+window.addEventListener('keydown', keyDownFunction)
 
 // This is the function that the eventlistener calls when a key is pressed
 function keyDownFunction(keyboardEvent){
@@ -44,7 +41,6 @@ function keyDownFunction(keyboardEvent){
 	
 	// Task 2b: Use console.log to display a message saying "You just pressed" and the key that was pressed on the same line
 
-	
 	// Task 3: 
 	// Use ctx.fillRect() to fill the whole canvas with the background color.
 	//			Use the global variable bgColor
@@ -52,7 +48,6 @@ function keyDownFunction(keyboardEvent){
 	//			Use the global variable textColor
 	//			Use the X and Y coordinates 150, 150
 
-	
 	// Task 4: My secret word is "cat"
 	// Use a logic statement to detect the letters in the word "cat"
 	// If one of these letters is detected use console.log() to log an appropriate message "congratulations *** is in my word"
@@ -66,6 +61,7 @@ function keyDownFunction(keyboardEvent){
 		
 	 }
 }
+
 // Task 5:
 // Below is a congratulations function. 
 // Replace the console.log "congratulations" statements from task 4 with this function:  congratulations()
