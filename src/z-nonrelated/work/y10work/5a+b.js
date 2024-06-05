@@ -2,7 +2,7 @@
 * Title: Functions excercise
 * Author: Unknown / mitchli
 * Date: Unknown
-* Version: 1.1 (9-Nob-22 - improve some instructions, break up tasks to make lesson into two parts)
+* Version: Built off "1.1""
 * Purpose: Learn how to use functions
 **/
 
@@ -40,6 +40,7 @@ function keyDownFunction(keyboardEvent){
 	var keyDown = keyboardEvent.key
 	
 	// Task 2b: Use console.log to display a message saying "You just pressed" and the key that was pressed on the same line
+	console.log("You pressed " + keyDown)
 
 	// Task 3: 
 	// Use ctx.fillRect() to fill the whole canvas with the background color.
@@ -47,6 +48,8 @@ function keyDownFunction(keyboardEvent){
 	// Use ctx.fillText() to write the message "You pressed " and the key that was pressed on the canvas in the text Color.
 	//			Use the global variable textColor
 	//			Use the X and Y coordinates 150, 150
+	
+	ctx.fillText("You pressed " + keyDown)
 
 	// Task 4: My secret word is "cat"
 	// Use a logic statement to detect the letters in the word "cat"
