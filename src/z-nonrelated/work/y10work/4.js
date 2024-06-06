@@ -10,8 +10,8 @@
 
 console.log("Loop activity")
 
-const WIDTH = 600
-const HEIGHT = 600
+const WIDTH = 300
+const HEIGHT = 300
 
 var ctx
 
@@ -27,42 +27,15 @@ function startCanvas(){
 	ctx.fillStyle = "blue"
 	console.log("Starting blue")
 
-	ctx.fillRect(0, 0, 50, 50)
-	ctx.fillRect(100, 0, 50, 50)
-    ctx.fillRect(200, 0, 50, 50)
-    ctx.fillRect(300, 0, 50, 50)
-    ctx.fillRect(400, 0, 50, 50)
-    ctx.fillRect(500, 0, 50, 50)
-    ctx.fillRect(0, 100, 50, 50)
-    ctx.fillRect(100, 100, 50, 50)
-    ctx.fillRect(200, 100, 50, 50)
-    ctx.fillRect(300, 100, 50, 50)
-    ctx.fillRect(400, 100, 50, 50)
-    ctx.fillRect(500, 100, 50, 50)
-    ctx.fillRect(0, 200, 50, 50)
-    ctx.fillRect(100, 200, 50, 50)
-    ctx.fillRect(200, 200, 50, 50)
-    ctx.fillRect(300, 200, 50, 50)
-    ctx.fillRect(400, 200, 50, 50)
-    ctx.fillRect(500, 200, 50, 50)
-    ctx.fillRect(0, 300, 50, 50)
-    ctx.fillRect(100, 300, 50, 50)
-    ctx.fillRect(200, 300, 50, 50)
-    ctx.fillRect(300, 300, 50, 50)
-    ctx.fillRect(400, 300, 50, 50)
-    ctx.fillRect(500, 300, 50, 50)
-    ctx.fillRect(0, 400, 50, 50)
-    ctx.fillRect(100, 400, 50, 50)
-    ctx.fillRect(200, 400, 50, 50)
-    ctx.fillRect(300, 400, 50, 50)
-    ctx.fillRect(400, 400, 50, 50)
-    ctx.fillRect(500, 400, 50, 50)
-    ctx.fillRect(0, 500, 50, 50)
-    ctx.fillRect(100, 500, 50, 50)
-    ctx.fillRect(200, 500, 50, 50)
-    ctx.fillRect(300, 500, 50, 50)
-    ctx.fillRect(400, 500, 50, 50)
-    ctx.fillRect(500, 500, 50, 50)
+	xPosition = 0
+	while(xPosition < WIDTH){ 
+		yPosition = 0
+		while(yPosition < WIDTH){ 
+			ctx.fillRect(xPosition, yPosition, 50, 50)
+			yPosition = yPosition + 100
+		}
+		xPosition = xPosition + 100
+	}
 
 	//Following draws the green squares, using a few nearly identical loops.
 
@@ -148,7 +121,7 @@ function startCanvas(){
 		xPosition = xPosition + 100
 	}
 
-	//Following draws the purple squares, using nested loop
+	//Following draws the purple squares, using nested loop, with WIDTH instead of count
 
 	ctx.fillStyle = "purple"
 	console.log("Starting purple")
