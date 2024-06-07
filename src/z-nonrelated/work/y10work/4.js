@@ -107,14 +107,20 @@ function startCanvas(){
 	rightXPosition = WIDTH - 70
 	blackDone = false
 
-	if(blackDone == false){
+	function drawleft(){
 		ctx.fillRect(leftXPosition, YPosition, 40, 40)
+	}
+	function drawright(){
 		ctx.fillRect(rightXPosition, YPosition, 40, 40)
+	}
+	drawleft()
+	drawright()
+	if(blackDone > 50){
 		leftXPosition = leftXPosition + 50
-		yPosition = yPosition - 50
-		ctx.fillRect(leftXPosition, YPosition, 40, 40)
-		ctx.fillRect(rightXPosition, YPosition, 40, 40)
-
+		rightXPosition = rightXPosition + 50
+		YPosition = YPosition + 50
+		drawleft()
+		drawright()
 		blackdone = true
 	}
 

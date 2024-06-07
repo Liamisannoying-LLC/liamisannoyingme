@@ -38,7 +38,7 @@ function keyDownFunction(keyboardEvent){
 	// The keyboard event is passed to the function as an argument
 	// The key that was pressed is stored in a local variable named keyDown
 	var keyDown = keyboardEvent.key
-	
+
 	// Task 2b: Use console.log to display a message saying "You just pressed" and the key that was pressed on the same line
 	console.log("You pressed " + keyDown)
 
@@ -48,8 +48,9 @@ function keyDownFunction(keyboardEvent){
 	// Use ctx.fillText() to write the message "You pressed " and the key that was pressed on the canvas in the text Color.
 	//			Use the global variable textColor
 	//			Use the X and Y coordinates 150, 150
-	
-	ctx.fillText("You pressed " + keyDown)
+	ctx.fillStyle
+	ctx.fillRect(0, 0, 500, 500)
+	ctx.fillText("You pressed " + keyDown, 300, 300)
 
 	// Task 4: My secret word is "cat"
 	// Use a logic statement to detect the letters in the word "cat"
