@@ -24,8 +24,8 @@ var corpus = [
   "happen, but", "it wasn't", "It is not", "my fault, not", "my fault that I have", "now taken a", "life. My", "own"
 ];
 function generateWords(){ 
-  var godsong = "";
+  var textString = "";
   for (i = 0; i < 3; i++) {
     index = Math.floor(Math.random() * corpus.length);
-    godsong = godsong + " " + corpus[index];}
-  document.getElementById('godSpeakDisplay').textContent = godsong;}
+    textString = textString + " " + corpus[index];}
+  document.getElementById('PoemDisplay').textContent = textString;}
