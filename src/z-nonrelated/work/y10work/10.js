@@ -237,4 +237,3 @@ function mouseMovedFunction(mouseEvent){
 	playerXPosition = mouseEvent.offsetX
 	playerYPosition = mouseEvent.offsetY
 }
-

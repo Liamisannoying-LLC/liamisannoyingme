@@ -64,8 +64,7 @@ function updateCanvas(){
 	// change the position of the player by adding the appropriate speed to the position variable
 	// Uncomment the one for x, create one for y
 	///playerXPosition = playerXPosition + playerXSpeed
-	
-	
+
 	// Task 5e:
 	// Move the player.
 	// Comment out the code from task 3d
@@ -75,8 +74,7 @@ function updateCanvas(){
 	///if(upPressed){
 	///	playerYPosition -= playerYSpeed
 	///}
-	
-	
+
 	// Task 7b:
 	// Now get the player to travel towards the mouse pointer.
 	// This will use the mouse speed that you have already set up.
@@ -87,12 +85,6 @@ function updateCanvas(){
 	/// }
 	// Now add code for the other three directions
 
-
-
-
-
-
-	
 	// Task 8:
 	// Now get the player to accelerate towards the mouse pointer.
 	// First, comment out the code you wrote for 7b

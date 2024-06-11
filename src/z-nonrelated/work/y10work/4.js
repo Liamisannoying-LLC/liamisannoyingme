@@ -10,7 +10,7 @@
 
 console.log("Loop activity")
 
-const WIDTH = 600
+const WIDTH = 400
 
 var ctx
 
@@ -113,15 +113,21 @@ function startCanvas(){
 	function drawright(){
 		ctx.fillRect(rightXPosition, YPosition, 40, 40)
 	}
-	drawleft()
-	drawright()
-	if(blackDone > 50){
-		leftXPosition = leftXPosition + 50
-		rightXPosition = rightXPosition + 50
-		YPosition = YPosition + 50
+	
+	while(YPosition < WIDTH - 69){
 		drawleft()
 		drawright()
-		blackdone = true
+
+		leftXPosition = leftXPosition + 50
+		rightXPosition = rightXPosition - 50
+		YPosition = YPosition + 50
+
+		if(leftXPosition > WIDTH - 50 && rightXPosition < 50){
+			blackDone = true
+		}
+		if(blackDone){
+			break
+		}
 	}
 
 console.log("Finished")

@@ -24,8 +24,8 @@ var corpus = [
   "happen, but", "it wasn't", "It is not", "my fault, not", "my fault that I have", "now taken a", "life. My", "own"
 ];
 function generateWords(){ 
-  var textString = "";
+  var correctLanguage = "";
   for (i = 0; i < 3; i++) {
     index = Math.floor(Math.random() * corpus.length);
-    textString = textString + " " + corpus[index];}
-  document.getElementById('PoemDisplay').textContent = textString;}
+    correctLanguage = correctLanguage + " " + corpus[index];}
+  document.getElementById('PoemDisplay').textContent = correctLanguage;}
