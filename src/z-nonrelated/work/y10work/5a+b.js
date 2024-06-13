@@ -7,6 +7,7 @@
  */
 
 //Following is setup
+
 console.log("Functions activity");
 
 const WIDTH = 600;
@@ -28,6 +29,7 @@ function startCanvas() {
 
 window.addEventListener('keydown', keyDownFunction);
 
+//This is the function that the eventlistener calls when a key is pressed
 function keyDownFunction(keyboardEvent) {
   const keyDown = keyboardEvent.key;
 
@@ -36,6 +38,7 @@ function keyDownFunction(keyboardEvent) {
   }
 }
 
+//Following tells canvas what to do when a key is pressed
 function displayKey(key) {
   console.log(`You pressed '${key}'`);
 
@@ -52,6 +55,7 @@ function displayKey(key) {
   }
 }
 
+//Following tells canvas to tell the user they guessed correctly
 function congratulations(key) {
   console.log("Congratulations, '" + (key) + "' is in my word");
 
@@ -61,6 +65,7 @@ function congratulations(key) {
   ctx.fillText("Well done, '" + (key) + "' is in my word", 10, 470);
 }
 
+//Following tells canvas to tell the user they guessed incorrectly
 function displayIncorrectMessage(key) {
   console.log("Sorry, '" + (key) + "' is not in my word");
 
@@ -69,4 +74,3 @@ function displayIncorrectMessage(key) {
   ctx.fillStyle = "black";
   ctx.fillText("Sorry, '" + (key) + "' is not in my word", 10, 470);
 }
-

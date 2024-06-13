@@ -16,11 +16,14 @@ const DOTSIZE = 50
 // some variables that will be needed, you will add to these
 var ctx
 var frameCount = 0
-var blueXPosition = 0
+var blueXPosition = WIDTH - WIDTH - DOTSIZE
 var redXPosition = WIDTH
-var greenYPosition = 1000
-var purpleXPosition = 0
+var greenYPosition = HEIGHT - HEIGHT - DOTSIZE
+var yellowYPosition = 500
+var purpleXPosition = WIDTH - WIDTH - DOTSIZE
 var purpleYPosition = 0
+var orangeXPosition = 0
+var orangeYPosition = HEIGHT - DOTSIZE
 
 
 // Set up the canvas... You've done it before
@@ -38,7 +41,7 @@ function startCanvas(){
 	// Task 4:
 	// Adjust the number in the setInterval function to draw 50 frames a second
 	// Adjust the speed of the blue dot so that it takes about 10 seconds to leave the canvas
-	setInterval(updateCanvas, 1000)
+	setInterval(updateCanvas, 0)
 }
 
 function updateCanvas(){	
@@ -46,11 +49,12 @@ function updateCanvas(){
 	frameCount++
 	console.log("I have drawn frame", frameCount)
 	
-	
 	// Task 3:
 	// Clear the screen.
 	// Draw a white rectangle the WIDTH and HEIGHT of the canvas to clear the last frame
 	// Use the WIDTH and HEIGHT constants
+	ctx.fillStyle="white"
+	ctx.fillRect(0,0,WIDTH,HEIGHT)
 
 
 	
@@ -58,16 +62,13 @@ function updateCanvas(){
 	// Make the blue dot move towards the right
 	// This part runs once every frame
 	// Make the blueXPosition increase by 100 every frame
-	blueXPosition = blueXPosition	
+	blueXPosition = blueXPosition + 1
 	ctx.fillStyle="blue"
-	ctx.fillRect(blueXPosition,250,DOTSIZE,DOTSIZE)
-	
+	ctx.fillRect(blueXPosition, 250, DOTSIZE, DOTSIZE)
 	
 	// Task 5:
 	// Make the Red dot move towards the left
-	// Hints: 	Find where the redXPosition is created
-	//			It is moving the opposite direction to blue
-
+	redXPosition = redXPosition - 1
 	ctx.fillStyle="Red"
 	ctx.fillRect(redXPosition,250,DOTSIZE,DOTSIZE)
 	
@@ -76,10 +77,9 @@ function updateCanvas(){
 	// Make the Green dot start at the top and move down
 	// Vertical movement is all about the Y position
 	// You will need to fix the initial greenYPosition (line 21)
-
+	greenYPosition = greenYPosition + 1
 	ctx.fillStyle="green"
 	ctx.fillRect(300, greenYPosition,DOTSIZE,DOTSIZE)
-	
 	
 	// Task 7:
 	// Make the yellow dot move slowly up from the bottom. 
@@ -89,15 +89,19 @@ function updateCanvas(){
 	// use the green dot as an example
 	// Hint: you can add decimals to the yellowYPosition
 
+	yellowYPosition = yellowYPosition - 0.125
+	ctx.fillStyle="yellow"
+	ctx.fillRect(300, yellowYPosition,DOTSIZE,DOTSIZE)
+
 
 
 	// Task 8:
 	// Make the purple dot move from the top left to the bottom right
 	// Add to the x and y position every frame
-	purpleXPosition = purpleXPosition 
-	purpleYPosition = purpleYPosition
+	purpleXPosition += 1
+	purpleYPosition += 1
 	ctx.fillStyle="purple"
-	///ctx.fillRect(purpleXPosition,purpleYPosition,DOTSIZE,DOTSIZE)
+	ctx.fillRect(purpleXPosition,purpleYPosition,DOTSIZE,DOTSIZE)
 	
 
 	// Task 9:
@@ -105,12 +109,12 @@ function updateCanvas(){
 	//		Starts on the bottom left
 	// 		Travels upwards to the right
 	// 		Leaves the canvas after 10 seconds only half way up
-	// You can do this all by yourself.
-	// Hint: You can change the x and y position by different amounts
+	orangeXPosition += 0.2
+	orangeYPosition -= 0.1
+	ctx.fillStyle="orange"
+	ctx.fillRect(orangeXPosition, orangeYPosition, DOTSIZE, DOTSIZE)
 
 
-
-	
 	// Task 10:
 	// Great, but after a while the screen is empty. Make them stay.
 	// Make the dots wrap around the screen when they leave

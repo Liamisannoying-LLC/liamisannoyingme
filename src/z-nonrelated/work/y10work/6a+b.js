@@ -21,13 +21,22 @@ const HEIGHT = 600;
 var ctx
 var textColor = "HotPink"
 var bgColor = "Beige"
-var myWord = ["c","a"]   // Array of letters in my word.
+var myWord = ["e", "l", "e", "p", "h", "a", "n", "t"]
 
-//var guesses = [] // Task 4a: uncomment this line
+var guesses = [] // Task 4a: uncomment this line
 console.log("My word:", myWord)
 console.log("My word has", myWord.length, "letters")
 console.log("First letter",myWord[0])
 console.log("Second letter",myWord[1])
+console.log("Third letter",myWord[2])
+console.log("Fouth letter",myWord[3])
+console.log("Fifth letter",myWord[4])
+console.log("Sixth letter",myWord[5])
+console.log("Seventh letter",myWord[6])
+console.log("Eighth letter",myWord[7])
+
+
+
 
 // Set up the canvas... You've done it before
 window.onload=startCanvas
@@ -63,26 +72,41 @@ function keyDownFunction(keyboardEvent){
 	// Add if statements for the second and third letters in the word (or more if you picked a longer word)
 	if(keyDown == myWord[0]){
 		correctLetter(keyDown)
-	}else if(keyDown){     // update to check the second letter...
-		// What happens if the letter is in the word?
-	}else{
-		// What happens if it is not in the word? 
+	}else if(keyDown == myWord[1]){
+		correctLetter(keyDown)
+	}else if(keyDown == myWord[2]){
+		correctLetter(keyDown)
+	}else if(keyDown == myWord[3]){
+		correctLetter(keyDown)
+	}else if(keyDown == myWord[4]){
+		correctLetter(keyDown)
+	}else if(keyDown == myWord[5]){
+		correctLetter(keyDown)
+	}else if(keyDown == myWord[6]){
+		correctLetter(keyDown)
+	}else if(keyDown == myWord[7]){
+		correctLetter(keyDown)
 	}
+	else{
+		incorrectLetter(keyDown)
+	}
+	
 
 
 	// Change the fontsize to be smaller
 	ctx.font = "25px arial"
 	
 	
-	//var isNewGuess = true // Task 6a: Uncomment this line
+	var isNewGuess = true // Task 6a: Uncomment this line
 
 
 
 	// Task 5:
 	// Check to see if a letter has already been guessed
 	// Remember counting loops from skill 3
-	var numberOfGuesses = 0 // Change this to be the length of the guesses array	
+	var numberOfGuesses = 8 // Change this to be the length of the guesses array	
 	var count = 0; // Start counting at zero
+	
 	while(count < 0){ // check all the guesses
 	console.log("Checking guess number",count)
 		if(keyDown == guesses[0]){ // instead of 0, use the count
@@ -90,22 +114,27 @@ function keyDownFunction(keyboardEvent){
 			// Once that is working, display the same message on the canvas
 			
 			
-			//isNewGuess = false// Task 6b: Uncomment, set it to false
+			isNewGuess = false// Task 6b: Uncomment, set it to false
 		}
 		count++ // This line increments count (add one)
-	}
+}
 	
 	// Task 6c:
 	// Only add the new gues to the Guesses array if it is a new guess.
 	// Wrap the guesses.push code in an if statement that check the isNewGuess
 
-
-
-
+	
 	// Task 4b:
 	// Uncomment the next line and fix it to add the key that was just pressed to the guesses array
-	///guesses.push(put something here)
+	guesses.push(keyDown)
 	
+	console.log("Your guess", guesses);
+	console.log("You have made " + guesses.length + " guesses");
+	
+	ctx.fillStyle = "HotPink";
+	ctx.fillText("You have made " + guesses.length + " guesses", 150, 230);
+	ctx.fillText("Guesses: " + guesses.join(", "), 0, 250);
+
 	// Log a message that shows the contents of the gusses array (see line 25 for an example)	
 	// Log a message that tells you the length of the array (see line 26 for an example)
 	// Display a message on the canvas saying how many guesses
@@ -114,13 +143,12 @@ function keyDownFunction(keyboardEvent){
 
 // What to do when the key pressed is in the word.
 function correctLetter(key){
-	console.log("Yay,",key,"is in my word!")
+	console.log("Yay, " + key + " is in my word!")
 	ctx.fillStyle = "lightgreen"
-	ctx.fillRect(0,300,WIDTH,HEIGHT)
+	ctx.fillRect(0,300, WIDTH, HEIGHT)
 	ctx.fillStyle = "black"
-	ctx.fillText("Yay! "+key+" is in my word", 10,470);
+	ctx.fillText("Yay! " + key + " is in my word", 10, 470);
 }
-
 
 // What to do when the key pressed is not in the word.
 function incorrectLetter(key){
@@ -129,12 +157,6 @@ function incorrectLetter(key){
 	ctx.fillStyle = "black"
 	ctx.fillText("Wrong! "+key+" is not in my word", 10,470);
 }
-
-// Task 7:
-// Change the word. Replace the myWord array with:
-///var myWord = ["e", "l", "e", "p", "h", "a", "n", "t"]
-// Display a message at the top of the canvas that says how many letters in the word
-// Under task3 replace the three if statements with a loop that checks each letter in the myWord array
 
 // Task 8 (optional):
 // Use a flag like in task 6 to detect incorrect guesses.

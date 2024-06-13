@@ -10,7 +10,7 @@
 
 console.log("Loop activity")
 
-const WIDTH = 1000
+var WIDTH = 800
 
 var ctx
 
