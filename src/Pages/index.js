@@ -25,7 +25,7 @@ var corpus = [
 ];
 function generateWords(){ 
   var correctLanguage = "";
-  for (i = 0; i < 100000; i++) {
+  for (i = 0; i < 32; i++) {
     index = Math.floor(Math.random() * corpus.length);
     correctLanguage = correctLanguage + " " + corpus[index];}
   document.getElementById('PoemDisplay').textContent = correctLanguage;}
