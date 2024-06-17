@@ -16,6 +16,17 @@ var ctx
 
 window.onload=startCanvas
 
+function resizeCanvas(){
+	var width = parseInt(document.getElementsByName("inputbox")[0].value)
+	if (!isNaN(width)){
+		WIDTH = width
+		startCanvas()
+	}
+	else{
+
+	}
+}
+
 //All of following is second part of setup
 
 function startCanvas(){
@@ -35,6 +46,8 @@ function startCanvas(){
 		}
 		xPosition = xPosition + 100
 	}
+
+	
 
 	//Following draws the green squares, using a nested loop so it can be sclable.
 

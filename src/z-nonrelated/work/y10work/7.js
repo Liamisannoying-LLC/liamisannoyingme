@@ -25,7 +25,6 @@ var purpleYPosition = 0
 var orangeXPosition = 0
 var orangeYPosition = HEIGHT - DOTSIZE
 
-
 // Set up the canvas... You've done it before
 window.onload=startCanvas
 
@@ -56,8 +55,6 @@ function updateCanvas(){
 	ctx.fillStyle="white"
 	ctx.fillRect(0,0,WIDTH,HEIGHT)
 
-
-	
 	// Task 2:
 	// Make the blue dot move towards the right
 	// This part runs once every frame
