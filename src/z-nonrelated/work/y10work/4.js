@@ -17,6 +17,8 @@ var ctx
 window.onload=startCanvas
 
 function resizeCanvas(){
+	ctx.fillStyle = "white"
+	ctx.fillRect(0,0,WIDTH,WIDTH)
 	var width = parseInt(document.getElementsByName("inputbox")[0].value)
 	if (!isNaN(width)){
 		WIDTH = width
