@@ -1,20 +1,10 @@
 /**
 * Title: Liam vs evil liam
 * Author: Thomas Olav
-* Date: 21/3/24
+* Date: 21/03/2024
 * Version: -
 **/
-// THERE IS SOME GAME LORE IN THE CODE (LIAM MADE ME DO IT!!)
-//console.log("Page working")
-const HEIGHT = 600;
-const WIDTH = 600;
-const backGroundColor = "PapayaWhip";
 
-const LVL1BGCOLOR = "PapayaWhip";
-const LVL1OBSCOLOR = "NavajoWhite";
-
-const LVL2BGCOLOR = "Black";
-const LVL2OBSCOLOR = "Violet";
 const HEIGHT = 600;
 const WIDTH = 600;
 const backGroundColor = "PapayaWhip";
