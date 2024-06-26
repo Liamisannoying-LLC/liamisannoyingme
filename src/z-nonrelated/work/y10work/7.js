@@ -59,13 +59,13 @@ function updateCanvas(){
 	// Make the blue dot move towards the right
 	// This part runs once every frame
 	// Make the blueXPosition increase by 100 every frame
-	blueXPosition = blueXPosition + 1
+	blueXPosition = (blueXPosition + 1) % WIDTH
 	ctx.fillStyle="blue"
 	ctx.fillRect(blueXPosition, 250, DOTSIZE, DOTSIZE)
 	
 	// Task 5:
 	// Make the Red dot move towards the left
-	redXPosition = redXPosition - 1
+	redXPosition = (redXPosition - 1) % WIDTH
 	ctx.fillStyle="Red"
 	ctx.fillRect(redXPosition,250,DOTSIZE,DOTSIZE)
 	
@@ -74,7 +74,7 @@ function updateCanvas(){
 	// Make the Green dot start at the top and move down
 	// Vertical movement is all about the Y position
 	// You will need to fix the initial greenYPosition (line 21)
-	greenYPosition = greenYPosition + 1
+	greenYPosition = (greenYPosition + 1) % HEIGHT
 	ctx.fillStyle="green"
 	ctx.fillRect(300, greenYPosition,DOTSIZE,DOTSIZE)
 	
@@ -86,7 +86,7 @@ function updateCanvas(){
 	// use the green dot as an example
 	// Hint: you can add decimals to the yellowYPosition
 
-	yellowYPosition = yellowYPosition - 0.125
+	yellowYPosition = (yellowYPosition - 0.125) % HEIGHT
 	ctx.fillStyle="yellow"
 	ctx.fillRect(300, yellowYPosition,DOTSIZE,DOTSIZE)
 
@@ -95,8 +95,8 @@ function updateCanvas(){
 	// Task 8:
 	// Make the purple dot move from the top left to the bottom right
 	// Add to the x and y position every frame
-	purpleXPosition += 1
-	purpleYPosition += 1
+	purpleXPosition = (purpleXPosition + 1) % WIDTH
+	purpleYPosition = (purpleYPosition + 1) % HEIGHT
 	ctx.fillStyle="purple"
 	ctx.fillRect(purpleXPosition,purpleYPosition,DOTSIZE,DOTSIZE)
 	
@@ -106,44 +106,11 @@ function updateCanvas(){
 	//		Starts on the bottom left
 	// 		Travels upwards to the right
 	// 		Leaves the canvas after 10 seconds only half way up
-	orangeXPosition += 0.2
-	orangeYPosition -= 0.1
+	orangeXPosition = (orangeXPosition + 0.2) % WIDTH
+	orangeYPosition = (orangeYPosition - 0.1) % HEIGHT
 	ctx.fillStyle="orange"
 	ctx.fillRect(orangeXPosition, orangeYPosition, DOTSIZE, DOTSIZE)
 
 
-	// Task 10:
-	// Great, but after a while the screen is empty. Make them stay.
-	// Make the dots wrap around the screen when they leave
-	// (they go back to the other side)
-	// Uncomment the lines below for the blue and red dots
-	// Notice that these lines use the constants for WIDTH and DOTSIZE
-	// Use these as a hint to create simlar statements for Green and Yellow
-	
-	// When the Blue dot gets to the right hand edge it goes back to the left
-	///if (blueXPosition > WIDTH){
-	///	blueXPosition = -DOTSIZE
-	///}
-	
-	// When the Red dot gets to the left hand edge it goes back to the right
-	///if (redXPosition < -DOTSIZE){
-	///	 redXPosition = WIDTH
-	///}
-	
-	// When the green dot gets to the bottom it goes back to the top
-
-	// When the Yellow dot gets to the top it goes back to the bottom
-
-	
-	// Task 11:
-	// Make the purple and orange dots wrap
-	// This gets a little tricky.
-	// Think about what has to happen to the x and the y position separately
-	// Play with it until you get it right. Ask your friends for help
-	
-	// When the purple dot gets to the edge it goes back to the start
-
-	// When the orange dot gets to the right hand edge it goes back to the left
-	// When it gets to the top it goes bak to the bottom
-
 }
+

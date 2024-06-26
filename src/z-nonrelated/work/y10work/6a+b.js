@@ -69,7 +69,6 @@ function keyDownFunction(keyboardEvent){
 		incorrectLetter(keyDown)
 	}
 
-
 	// Change the fontsize to be smaller
 	ctx.font = "25px arial"
 	
