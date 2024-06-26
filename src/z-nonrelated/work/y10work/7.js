@@ -43,107 +43,63 @@ function startCanvas(){
 	setInterval(updateCanvas, 0)
 }
 
-function updateCanvas(){	
-	// frameCount is a variable that counts the numeber of frames that have been drawn
-	frameCount++
-	console.log("I have drawn frame", frameCount)
-	
-	// Task 3:
-	// Clear the screen.
-	// Draw a white rectangle the WIDTH and HEIGHT of the canvas to clear the last frame
-	// Use the WIDTH and HEIGHT constants
-	ctx.fillStyle="white"
-	ctx.fillRect(0,0,WIDTH,HEIGHT)
+/**
+ * Updates the canvas by animating colored dots.
+ */
+function updateCanvas() {
+    // Increment the frameCount
+    frameCount++;
 
-	// Task 2:
-	// Make the blue dot move towards the right
-	// This part runs once every frame
-	// Make the blueXPosition increase by 100 every frame
-	blueXPosition = blueXPosition + 1
-	ctx.fillStyle="blue"
-	ctx.fillRect(blueXPosition, 250, DOTSIZE, DOTSIZE)
-	
-	// Task 5:
-	// Make the Red dot move towards the left
-	redXPosition = redXPosition - 1
-	ctx.fillStyle="Red"
-	ctx.fillRect(redXPosition,250,DOTSIZE,DOTSIZE)
-	
-	
-	// Task 6:
-	// Make the Green dot start at the top and move down
-	// Vertical movement is all about the Y position
-	// You will need to fix the initial greenYPosition (line 21)
-	greenYPosition = greenYPosition + 1
-	ctx.fillStyle="green"
-	ctx.fillRect(300, greenYPosition,DOTSIZE,DOTSIZE)
-	
-	// Task 7:
-	// Make the yellow dot move slowly up from the bottom. 
-	// It should take about twice as long as the green dot to get all the way across.
-	// You can do this all by yourself.
-	// Create the yellowYPosition variable around line 22
-	// use the green dot as an example
-	// Hint: you can add decimals to the yellowYPosition
+    // Clear the canvas
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-	yellowYPosition = yellowYPosition - 0.125
-	ctx.fillStyle="yellow"
-	ctx.fillRect(300, yellowYPosition,DOTSIZE,DOTSIZE)
+    // Update blue dot position
+    blueXPosition++;
+    ctx.fillStyle = "blue";
+    ctx.fillRect(blueXPosition, 250, DOTSIZE, DOTSIZE);
 
+    // Update red dot position
+    redXPosition--;
+    ctx.fillStyle = "red";
+    ctx.fillRect(redXPosition, 250, DOTSIZE, DOTSIZE);
 
+    // Update green dot position
+    greenYPosition++;
+    ctx.fillStyle = "green";
+    ctx.fillRect(300, greenYPosition, DOTSIZE, DOTSIZE);
 
-	// Task 8:
-	// Make the purple dot move from the top left to the bottom right
-	// Add to the x and y position every frame
-	purpleXPosition += 1
-	purpleYPosition += 1
-	ctx.fillStyle="purple"
-	ctx.fillRect(purpleXPosition,purpleYPosition,DOTSIZE,DOTSIZE)
-	
+    // Update yellow dot position
+    yellowYPosition -= 0.125;
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(300, yellowYPosition, DOTSIZE, DOTSIZE);
 
-	// Task 9:
-	// Make an orange dot that:
-	//		Starts on the bottom left
-	// 		Travels upwards to the right
-	// 		Leaves the canvas after 10 seconds only half way up
-	orangeXPosition += 0.2
-	orangeYPosition -= 0.1
-	ctx.fillStyle="orange"
-	ctx.fillRect(orangeXPosition, orangeYPosition, DOTSIZE, DOTSIZE)
+    // Update purple dot position
+    purpleXPosition++;
+    purpleYPosition++;
+    ctx.fillStyle = "purple";
+    ctx.fillRect(purpleXPosition, purpleYPosition, DOTSIZE, DOTSIZE);
 
+    // Update orange dot position
+    orangeXPosition += 0.2;
+    orangeYPosition -= 0.1;
+    ctx.fillStyle = "orange";
+    ctx.fillRect(orangeXPosition, orangeYPosition, DOTSIZE, DOTSIZE);
 
-	// Task 10:
-	// Great, but after a while the screen is empty. Make them stay.
-	// Make the dots wrap around the screen when they leave
-	// (they go back to the other side)
-	// Uncomment the lines below for the blue and red dots
-	// Notice that these lines use the constants for WIDTH and DOTSIZE
-	// Use these as a hint to create simlar statements for Green and Yellow
-	
-	// When the Blue dot gets to the right hand edge it goes back to the left
-	///if (blueXPosition > WIDTH){
-	///	blueXPosition = -DOTSIZE
-	///}
-	
-	// When the Red dot gets to the left hand edge it goes back to the right
-	///if (redXPosition < -DOTSIZE){
-	///	 redXPosition = WIDTH
-	///}
-	
-	// When the green dot gets to the bottom it goes back to the top
+    // Wrap dots around the canvas edges
+    if (blueXPosition > WIDTH) blueXPosition = -DOTSIZE;
+    if (redXPosition < -DOTSIZE) redXPosition = WIDTH;
+    if (greenYPosition > HEIGHT) greenYPosition = -DOTSIZE;
+    if (yellowYPosition < -DOTSIZE) yellowYPosition = HEIGHT;
 
-	// When the Yellow dot gets to the top it goes back to the bottom
+    // Wrap purple dot around the canvas edges
+    if (purpleXPosition > WIDTH + DOTSIZE) purpleXPosition = -DOTSIZE;
+    if (purpleYPosition > HEIGHT + DOTSIZE) purpleYPosition = -DOTSIZE;
 
-	
-	// Task 11:
-	// Make the purple and orange dots wrap
-	// This gets a little tricky.
-	// Think about what has to happen to the x and the y position separately
-	// Play with it until you get it right. Ask your friends for help
-	
-	// When the purple dot gets to the edge it goes back to the start
-
-	// When the orange dot gets to the right hand edge it goes back to the left
-	// When it gets to the top it goes bak to the bottom
-
+    // Wrap orange dot around the canvas edges
+    if (orangeXPosition > WIDTH + DOTSIZE || orangeYPosition < -DOTSIZE) {
+        orangeXPosition = -DOTSIZE;
+        orangeYPosition = HEIGHT;
+    }
+	console.log("I have drawn frame " + frameCount)
 }
