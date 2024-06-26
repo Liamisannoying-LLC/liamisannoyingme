@@ -13,14 +13,11 @@ console.log("Randomness activity")
 // Refresh the page several times, see what happens
 ///console.log("The random number is:",Math.random())
 
-
 // Task 3:
 // Use Math.random() to generate a random number from 0 to 10
 // log the number
 // Refresh the page several times, see what happens
 ///console.log("Number 0 to 10:",Math.random() * ??? )
-
-
 
 // Task 4:
 // Use Math.random() to generate a random number from 100 to 130
@@ -28,23 +25,16 @@ console.log("Randomness activity")
 // Refresh the page several times, see what happens
 ///console.log("Number 100 to 130:",Math.random() * ??? + ??? )
 
-
-
 // Task 5:
 // Use Math.random() to generate a random number between -10 and 10
 // log the number
 // Refresh the page several times, see what happens
-
-
 
 // Task 6:
 // Roll a die
 // Use Math.random() to generate a whole number from 1 to 6
 // log the number
 // Refresh the page several times, see what happens
-
-
-
 
 // Some constants that will be used in this script
 const WIDTH = 600;
@@ -63,8 +53,6 @@ var blueXPosition = 300
 var blueYPosition = 250
 var blueXSpeed = 0
 //console.log("blueXSpeed is" ,blueXSpeed)
-
-
 
 // Set up the canvas... You've done it before
 window.onload=startCanvas
@@ -91,9 +79,6 @@ function updateCanvas(){
 	// Get it moving diagonally
 	// Do the same for blueYPosition
 
-
-
-
 	// Draw the dot
 	ctx.fillStyle="blue"
 	ctx.fillRect(blueXPosition, blueYPosition, DOTSIZE, DOTSIZE)
@@ -102,10 +87,7 @@ function updateCanvas(){
 	// Component testing - wrap at the edges
 	// Add code so that when the blue dot disappears off the edge of the screen it returns from the opposite side.
 	// Refer to what you did in the animation lesson (it's OK to copy/paste)
-	
 
-
-	
 	// Task 11:
 	// Component testing - bounce at the edges
 	// Comment out the code you wrote for task 10 so it doesn't do anything
