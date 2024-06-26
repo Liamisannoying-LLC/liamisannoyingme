@@ -89,7 +89,7 @@ function keyDownFunction(keyboardEvent){
 			// Add a console message saying that you have already guessed that letter
 			// Once that is working, display the same message on the canvas
 			console.log("This letter has already been guessed.")
-			//isNewGuess = false// Task 6b: Uncomment, set it to false
+			isNewGuess = false// Task 6b: Uncomment, set it to false
 		}
 		count++ // This line increments count (add one)
 	}
@@ -130,7 +130,7 @@ function incorrectLetter(key){
 	ctx.fillStyle = "lightcoral"
 	ctx.fillRect(0,300,WIDTH,HEIGHT)
 	ctx.fillStyle = "black"
-	ctx.fillText("Wrong! "+key+" is not in my word", 10,470);
+	ctx.fillText("Wrong! " + key + " is not in my word", 10,470);
 }
 
 // Task 7:
