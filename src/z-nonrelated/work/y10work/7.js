@@ -8,12 +8,9 @@
 
 console.log("Animation activity")
 
-// Some constants that will be used in this scripts
 const WIDTH = 613;
 const HEIGHT = 500;
-const DOTSIZE = 50
-
-// some variables that will be needed, you will add to these
+const DOTSIZE = 50;
 var ctx
 var frameCount = 0
 var blueXPosition = WIDTH - WIDTH - DOTSIZE
@@ -25,92 +22,56 @@ var purpleYPosition = 0
 var orangeXPosition = 0
 var orangeYPosition = HEIGHT - DOTSIZE
 
-// Set up the canvas... You've done it before
 window.onload=startCanvas
 
 function startCanvas(){
 	ctx=document.getElementById("myCanvas").getContext("2d")
-	// We are using an interval timer to animate the canvas.
-	// To set up the interval you give it:
-	//		a function to run (updateCanvas)
-	// 		a time in milliseconds (ms)
-	// The time controls the refresh rate (fps). 1000 means 1 frame a second (1000 milliseconds)
-	// It will now run that function, wait, then run it again - forever!
-	
-	// Task 4:
-	// Adjust the number in the setInterval function to draw 50 frames a second
-	// Adjust the speed of the blue dot so that it takes about 10 seconds to leave the canvas
 	setInterval(updateCanvas, 0)
 }
 
-function updateCanvas(){	
-	// frameCount is a variable that counts the numeber of frames that have been drawn
-	frameCount++
-	console.log("I have drawn frame", frameCount)
-	
-	// Task 3:
-	// Clear the screen.
-	// Draw a white rectangle the WIDTH and HEIGHT of the canvas to clear the last frame
-	// Use the WIDTH and HEIGHT constants
-	ctx.fillStyle="white"
-	ctx.fillRect(0,0,WIDTH,HEIGHT)
+function updateCanvas() {
+    frameCount++;
 
-	// Task 2:
-	// Make the blue dot move towards the right
-	// This part runs once every frame
-	// Make the blueXPosition increase by 100 every frame
-	blueXPosition = (blueXPosition + 1) % WIDTH
-	ctx.fillStyle="blue"
-	ctx.fillRect(blueXPosition, 250, DOTSIZE, DOTSIZE)
-	
-	// Task 5:
-	// Make the Red dot move towards the left
-	redXPosition = (redXPosition - 1) % WIDTH
-	ctx.fillStyle="Red"
-	ctx.fillRect(redXPosition,250,DOTSIZE,DOTSIZE)
-	
-	
-	// Task 6:
-	// Make the Green dot start at the top and move down
-	// Vertical movement is all about the Y position
-	// You will need to fix the initial greenYPosition (line 21)
-	greenYPosition = (greenYPosition + 1) % HEIGHT
-	ctx.fillStyle="green"
-	ctx.fillRect(300, greenYPosition,DOTSIZE,DOTSIZE)
-	
-	// Task 7:
-	// Make the yellow dot move slowly up from the bottom. 
-	// It should take about twice as long as the green dot to get all the way across.
-	// You can do this all by yourself.
-	// Create the yellowYPosition variable around line 22
-	// use the green dot as an example
-	// Hint: you can add decimals to the yellowYPosition
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-	yellowYPosition = (yellowYPosition - 0.125) % HEIGHT
-	ctx.fillStyle="yellow"
-	ctx.fillRect(300, yellowYPosition,DOTSIZE,DOTSIZE)
+    blueXPosition++;
+    ctx.fillStyle = "blue";
+    ctx.fillRect(blueXPosition, 250, DOTSIZE, DOTSIZE);
 
+    redXPosition--;
+    ctx.fillStyle = "red";
+    ctx.fillRect(redXPosition, 250, DOTSIZE, DOTSIZE);
 
+    greenYPosition++;
+    ctx.fillStyle = "green";
+    ctx.fillRect(300, greenYPosition, DOTSIZE, DOTSIZE);
 
-	// Task 8:
-	// Make the purple dot move from the top left to the bottom right
-	// Add to the x and y position every frame
-	purpleXPosition = (purpleXPosition + 1) % WIDTH
-	purpleYPosition = (purpleYPosition + 1) % HEIGHT
-	ctx.fillStyle="purple"
-	ctx.fillRect(purpleXPosition,purpleYPosition,DOTSIZE,DOTSIZE)
-	
+    yellowYPosition -= 0.125;
+    ctx.fillStyle = "yellow";
+    ctx.fillRect(300, yellowYPosition, DOTSIZE, DOTSIZE);
 
-	// Task 9:
-	// Make an orange dot that:
-	//		Starts on the bottom left
-	// 		Travels upwards to the right
-	// 		Leaves the canvas after 10 seconds only half way up
-	orangeXPosition = (orangeXPosition + 0.2) % WIDTH
-	orangeYPosition = (orangeYPosition - 0.1) % HEIGHT
-	ctx.fillStyle="orange"
-	ctx.fillRect(orangeXPosition, orangeYPosition, DOTSIZE, DOTSIZE)
+    purpleXPosition++;
+    purpleYPosition++;
+    ctx.fillStyle = "purple";
+    ctx.fillRect(purpleXPosition, purpleYPosition, DOTSIZE, DOTSIZE);
 
+    orangeXPosition += 0.2;
+    orangeYPosition -= 0.1;
+    ctx.fillStyle = "orange";
+    ctx.fillRect(orangeXPosition, orangeYPosition, DOTSIZE, DOTSIZE);
 
+    if (blueXPosition > WIDTH) blueXPosition = -DOTSIZE;
+    if (redXPosition < -DOTSIZE) redXPosition = WIDTH;
+    if (greenYPosition > HEIGHT) greenYPosition = -DOTSIZE;
+    if (yellowYPosition < -DOTSIZE) yellowYPosition = HEIGHT;
+
+    if (purpleXPosition > WIDTH + DOTSIZE) purpleXPosition = -DOTSIZE;
+    if (purpleYPosition > HEIGHT + DOTSIZE) purpleYPosition = -DOTSIZE;
+
+    if (orangeXPosition > WIDTH + DOTSIZE || orangeYPosition < -DOTSIZE) {
+        orangeXPosition = -DOTSIZE;
+        orangeYPosition = HEIGHT;
+    }
+	console.log("I have drawn frame " + frameCount)
 }
-
