@@ -1,29 +1,10 @@
 /**
-// BY THOMAS OLAV
 * Title: Liam vs evil liam
-// BY THOMAS OLAV
 * Author: Thomas Olav
-// BY THOMAS OLAV
 * Date: 21/3/24
-// BY THOMAS OLAV
 * Version: -
-// BY THOMAS OLAV
 **/
-// BY THOMAS OLAV
 
-// BY THOMAS OLAV
-
-// BY THOMAS OLAV
-// THERE IS SOME GAME LORE IN THE CODE (LIAM MADE ME DO IT!!)
-// BY THOMAS OLAV
-//console.log("Page working")
-// BY THOMAS OLAV
-
-// BY THOMAS OLAV
-// Unfortunatly the hazards only work in one level. This is because I am a lazy child.
-// BY THOMAS OLAV
-
-// BY THOMAS OLAV
 const HEIGHT = 600;
 // BY THOMAS OLAV
 const WIDTH = 600;

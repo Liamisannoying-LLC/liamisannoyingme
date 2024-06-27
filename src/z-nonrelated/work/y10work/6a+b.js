@@ -1,8 +1,7 @@
 /**
 * Title: Arrays excercise
-* Author:
-* Date:
-* Version: 1.1 (fixed title, 7-Nov-22)
+* Author: Unknown / mitchli
+* Date: Unknown
 * Version: 1.2 (updated comments/instructions; activity name;  8-Nov-22)
 * Purpose: Learn how to use Arraus
 **/
