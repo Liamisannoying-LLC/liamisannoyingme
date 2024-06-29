@@ -13,7 +13,7 @@ console.log("Randomness activity")
 // Refresh the page several times, see what happens
 ///console.log("The random number is:",Math.random())
 
-
+z
 // Task 3:
 // Use Math.random() to generate a random number from 0 to 10
 // log the number

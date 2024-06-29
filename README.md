@@ -6,5 +6,7 @@ Right now, liamisannoying is very broken. We have had to deconstruct and pretty 
 EDIT: yep it's all gone now. We are doing it 'from the ground up'. Don't worry, we'll get somewhere eventually... 
 
 Got a ~~boring~~ burning question? Feel free to ask us at <a href="mailto:liamisannoyingme@gmail.com">liamisannoyingme@gmail.com</a>
+
+Everything here is a mess, yes, I am aware, and no, there are no thought-out plans to fix anything here. Thanks for your misunderstanding.
  
 Secret: https://www.mycompiler.io/view/EXQs3rHpRL1
