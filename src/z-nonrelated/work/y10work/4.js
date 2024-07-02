@@ -34,7 +34,7 @@ function resizeCanvas(){
 function startCanvas(){
 	ctx=document.getElementById("myCanvas").getContext("2d")
 
-//Following draws the green squares, using a nested loop so it can be sclable.
+//Following draws the green squares, using a nested loop so it can be scalable.
 
 	ctx.fillStyle = "blue"
 	console.log("Starting blue")
@@ -48,8 +48,6 @@ function startCanvas(){
 		}
 		xPosition = xPosition + 100
 	}
-
-	
 
 	//Following draws the green squares, using a nested loop so it can be sclable.
 
