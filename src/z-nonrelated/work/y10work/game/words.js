@@ -1,3 +1,4 @@
+//The words project is on hold for now, I think. I'll leave this here though.
 window.onload=startCanvas
 
 function resizeCanvas(){
