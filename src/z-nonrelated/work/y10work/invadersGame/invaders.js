@@ -119,4 +119,4 @@ function update() {
   });
   
   // Start the game loop
-  update();
+update();
