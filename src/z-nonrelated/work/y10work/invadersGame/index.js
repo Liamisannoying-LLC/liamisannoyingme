@@ -1,5 +1,5 @@
-import EnemyController from "./EnemyController.js";
 import Player from "./Player.js";
+import EnemyController from './EnemyController.js';
 import BulletController from "./BulletController.js";
 
 const canvas = document.getElementById("game");
@@ -39,6 +39,7 @@ function displayGameOver() {
   if (isGameOver) {
     let text = didWin ? "You Win" : "Game Over";
     let textOffset = didWin ? 3.5 : 5;
+
     ctx.fillStyle = "white";
     ctx.font = "70px Arial";
     ctx.fillText(text, canvas.width / textOffset, canvas.height / 2);
