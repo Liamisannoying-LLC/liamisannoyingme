@@ -107,7 +107,6 @@ function generateWords(){
   var correctLanguage = "";
   var join = " ";
   for (i = 0; i < wordcount; i++) {
-    console.log(lastindex);
     index = Math.floor(Math.random() * corpus.length);
     if(lastindex != null){
       if(corpus[lastindex].last == "conjunction"){
@@ -121,7 +120,7 @@ function generateWords(){
         }
       }
       if(corpus[lastindex].last == "pronoun"){
-        while(corpus[index].first == "adjective" || corpus[index].first == "verb"  && corpus[index].first != "conjunction" && corpus[index].first != "noun"  && corpus[index].first != "pronoun"){
+        while(corpus[index].first == "pronoun" || corpus[index].first == "adjective" || corpus[index].first == "verb"  && corpus[index].first != "conjunction" && corpus[index].first != "noun"){
           index = Math.floor(Math.random() * corpus.length);
         }
       }
