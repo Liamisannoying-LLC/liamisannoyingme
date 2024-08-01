@@ -98,12 +98,7 @@ var corpus = [
   "crawling to", "the lake.", "Us, who", "cling onto", "the abstract. They", "would not", "care. No, would not", "care, they", "would give us half a", "moment and", "half a", "thought, and", "crawl on by.", "They go on down," // as I write this. I sit here, in the shallows on the lake, and they submit to what must be cold, but also true.  No enlightenment lies down there.  Yet; what feel they? Nice, I imagine.  The water me, me the water, my being supported by what is now part of my existence.  I can taste the freeness, free of air. I need not understand, only know. I can see it, the water my new medium for movement.  I can feel the others sinking alongside me, going down faster, for I imagine they don’t even think about the fall. I can even hear the experience, the flow, the bubbles. Sound moves faster underwater, k’now. Can I smell anything? That would be something I would be able to sacrifice.  But I’m not, not able. I continue being true, to myself, those souls that sunk and continue to live, and most of all, I am true to the truth. For the truth? It has some variations you should meet."
 */];
 
-<<<<<<< HEAD:src/Pages/poem.js
 var wordcount = 3;
-=======
-
-
->>>>>>> 4f151e0c09dc6a1f4a17de4a3334113f3cf48df6:src/Pages/index.js
 function generateWords(){ 
   var wordcount = 3;
   var value = document.getElementById("myRange");
