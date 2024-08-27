@@ -1,0 +1,35 @@
+*{
+    font-family: 'ABeeZee', sans-serif;
+    --Text-Dark: rgb(50, 70, 10);
+    --Text-Light: rgb(4, 111, 0);
+    --Primary: #0a8b22;
+    --Highlight: #08ba14e1;
+    --Highlight2: #73b671;
+    --Secondary: #005406;
+}
+
+html{
+    background-color: var(--Primary);
+}
+
+h1,h2,h3,h4,h5,h6,p,span{
+    color: var(--Text-Light);
+}
+
+a {
+    color: var(--Highlight2);
+}
+
+button{
+    background: var(--Secondary);
+    color: var(--Highlight2);
+    padding: 10%;
+    border-radius: 0.3em;
+    border: none;
+}
+
+button:hover{
+    background: var(--Highlight2);
+    padding: 12%;
+    color: var(--Highlight1);
+}
