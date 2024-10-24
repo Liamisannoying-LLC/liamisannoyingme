@@ -1,0 +1,46 @@
+.TextDiv{
+    margin-left: 1%;
+    margin-right: auto;
+    background-color: var(--Highlight);
+    color: var(--Text-Light);
+    border-radius: 1em;
+    width: 50%;
+    height: 100vh;
+    padding: 1% 1% 40vw 1%;
+    box-shadow: 0px 0px 50px 10px rgb(6, 166, 115);
+    max-height: 50em;
+
+    h1{
+        font-size: 200%;
+    }
+}
+
+.MainDiv{
+    background-color: var(--Primary);
+    padding: 1%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.MainDivImage{ 
+    max-width: 50%;    
+    width: 40vw;
+    height: 40vw;
+    border-radius: 0.5em;
+    box-shadow: 0px 0px 50px 10px rgb(170, 173, 120);
+    margin-right: 2vw;
+}
+
+.Navigation{
+    display: flex;
+    align-items: center;
+    background-color: var(--Highlight);
+    padding: 1%;
+    color: var(--Text-Light);
+    position: sticky;
+}
+
+.NavigationButtons{
+    margin-left:auto;
+}
